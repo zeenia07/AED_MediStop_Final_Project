@@ -1,6 +1,7 @@
 /build/
 /out/
 /.idea/
+/nbproject/
 =======
 
 .DS_Store
