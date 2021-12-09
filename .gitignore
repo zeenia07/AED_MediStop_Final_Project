@@ -1,5 +1,9 @@
-<<<<<<< HEAD
 /build/
+/out/
+/.idea/
+/nbproject/
+=======
+
 .DS_Store
 =======
 # Compiled class file
@@ -23,6 +27,3 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
->>>>>>> 8d98d70099309ef53fe8c63e1033387db3566996
