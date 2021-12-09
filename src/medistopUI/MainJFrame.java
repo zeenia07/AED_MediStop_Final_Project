@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medistop;
+package medistopUI;
+
+import medistop.util.SendEmailUtility;
+
+import java.sql.Array;
 
 /**
  *
@@ -15,7 +19,14 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     public MainJFrame() {
+
         initComponents();
+
+//        SendEmailUtility.sendEmail("First Subject",
+//                "medistop2021vzd@gmail.com",
+//                "TravelDell@26893",
+//                "Welcome to MediStop! ",
+//                new String[]{"diksha.c.bhatia@gmail.com"});
     }
 
     /**
