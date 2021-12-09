@@ -11,7 +11,7 @@ package medistopBackend.Bloodbank.Storage;
  */
 public class BloodBankStorage  {
 private String bloodType;
-private int bloodQuantity;
+private int unitsOfBlood;
 
     public String getBloodType() {
         return bloodType;
@@ -21,58 +21,58 @@ private int bloodQuantity;
         this.bloodType = bloodType;
     }
 
-    public int getBloodQuantity() {
-        return bloodQuantity;
+    public int getUnitsOfBlood() {
+        return unitsOfBlood;
     }
 
-    public void setBloodQuantity(int bloodQuantity) {
-        this.bloodQuantity = bloodQuantity;
+    public void setUnitsOfBlood(int unitsOfBlood) {
+        this.unitsOfBlood = unitsOfBlood;
     }
 
-    public enum Type1{
+    public enum OptionsOfBlood{
     
-          O_ve("O-"),Opot_ve("O+"),A_ve("A-"),Apositive("A+"),
-          Bnegative("B-"),Bpositive("B+"),ABnegative("AB-"),ABpositive("AB+");
+          Omius("O-"),Oplus("O+"),Aminus("A-"),Aplus("A+"),
+          Bminus("B-"),Bplus("B+"),ABminus("AB-"),ABplus("AB+");
           
-          private String value;
+          private String bloodValue;
          
-        private Type1(String value) {
-            this.value = value;
+        private OptionsOfBlood(String bloodValue) {
+            this.bloodValue = bloodValue;
         }
         public String getValue() {
-            return value;
+            return bloodValue;
         }
 
-        public static Type1 getBloodTypeOn() {
-            return O_ve;
+        public static OptionsOfBlood getBloodTypeOn() {
+            return Omius;
         }
 
-        public static Type1 getBloodTypeOp() {
-            return Opot_ve;
+        public static OptionsOfBlood getBloodTypeOp() {
+            return Oplus;
         }
 
-        public static Type1 getBloodTypeAn() {
-            return A_ve;
+        public static OptionsOfBlood getBloodTypeAn() {
+            return Aminus;
         }
 
-        public static Type1 getBloodTypeAp() {
-            return Apositive;
+        public static OptionsOfBlood getBloodTypeAp() {
+            return Aplus;
         }
 
-        public static Type1 getBloodTypeBn() {
-            return Bnegative;
+        public static OptionsOfBlood getBloodTypeBn() {
+            return Bminus;
         }
 
-        public static Type1 getBloodTypeBp() {
-            return Bpositive;
+        public static OptionsOfBlood getBloodTypeBp() {
+            return Bplus;
         }
 
-        public static Type1 getBloodTypeABn() {
-            return ABnegative;
+        public static OptionsOfBlood getBloodTypeABn() {
+            return ABminus;
         }
 
-        public static Type1 getBloodTypeABp() {
-            return ABpositive;
+        public static OptionsOfBlood getBloodTypeABp() {
+            return ABplus;
         }
     }
          

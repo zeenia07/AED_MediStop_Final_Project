@@ -1,7 +1,7 @@
 
 package medistopBackend.Bloodbank.Storage;
 
-import medistopBackend.Bloodbank.Storage.BloodBankStorage.Type1;
+import medistopBackend.Bloodbank.Storage.BloodBankStorage.OptionsOfBlood;
 import java.util.ArrayList;
 
 /**
@@ -10,87 +10,82 @@ import java.util.ArrayList;
  */
 public class BloodBankStorageDirectory 
 {
-    private ArrayList<BloodBankStorage> storage;
+    private ArrayList<BloodBankStorage> bloodBankStorageList;
     
     public BloodBankStorageDirectory()
     {
-        this.storage =new ArrayList<BloodBankStorage>();
+        this.bloodBankStorageList =new ArrayList<BloodBankStorage>();
     }
 
-    public ArrayList<BloodBankStorage> getInventory() 
+    public ArrayList<BloodBankStorage> getStorage() 
     {
-        return storage;
+        return bloodBankStorageList;
     }
 
-    public void setInventory(ArrayList<BloodBankStorage> inventory) 
+    public void setStorage(ArrayList<BloodBankStorage> bloodBankStorageList) 
     {
-        this.storage = inventory;
+        this.bloodBankStorageList = bloodBankStorageList;
     }
     
-    public BloodBankStorage addBlood() 
+    public BloodBankStorage addBloodToStoarge() 
     {
-        BloodBankStorage b = new BloodBankStorage();
-        storage.add(b);
-        return b;
+        BloodBankStorage bbs = new BloodBankStorage();
+        bloodBankStorageList.add(bbs);
+        return bbs;
     }
     
-    public BloodBankStorage SearchBloodGroup(Type1 typ)
+    public BloodBankStorage SearchBloodGroup(OptionsOfBlood oob)
     {
-        boolean result = true;
-        for(BloodBankStorage b : this.storage)
-        {
-            if(b.getBloodType() != null)
+        boolean output = true;
+        for (int i = 0; i < bloodBankStorageList.size(); i++) {
+            BloodBankStorage bbs=bloodBankStorageList.get(i);
+            if(bbs.getBloodType() != null)
             {
-                if(b.getBloodType().equals(typ.getValue()))
+                if(bbs.getBloodType().equals(oob.getValue()))
                 {
-                    result = false;
-                    return b;
+                    output = false;
+                    return bbs;
                 }
                 else
                 {
-                    result = true;
+                    output = true;
                 }
             }    
             else
             {
-                result = true;
+                output = true;
             }
         }
-        
-        if(result == true)
+       
+        if(output == true)
         {
-            BloodBankStorage bbi = addBlood();
-            return bbi;
+            BloodBankStorage bbs = addBloodToStoarge();
+            return bbs;
         }
         
         return null; 
     }
     
-    public boolean checkBloodQuantity(String bloodGroup, int reqdBloodQuantity)
-    {
-        boolean output = false;
-        
-        for(BloodBankStorage bbi : this.storage)
-        {
-            if(bbi.getBloodType().equalsIgnoreCase(bloodGroup))
+    public boolean checkBloodQuantity(String askedBloodGroup, int bloodQuantityRequired)
+    {   
+        for (int i = 0; i < bloodBankStorageList.size(); i++) {
+            BloodBankStorage bbs=bloodBankStorageList.get(i);
+             if(bbs.getBloodType().equalsIgnoreCase(askedBloodGroup))
             {
-                int quantityAvailable = bbi.getBloodQuantity();
+                int availableUnitsOfBlood = bbs.getUnitsOfBlood();
                 
-                if(quantityAvailable < reqdBloodQuantity )
+                if(availableUnitsOfBlood < bloodQuantityRequired )
                 {
                     return false;
                 }
                 else
                 {
-                    quantityAvailable -= reqdBloodQuantity;
-                    bbi.setBloodQuantity(quantityAvailable);
+                    availableUnitsOfBlood= availableUnitsOfBlood - bloodQuantityRequired;
+                    bbs.setUnitsOfBlood(availableUnitsOfBlood);
                     return true;
                 }
             }
-        }
-        
+        } 
         return false;
-    }
-    
-    
+    }   
 }
