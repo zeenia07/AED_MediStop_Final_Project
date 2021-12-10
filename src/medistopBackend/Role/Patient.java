@@ -7,7 +7,7 @@ package medistopBackend.Role;
 
 /**
  *
- * @author Dell
+ * @author Zeenia
  */
 public class Patient {
     

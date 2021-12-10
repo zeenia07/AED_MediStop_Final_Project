@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package medistopBacked.UserAccount;
+package medistopBackend.UserAccount;
+
+import medistopBackend.Role.Role;
+import medistopBackend.UserData.DonorData;
+import medistopBackend.UserData.PatientData;
 
 /**
  *
@@ -14,7 +18,8 @@ public class UserAccount {
     private String password;
     private Employee employee;
     private PatientData patient;
-    private DonorInfo donor;
+    private DonorData donor;
     private Role role;
     private WorkQueue workQueue;
+    
 }

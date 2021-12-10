@@ -6,13 +6,13 @@
 package medistopBackend.Role;
 
 import javax.swing.JPanel;
-import medistopBacked.UserAccount.UserAccount;
+import medistopBackend.UserAccount.UserAccount;
 import medistopBackend.EcoSystem;
 import medistopBackend.Organisation.Organisation;
 
 /**
  *
- * @author Dell
+ * @author Zeenia
  */
 public class Role {
     private String val;
