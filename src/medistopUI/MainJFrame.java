@@ -18,11 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         initComponents();
 
-//        SendEmailUtility.sendEmail("First Subject",
-//                "medistop2021vzd@gmail.com",
-//                "TravelDell@26893",
-//                "Welcome to MediStop! ",
-//                new String[]{"diksha.c.bhatia@gmail.com"});
+
     }
 
     /**
