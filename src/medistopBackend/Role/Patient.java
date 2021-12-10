@@ -15,7 +15,7 @@ import medistopBackend.UserAccount.UserAccount;
  *
  * @author Zeenia
  */
-public class Patient {
+public class Patient extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) 
     {

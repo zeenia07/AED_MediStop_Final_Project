@@ -17,7 +17,7 @@ import medistopBackend.UserAccount.UserAccount;
  *
  * @author Zeenia
  */
-public class Donor {
+public class Donor extends Role{
     
     @Override
 
