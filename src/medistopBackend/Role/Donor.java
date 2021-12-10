@@ -6,10 +6,17 @@
 
 package medistopBackend.Role;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Zeenia
  */
 public class Donor {
+@Override
 
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) {
+        return new DonorWorkAreaJPanel(userProcessContainer,account ,system); //To change body of generated methods, choose Tools | Templates.
+
+    }
 }

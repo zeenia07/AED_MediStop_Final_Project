@@ -5,10 +5,17 @@
  */
 package medistopBackend.Role;
 
+import javax.swing.JPanel;
+
 /**
  *
- * @author Dell
+ * @author Zeenia
  */
 public class SystemAdmin {
-    
+    @Override
+
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) {
+    return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+
+    }
 }

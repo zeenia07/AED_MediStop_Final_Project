@@ -5,10 +5,16 @@
  */
 package medistopBackend.Role;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Zeenia
  */
 public class Patient {
-    
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) 
+    {
+        return new PatientWorkAreaJPanel(userProcessContainer,account,organisation, system);
+    } 
 }
