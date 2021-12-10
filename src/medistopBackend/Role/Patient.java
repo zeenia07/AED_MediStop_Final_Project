@@ -6,6 +6,10 @@
 package medistopBackend.Role;
 
 import javax.swing.JPanel;
+import medistopBackend.EcoSystem;
+import medistopBackend.Network.Network;
+import medistopBackend.Organisation.Organisation;
+import medistopBackend.UserAccount.UserAccount;
 
 /**
  *

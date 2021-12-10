@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author manor
+ * @author Virendra Rathore
  */
 public abstract class Organisation {
 
