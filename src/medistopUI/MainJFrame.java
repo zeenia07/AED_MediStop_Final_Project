@@ -5,10 +5,6 @@
  */
 package medistopUI;
 
-import medistop.util.SendEmailUtility;
-
-import java.sql.Array;
-
 /**
  *
  * @author 18577
