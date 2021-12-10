@@ -12,7 +12,7 @@ import medistopBackend.Organisation.OrganisationDirectory;
  *
  * @author Zeenia
  */
-public class Enterprise extends Organisation{
+public abstract class Enterprise extends Organisation{
     
     private EnterpriseClassification enterpriseClassification;
     private OrganisationDirectory organisationList;
