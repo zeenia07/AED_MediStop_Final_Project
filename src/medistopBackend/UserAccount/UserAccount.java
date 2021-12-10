@@ -25,7 +25,11 @@ public class UserAccount {
     private WorkQueue workQueue;
 
     public UserAccount() {
+<<<<<<< HEAD
        workQueue = new WorkQueue();
+=======
+        workQueue = new WorkQueue();
+>>>>>>> Zeenia_Singla
     }
 
     public String getUsername() {
