@@ -7,6 +7,8 @@ package medistopBackend.Bloodbank.Role;
 
 import javax.swing.JPanel;
 import medistopBackend.EcoSystem;
+import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
