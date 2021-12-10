@@ -17,11 +17,11 @@ import medistopBackend.Role.Role;
 public class HospitalOrganisationAdmin extends Organisation{
 
     public HospitalOrganisationAdmin() {
-        
+        super(Organisation.Type.Doctor.getValue());
     }
      
     @Override
-    public ArrayList<Role> getRole() {
+    public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> role = new ArrayList();
         role.add(new HospitalAdmin());
         return role;

@@ -8,10 +8,10 @@ package medistopBackend.WorkQueue;
  *
  * @author virendra
  */
-public class DoctorAttendentWorkQueue extends WorkRequest{
+public class DoctorattendantWorkQueue extends WorkRequest{
    private AppointmentDetails appointmentDetails;
 
-    public DoctorAttendentWorkQueue() {
+    public DoctorattendantWorkQueue() {
        appointmentDetails = new AppointmentDetails();
     }
 

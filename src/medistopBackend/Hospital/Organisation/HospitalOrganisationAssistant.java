@@ -5,8 +5,12 @@
  */
 package medistopBackend.Hospital.Organisation;
 
-import com.sun.corba.se.spi.orbutil.threadpool.WorkQueue;
+//import com.sun.corba.se.spi.orbutil.threadpool.WorkQueue;
+import java.util.ArrayList;
+import medistopBackend.Hospital.Role.HospitalAssistant;
 import medistopBackend.Organisation.Organisation;
+import medistopBackend.Role.Role;
+import medistopBackend.WorkQueue.WorkQueue;
 
 /**
  *
@@ -20,7 +24,10 @@ public class HospitalOrganisationAssistant extends Organisation {
     private WorkQueue fundApplicationQueue;
 
     public HospitalOrganisationAssistant() {
-    
+    super(Organisation.Type.Assistant.getValue());
+        incomingPatients = new WorkQueue();
+        fundApplicationQueue = new WorkQueue();
+        fundsReceived = new WorkQueue();
     }
 
     public WorkQueue getFundsReceived() {
@@ -47,5 +54,11 @@ public class HospitalOrganisationAssistant extends Organisation {
         this.fundApplicationQueue = fundApplicationQueue;
     }  
       
+     @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new HospitalAssistant());
+        return roles;
+    }   
 }
 

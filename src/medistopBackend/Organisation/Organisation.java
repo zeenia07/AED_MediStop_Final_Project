@@ -27,7 +27,7 @@ public abstract class Organisation {
         HospitalAdmin("Hospital Admin Organisation"), 
         Doctor("Doctor Organisation"), 
         Assistant("Assistant Organisation"),
-        Attendent("Attendent Organisation"),
+        Attendant("Attendant Organisation"),
         Patient("Patient Organisation"),
         Donor("Donor Organisation"),
         FunderAdmin("Funder Admin Organisation"),
@@ -57,7 +57,7 @@ public abstract class Organisation {
         }
 
         public static Type getNurse() {
-            return Attendent;
+            return Attendant;
         }
 
         public static Type getPatient() {

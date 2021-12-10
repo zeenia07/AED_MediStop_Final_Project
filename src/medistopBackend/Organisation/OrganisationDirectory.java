@@ -57,9 +57,9 @@ public class OrganisationDirectory {
             organisation = new AssistantOrganisation();
             organisationList.add(organisation);
         }
-        else if(type.getValue().equals(Type.Attendent.getValue()))
+        else if(type.getValue().equals(Type.attendant.getValue()))
         {
-            organisation = new AttendentOrganisation();
+            organisation = new attendantOrganisation();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.BloodbankAdmin.getValue()))

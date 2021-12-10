@@ -7,19 +7,21 @@ package medistopBackend.Hospital.Organisation;
 
 import java.util.ArrayList;
 import medistopBackend.Hospital.Role.HospitalDoctor;
+import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Role;
 
 /**
  *
  * @author Zeenia
  */
-public class HospitalOrganisationDoctor {
+public class HospitalOrganisationDoctor extends Organisation {
 
     public HospitalOrganisationDoctor() {
+         super(Organisation.Type.Doctor.getValue());
     }
     
     @Override
-    public ArrayList<Role> getRole() {
+    public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new HospitalDoctor());
         return roles;
