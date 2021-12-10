@@ -27,32 +27,32 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deliveryDirLabel = new javax.swing.JLabel();
-        menuItemName = new javax.swing.JLabel();
-        donorNameTF = new javax.swing.JTextField();
-        menuItemName1 = new javax.swing.JLabel();
+        setAccL = new javax.swing.JLabel();
+        codeL = new javax.swing.JLabel();
+        codeTF = new javax.swing.JTextField();
+        helperLabel = new javax.swing.JLabel();
         registerBtn = new javax.swing.JButton();
-        menuItemName2 = new javax.swing.JLabel();
-        donorNameTF1 = new javax.swing.JTextField();
-        deliveryDirLabel1 = new javax.swing.JLabel();
-        menuItemName3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        registerBtn2 = new javax.swing.JButton();
+        userNameLabel = new javax.swing.JLabel();
+        usernameTF = new javax.swing.JTextField();
+        valAccL = new javax.swing.JLabel();
+        paswdL = new javax.swing.JLabel();
+        passPF = new javax.swing.JPasswordField();
+        saveBtn = new javax.swing.JButton();
 
-        deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        deliveryDirLabel.setForeground(new java.awt.Color(0, 51, 102));
-        deliveryDirLabel.setText("SET YOUR ACCOUNT AS A DONOR");
+        setAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        setAccL.setForeground(new java.awt.Color(0, 51, 102));
+        setAccL.setText("SET YOUR ACCOUNT AS A DONOR");
 
-        menuItemName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName.setText("Code: ");
+        codeL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codeL.setForeground(new java.awt.Color(0, 0, 102));
+        codeL.setText("Code: ");
 
-        donorNameTF.setForeground(new java.awt.Color(0, 0, 102));
-        donorNameTF.setText(" ");
+        codeTF.setForeground(new java.awt.Color(0, 0, 102));
+        codeTF.setText(" ");
 
-        menuItemName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName1.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName1.setText("Please check your email you will have received a code. Please check the spam folder as well.");
+        helperLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        helperLabel.setForeground(new java.awt.Color(0, 0, 102));
+        helperLabel.setText("Please check your email you will have received a code. Please check the spam folder as well.");
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -63,33 +63,33 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
             }
         });
 
-        menuItemName2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName2.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName2.setText("Username:");
+        userNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userNameLabel.setForeground(new java.awt.Color(0, 0, 102));
+        userNameLabel.setText("Username:");
 
-        donorNameTF1.setForeground(new java.awt.Color(0, 0, 102));
-        donorNameTF1.setText(" ");
+        usernameTF.setForeground(new java.awt.Color(0, 0, 102));
+        usernameTF.setText(" ");
 
-        deliveryDirLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        deliveryDirLabel1.setForeground(new java.awt.Color(0, 51, 102));
-        deliveryDirLabel1.setText("vlaidate");
+        valAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        valAccL.setForeground(new java.awt.Color(0, 51, 102));
+        valAccL.setText("VALIDATE YOUR ACCOUNT AS A DONOR");
 
-        menuItemName3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName3.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName3.setText("Password:");
+        paswdL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        paswdL.setForeground(new java.awt.Color(0, 0, 102));
+        paswdL.setText("Password:");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        passPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passPFActionPerformed(evt);
             }
         });
 
-        registerBtn2.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        registerBtn2.setForeground(new java.awt.Color(0, 0, 102));
-        registerBtn2.setText("Save");
-        registerBtn2.addActionListener(new java.awt.event.ActionListener() {
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        saveBtn.setForeground(new java.awt.Color(0, 0, 102));
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBtn2ActionPerformed(evt);
+                saveBtnActionPerformed(evt);
             }
         });
 
@@ -100,28 +100,28 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(setAccL, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(menuItemName2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menuItemName3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(paswdL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(donorNameTF1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1)))
+                            .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                            .addComponent(passPF)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(menuItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codeL, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(donorNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menuItemName1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(helperLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(34, 34, 34)
-                    .addComponent(deliveryDirLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valAccL, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(283, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -129,29 +129,29 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName)
-                    .addComponent(donorNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(codeL)
+                    .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(menuItemName1)
+                .addComponent(helperLabel)
                 .addGap(52, 52, 52)
                 .addComponent(registerBtn)
                 .addGap(29, 29, 29)
-                .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(setAccL, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName2)
-                    .addComponent(donorNameTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userNameLabel)
+                    .addComponent(usernameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(paswdL)
+                    .addComponent(passPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
-                .addComponent(registerBtn2)
+                .addComponent(saveBtn)
                 .addContainerGap(161, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(48, 48, 48)
-                    .addComponent(deliveryDirLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valAccL, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(647, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -161,26 +161,26 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passPFActionPerformed
 
-    private void registerBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtn2ActionPerformed
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registerBtn2ActionPerformed
+    }//GEN-LAST:event_saveBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel deliveryDirLabel;
-    private javax.swing.JLabel deliveryDirLabel1;
-    private javax.swing.JTextField donorNameTF;
-    private javax.swing.JTextField donorNameTF1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JLabel menuItemName;
-    private javax.swing.JLabel menuItemName1;
-    private javax.swing.JLabel menuItemName2;
-    private javax.swing.JLabel menuItemName3;
+    private javax.swing.JLabel codeL;
+    private javax.swing.JTextField codeTF;
+    private javax.swing.JLabel helperLabel;
+    private javax.swing.JPasswordField passPF;
+    private javax.swing.JLabel paswdL;
     private javax.swing.JButton registerBtn;
-    private javax.swing.JButton registerBtn2;
+    private javax.swing.JButton saveBtn;
+    private javax.swing.JLabel setAccL;
+    private javax.swing.JLabel userNameLabel;
+    private javax.swing.JTextField usernameTF;
+    private javax.swing.JLabel valAccL;
     // End of variables declaration//GEN-END:variables
 }
