@@ -8,6 +8,38 @@ package medistopBackend.WorkQueue;
  *
  * @author virendra
  */
-public class BloodHeadNurseWorkQueue {
+public class BloodHeadNurseWorkQueue extends WorkRequest {
     
+    private String nameOfPatient;
+    private String whichTypeOfBlood;
+    private String unitsOfBlood;
+   
+    public String getNameOfPatient() {
+        return nameOfPatient;
+    }
+
+    public void setNameOfPatient(String nameOfPatient) {
+        this.nameOfPatient = nameOfPatient;    
+    }
+    
+    public String getTypeOfBlood() {
+        return whichTypeOfBlood;
+    }
+
+    public void setTypeOfBlood(String whichTypeOfBlood) {
+        this.whichTypeOfBlood = whichTypeOfBlood;
+    }
+    
+    public String getUnitsOfBlood() {
+        return unitsOfBlood;
+    }
+
+    public void setUnitsOfBlood(String unitsOfBlood) {
+        this.unitsOfBlood = unitsOfBlood;
+    }
+    
+    @Override
+    public String toString(){
+        return nameOfPatient;
+    }
 }

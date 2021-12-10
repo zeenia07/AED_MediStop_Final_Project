@@ -8,6 +8,22 @@ package medistopBackend.WorkQueue;
  *
  * @author virendra
  */
-public class DoctorAttendentWorkQueue {
-    
+public class DoctorAttendentWorkQueue extends WorkRequest{
+   private AppointmentDetails appointmentDetails;
+
+    public DoctorAttendentWorkQueue() {
+       appointmentDetails = new AppointmentDetails();
+    }
+
+    public AppointmentDetails getAppointmentDetails() {
+        return appointmentDetails;
+    }
+
+    public void setAppointmentDetails(AppointmentDetails appointmentDetails) {
+        this.appointmentDetails = appointmentDetails;
+    }
+    @Override
+    public String toString(){
+        return appointmentDetails.getPatient().getName();
+    }
 }

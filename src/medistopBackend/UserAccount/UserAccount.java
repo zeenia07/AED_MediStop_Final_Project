@@ -8,6 +8,7 @@ package medistopBackend.UserAccount;
 import medistopBackend.Role.Role;
 import medistopBackend.UserData.DonorData;
 import medistopBackend.UserData.PatientData;
+import medistopBackend.WorkQueue.WorkQueue;
 
 /**
  *
