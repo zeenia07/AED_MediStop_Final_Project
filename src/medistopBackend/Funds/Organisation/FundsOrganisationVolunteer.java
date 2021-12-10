@@ -5,10 +5,24 @@
  */
 package medistopBackend.Funds.Organisation;
 
+import java.util.ArrayList;
+import medistopBackend.Funds.Role.VolunteerRole;
+import medistopBackend.Organisation.Organisation;
+import medistopBackend.Role.Role;
+
 /**
  *
  * @author Zeenia
  */
-public class FundsOrganisationVolunteer {
-    
+public class FundsOrganisationVolunteer extends Organisation {
+    public FundsOrganisationVolunteer() {
+        super(Organisation.Type.Volunteer.getValue());
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> role = new ArrayList();
+        role.add(new VolunteerRole());
+        return role;
+    }
 }
