@@ -5,14 +5,15 @@
  */
 package medistopBackend.Funds.Organisation;
 
+import java.util.ArrayList;
 import medistopBackend.Organisation.Organisation;
+import medistopBackend.Role.Role;
 
 /**
  *
  * @author Zeenia
  */
 public class FundsOrganisationAdmin extends Organisation{
-     public FundsOrganisationAdmin {
-        super(Organisation.Type.CharityAdmin.getValue());
-    }
+     
+    
 }
