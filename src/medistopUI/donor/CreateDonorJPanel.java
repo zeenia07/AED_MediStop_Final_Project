@@ -6,20 +6,28 @@
 
 package medistopUI.donor;
 
+import java.awt.CardLayout;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
+import medistopBackend.EcoSystem;
 
 /**
  *
  * @author 18577
  */
 public class CreateDonorJPanel extends javax.swing.JPanel {
-
+    private JPanel bodyPanel;
+    private EcoSystem ecosystem;
+    //private DonorDirectory donorDir;
+    
     /** Creates new form DonorForm */
-    public CreateDonorJPanel() {
+    public CreateDonorJPanel(JPanel bodyPanel, EcoSystem ecosystem) {
         initComponents();
+        this.bodyPanel = bodyPanel;
+        this.ecosystem = ecosystem;
     }
 
     /** This method is called from within the constructor to
@@ -347,6 +355,10 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        bodyPanel.remove(this);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.previous(bodyPanel);
+        
     }//GEN-LAST:event_backBtnActionPerformed
 
 

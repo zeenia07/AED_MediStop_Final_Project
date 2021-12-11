@@ -10,17 +10,27 @@ import medistopUI.donor.*;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
+import medistopBackend.EcoSystem;
+import medistopBackend.UserData.DonorDirectory;
+import medistopBackend.UserData.PatientDirectory;
 
 /**
  *
  * @author 18577
  */
 public class CreatePatientJPanel extends javax.swing.JPanel {
+    
+    private JPanel bodyPanel;
+    private EcoSystem ecosystem;
+    private PatientDirectory patientDirectoy;
 
     /** Creates new form DonorForm */
-    public CreatePatientJPanel() {
+    public CreatePatientJPanel(JPanel bodyPanel, EcoSystem ecosystem) {
         initComponents();
+        this.bodyPanel = bodyPanel;
+        this.ecosystem = ecosystem;
     }
 
     /** This method is called from within the constructor to
