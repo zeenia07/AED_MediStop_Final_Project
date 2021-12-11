@@ -7,49 +7,42 @@ package medistopUI.SystemAdminWorkArea;
 
 
 import java.awt.CardLayout;
-import java.awt.Image;
-import java.io.File;
-import java.util.Date;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import medistopBackend.EcoSystem;
 import medistopBackend.UserData.*;
 
 /**
  *
- * @author 
+ * @author Virendra Rathore
  */
 public class ViewDonorJpanel extends javax.swing.JPanel 
 {
-    private JPanel displayJPanel;
+    private JPanel showPanel;
     private EcoSystem system;
-    private PatientDirectory patientDir;
-    private DonorData donor;
+    private DonorData donorData;
     /**
      * Creates new form CreatePatientAccount
      */
-    public ViewDonorJpanel(JPanel displayJPanel, DonorData patient) 
+    public ViewDonorJpanel(JPanel showPanel, DonorData donorData) 
     {
         initComponents();
         this.system=system;
-        this.displayJPanel=displayJPanel;
-        this.donor = donor;
-        txtAddress.setEnabled(false);
-        txtCity.setEnabled(false);
-        txtName.setEnabled(false);
-        txtPhone.setEnabled(false);
-        txtState.setEnabled(false);
+        this.showPanel=showPanel;
+        this.donorData = donorData;
+        txtDonorsAddress.setEnabled(false);
+        txtDonorsCity.setEnabled(false);
+        txtDonorsName.setEnabled(false);
+        txtDonorsContactNumber.setEnabled(false);
+        txtDonorsState.setEnabled(false);
         txtZipCode.setEnabled(false);
-        txtUserName.setEnabled(false);
-        txtAddress.setText(patient.getAddress());
-        txtCity.setText(patient.getCity());
-        txtName.setText(patient.getDonorName());
-        txtZipCode.setText(String.valueOf(patient.getZipCode()));
-        txtPhone.setText(patient.getContactNo());
-        txtState.setText(patient.getState());
-        txtUserName.setText(patient.getUsername());
+        txtDonorUserName.setEnabled(false);
+        txtDonorsAddress.setText(donorData.getAddress());
+        txtDonorsCity.setText(donorData.getCity());
+        txtDonorsName.setText(donorData.getDonorName());
+        txtZipCode.setText(String.valueOf(donorData.getZipCode()));
+        txtDonorsContactNumber.setText(donorData.getContactNo());
+        txtDonorsState.setText(donorData.getState());
+        txtDonorUserName.setText(donorData.getUsername());
     }
 
     /**
@@ -69,22 +62,22 @@ public class ViewDonorJpanel extends javax.swing.JPanel
         lblTitle = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         lblZipCode = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPhone = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        txtCity = new javax.swing.JTextField();
+        txtDonorsName = new javax.swing.JTextField();
+        txtDonorsContactNumber = new javax.swing.JTextField();
+        txtDonorsAddress = new javax.swing.JTextField();
+        txtDonorsCity = new javax.swing.JTextField();
         txtZipCode = new javax.swing.JTextField();
-        txtState = new javax.swing.JTextField();
-        btnCreate = new javax.swing.JButton();
+        txtDonorsState = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtDonorUserName = new javax.swing.JTextField();
         lblUserPhoto = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Patient Info"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Donor Information"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblName.setText("Patient's Name");
+        lblName.setText("Donor's Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 77, -1, -1));
         add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 201, -1, -1));
 
@@ -95,76 +88,46 @@ public class ViewDonorJpanel extends javax.swing.JPanel
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         lblCity.setText("City");
-        add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 207, -1, -1));
+        add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("View PATIENT ACCOUNT");
+        lblTitle.setText("View Donor's ACCOUNT");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 213, 35));
 
         lblState.setText("State");
-        add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 325, -1, -1));
+        add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         lblZipCode.setText("ZipCode");
-        add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 373, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 77, 181, -1));
-        add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 115, 181, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 147, 181, -1));
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 229, 181, -1));
-        add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 341, 181, -1));
-        add(txtState, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 303, 181, -1));
+        add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        add(txtDonorsName, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 77, 181, -1));
+        add(txtDonorsContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 115, 181, -1));
+        add(txtDonorsAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 147, 181, -1));
+        add(txtDonorsCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 181, -1));
+        add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 181, -1));
+        add(txtDonorsState, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 181, -1));
 
-        btnCreate.setText("<<Back");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 455, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
 
         lblUserName.setText("UserName");
-        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 407, -1, -1));
-
-        txtUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserNameActionPerformed(evt);
-            }
-        });
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 407, 181, -1));
+        add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        add(txtDonorUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 181, -1));
         add(lblUserPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 87, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserNameActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        showPanel.remove(this);
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel);
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        backAction();
-      
-    }//GEN-LAST:event_btnCreateActionPerformed
-
-    public void backAction()
-    {
-        displayJPanel.remove(this);
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-    }
-    
-  /*  public String getGender()
-    {
-        if(maleRadioBtn.isSelected())
-        {
-            return "Male";
-        }
-       // else if(femaleRadioBtn.isSelected())
-        {
-            return "Female";
-        }
-        
-        return null;
-    }
-*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblGender;
@@ -175,12 +138,12 @@ public class ViewDonorJpanel extends javax.swing.JPanel
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserPhoto;
     private javax.swing.JLabel lblZipCode;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtDonorUserName;
+    private javax.swing.JTextField txtDonorsAddress;
+    private javax.swing.JTextField txtDonorsCity;
+    private javax.swing.JTextField txtDonorsContactNumber;
+    private javax.swing.JTextField txtDonorsName;
+    private javax.swing.JTextField txtDonorsState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
