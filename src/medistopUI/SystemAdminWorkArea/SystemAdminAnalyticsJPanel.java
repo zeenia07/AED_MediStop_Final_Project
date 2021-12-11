@@ -16,32 +16,30 @@ import medistopBackend.Hospital.Appointment.AppointmentDetails;
 
 /**
  *
- * @author 
+ * @author Virendra Rathore
  */
 public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel 
 {
-    private JPanel displayJPanel;
+    private JPanel showPanel;
     private EcoSystem ecosystem;
     /**
      * Creates new form SystemAdminAnalyticsJPanel
      */
-    public SystemAdminAnalyticsJPanel(JPanel displayJPanel, EcoSystem system) 
+    public SystemAdminAnalyticsJPanel(JPanel showPanel, EcoSystem system) 
     {
         initComponents();
-        this.displayJPanel = displayJPanel;
+        this.showPanel = showPanel;
         this.ecosystem = system;
           
     }
     
     private void populateJTable(String name, float value)
     {
-        DefaultTableModel model = (DefaultTableModel) displayJTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblToDisplayAnalytics.getModel();
         model.setRowCount(0);
-        
         Object[] row = new Object[2];
         row[0] = name;
         row[1] = value;
-                
         model.addRow(row);
     }
 
@@ -55,73 +53,73 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        btnTopDonatedCharity = new javax.swing.JButton();
-        btnMostVisitedHospital = new javax.swing.JButton();
-        btnTopDonor = new javax.swing.JButton();
-        btnMostActivePatient = new javax.swing.JButton();
-        btnMostVistedDoctor = new javax.swing.JButton();
-        btnMostDonatedCharity = new javax.swing.JButton();
+        btnOrganisationWithMaximumFunds = new javax.swing.JButton();
+        btnFrequentlyVisitedHospital = new javax.swing.JButton();
+        btnPrimeDonor = new javax.swing.JButton();
+        btnFrequentPatient = new javax.swing.JButton();
+        btnFrequentlyVistedDoctor = new javax.swing.JButton();
+        btnOrganisationWithMaximumDonors = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        displayJTable = new javax.swing.JTable();
+        tblToDisplayAnalytics = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Analytics Function"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Analytics Information"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTitle.setText("ANALYTICS");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, -1, -1));
 
-        btnTopDonatedCharity.setText("Top Donated Charity");
-        btnTopDonatedCharity.addActionListener(new java.awt.event.ActionListener() {
+        btnOrganisationWithMaximumFunds.setText("Organisation With Maximum Funds");
+        btnOrganisationWithMaximumFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTopDonatedCharityActionPerformed(evt);
+                btnOrganisationWithMaximumFundsActionPerformed(evt);
             }
         });
-        add(btnTopDonatedCharity, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 349, 181, -1));
+        add(btnOrganisationWithMaximumFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 270, -1));
 
-        btnMostVisitedHospital.setText("Most Visited Hospital");
-        btnMostVisitedHospital.addActionListener(new java.awt.event.ActionListener() {
+        btnFrequentlyVisitedHospital.setText("Frequently Visited Hospital");
+        btnFrequentlyVisitedHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostVisitedHospitalActionPerformed(evt);
+                btnFrequentlyVisitedHospitalActionPerformed(evt);
             }
         });
-        add(btnMostVisitedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 255, 158, -1));
+        add(btnFrequentlyVisitedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 255, 200, -1));
 
-        btnTopDonor.setText("Top Donor");
-        btnTopDonor.addActionListener(new java.awt.event.ActionListener() {
+        btnPrimeDonor.setText("Prime Donor");
+        btnPrimeDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTopDonorActionPerformed(evt);
+                btnPrimeDonorActionPerformed(evt);
             }
         });
-        add(btnTopDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 302, 181, -1));
+        add(btnPrimeDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 270, -1));
 
-        btnMostActivePatient.setText("Most Active Patient");
-        btnMostActivePatient.addActionListener(new java.awt.event.ActionListener() {
+        btnFrequentPatient.setText("Frequent Patient");
+        btnFrequentPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostActivePatientActionPerformed(evt);
+                btnFrequentPatientActionPerformed(evt);
             }
         });
-        add(btnMostActivePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 302, 158, -1));
+        add(btnFrequentPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, -1));
 
-        btnMostVistedDoctor.setText("Most visited Doctor");
-        btnMostVistedDoctor.addActionListener(new java.awt.event.ActionListener() {
+        btnFrequentlyVistedDoctor.setText("Frequently visited Doctor");
+        btnFrequentlyVistedDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostVistedDoctorActionPerformed(evt);
+                btnFrequentlyVistedDoctorActionPerformed(evt);
             }
         });
-        add(btnMostVistedDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 349, 158, -1));
+        add(btnFrequentlyVistedDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, -1));
 
-        btnMostDonatedCharity.setText("Most Donated Charity");
-        btnMostDonatedCharity.addActionListener(new java.awt.event.ActionListener() {
+        btnOrganisationWithMaximumDonors.setText("Organisation With Maximum Donors");
+        btnOrganisationWithMaximumDonors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostDonatedCharityActionPerformed(evt);
+                btnOrganisationWithMaximumDonorsActionPerformed(evt);
             }
         });
-        add(btnMostDonatedCharity, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 255, -1, -1));
+        add(btnOrganisationWithMaximumDonors, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
 
-        displayJTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblToDisplayAnalytics.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -140,15 +138,15 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(displayJTable);
-        if (displayJTable.getColumnModel().getColumnCount() > 0) {
-            displayJTable.getColumnModel().getColumn(0).setResizable(false);
-            displayJTable.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(tblToDisplayAnalytics);
+        if (tblToDisplayAnalytics.getColumnModel().getColumnCount() > 0) {
+            tblToDisplayAnalytics.getColumnModel().getColumn(0).setResizable(false);
+            tblToDisplayAnalytics.getColumnModel().getColumn(1).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 86, 649, 107));
 
-        btnBack.setText("<<Back");
+        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -157,234 +155,190 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTopDonatedCharityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopDonatedCharityActionPerformed
-        topCharity();
-    }//GEN-LAST:event_btnTopDonatedCharityActionPerformed
-
-    private void btnMostVisitedHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVisitedHospitalActionPerformed
-        topHospital();
-    }//GEN-LAST:event_btnMostVisitedHospitalActionPerformed
-
-    private void btnTopDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopDonorActionPerformed
-        topDonator();
-    }//GEN-LAST:event_btnTopDonorActionPerformed
-
-    private void btnMostActivePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostActivePatientActionPerformed
-        topPatient();
-    }//GEN-LAST:event_btnMostActivePatientActionPerformed
-
-    private void btnMostVistedDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostVistedDoctorActionPerformed
-        topDoctor();
-    }//GEN-LAST:event_btnMostVistedDoctorActionPerformed
-
-    private void btnMostDonatedCharityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostDonatedCharityActionPerformed
-        mostCharity();
-    }//GEN-LAST:event_btnMostDonatedCharityActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        displayJPanel.remove(this);
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void topDonator()
-    {
-        Map<String,Float> donator = new HashMap<String, Float>();
-        for(FundsInfo d: ecosystem.getDonationDirectory().getFundsDirectory())
-        {
-            String name  = d.getDonor().getUsername();
-            float money = 0;
-        
-            if(donator.containsKey(d.getDonor().getUsername()))
+    private void btnOrganisationWithMaximumFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganisationWithMaximumFundsActionPerformed
+        Map<String,Float> funds = new HashMap<String, Float>();
+        for (int i = 0; i < ecosystem.getDonationDirectory().getFundsDirectory().size(); i++) {
+            FundsInfo fi=ecosystem.getDonationDirectory().getFundsDirectory().get(i);
+            String name  = fi.getFundsOrgName();
+            float amount = 0;
+            if(funds.containsKey(name))
             {
-                money = donator.get(d.getDonor().getUsername());
+                amount = funds.get(name);
             }
-        
-            money = money + Float.parseFloat(d.getDonation());
-            donator.put(name, money);    
-        }
-        float max =0;
-        String donorName = new String();
-        for(String s : donator.keySet()){
-            if(donator.get(s) > max){
-                max = donator.get(s);
-                donorName = s;
+            
+            amount = amount + Float.parseFloat(fi.getDonation());
+            funds.put(name, amount);
+        }  
+        float maxFunds =0;
+        String fundedOrg = new String();
+        for(String s : funds.keySet())
+        {
+            if(funds.get(s) > maxFunds){
+                maxFunds = funds.get(s);
+                fundedOrg = s;
             }
         }
         
-        populateJTable("Top Donor: "+donorName, max);
-        //JOptionPane.showMessageDialog(null,"Top donator: "+ maxId+": Amount: " + max);
-    }
-    
-    private void topPatient()
-    {
+        populateJTable(fundedOrg+ "received maximum funds : ", maxFunds);
+    }//GEN-LAST:event_btnOrganisationWithMaximumFundsActionPerformed
+
+    private void btnFrequentlyVisitedHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrequentlyVisitedHospitalActionPerformed
         Map<String,Integer> patient = new HashMap<String, Integer>();
-        for(AppointmentDetails a: ecosystem.getAppointmentDirectory().getAppointmentDirectory())
-        {
-            String name  = a.getPatient().getUsername();
-            int  visit = 0;
-        
-            if(patient.containsKey(a.getPatient().getUsername()))
+   
+        for (int i = 0; i < ecosystem.getAppointmentDirectory().getAppointmentDirectory().size(); i++) {
+            AppointmentDetails ad=ecosystem.getAppointmentDirectory().getAppointmentDirectory().get(i);
+            String nameOfHospital  = ad.getHospitalName();
+            int  visitMadeByPatients = 0;
+            if(patient.containsKey(ad.getHospitalName()))
             {
-                visit = patient.get(a.getPatient().getUsername());
+                visitMadeByPatients = patient.get(ad.getHospitalName());
             }
-        
-            visit = visit + 1;
-            patient.put(name, visit);    
+            visitMadeByPatients = visitMadeByPatients + 1;
+            patient.put(nameOfHospital, visitMadeByPatients); 
         }
         
-        float max =0;
-        String patName = new String();
-        
-        for(String s : patient.keySet())
-        {
-            if(patient.get(s) > max)
-            {
-                max = patient.get(s);
-                patName = s;
-            }
-        }
-        
-        populateJTable("Most Active patient: "+patName, max);
-        //JOptionPane.showMessageDialog(null,"Top Patient: "+ maxId+": Visits: " + max);
-    }
-    
-    private void topHospital()
-    {
-        Map<String,Integer> patient = new HashMap<String, Integer>();
-    
-        for(AppointmentDetails a: ecosystem.getAppointmentDirectory().getAppointmentDirectory())
-        {
-            String name  = a.getHospitalName();
-            int  visit = 0;
-            if(patient.containsKey(a.getHospitalName()))
-            {
-                visit = patient.get(a.getHospitalName());
-            }
-            visit = visit + 1;
-            patient.put(name, visit);    
-        }
-        
-        float max =0;
-        String hospName = new String();
+        float maxNumberOfVisits =0;
+        String hospitalName = new String();
     
         for(String s : patient.keySet())
         {
-            if(patient.get(s) > max)
+            if(patient.get(s) > maxNumberOfVisits)
             {
-                max = patient.get(s);
-                hospName = s;
+                maxNumberOfVisits = patient.get(s);
+                hospitalName = s;
             }
         }
    
-        populateJTable("Most Visited Hospital: "+hospName, max);
-        //JOptionPane.showMessageDialog(null,"Top Hospital "+ maxId+": Visits: " + max);
-    }
+        populateJTable(hospitalName + "is Frequently Visited Hospital: ", maxNumberOfVisits);
+    }//GEN-LAST:event_btnFrequentlyVisitedHospitalActionPerformed
 
-    private void topDoctor()
-    {
-        Map<String,Integer> doctor = new HashMap<String, Integer>();
-        
-        for(AppointmentDetails a: ecosystem.getAppointmentDirectory().getAppointmentDirectory())
-        {
-            String name  = a.getDoctorName();
-            int  visit = 0;
-            
-            if(doctor.containsKey(a.getDoctorName()))
+    private void btnPrimeDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeDonorActionPerformed
+        Map<String,Float> donators = new HashMap<String, Float>();
+        for (int i = 0; i < ecosystem.getDonationDirectory().getFundsDirectory().size(); i++) {
+            FundsInfo fi=ecosystem.getDonationDirectory().getFundsDirectory().get(i);
+            String donorsUserName  = fi.getDonor().getUsername();
+            float amount = 0;
+            if(donators.containsKey(fi.getDonor().getUsername()))
             {
-                visit = doctor.get(a.getDoctorName());
+                amount = donators.get(fi.getDonor().getUsername());
             }
-            
-            visit = visit + 1;
-            doctor.put(name, visit);    
+            amount = amount + Float.parseFloat(fi.getDonation());
+            donators.put(donorsUserName, amount);
         }
-        
-        float max =0;
-        String docName = new String();
-        for(String s : doctor.keySet())
-        {
-            if(doctor.get(s) > max)
-            {
-                max = doctor.get(s);
-                docName = s;
+        float maxAmountDonated =0;
+        String donorsNameWhoDonotedMaximumMoney = new String();
+        for(String s : donators.keySet()){
+            if(donators.get(s) > maxAmountDonated){
+                maxAmountDonated = donators.get(s);
+                donorsNameWhoDonotedMaximumMoney = s;
             }
         }
         
-        populateJTable("Most visted doctor: "+docName, max);
-        //JOptionPane.showMessageDialog(null,"Top Doctor "+ maxId+": Visits: " + max);
-    }
+        populateJTable(donorsNameWhoDonotedMaximumMoney+ "Donated Maximum Amount: ", maxAmountDonated);
+    }//GEN-LAST:event_btnPrimeDonorActionPerformed
 
-    private void topCharity()
-    {
-        Map<String,Float> charity = new HashMap<String, Float>();
-        for(FundsInfo d: ecosystem.getDonationDirectory().getFundsDirectory())
-        {
-            String name  = d.getFundsOrgName();
-            float money = 0;
-        
-            if(charity.containsKey(name))
+    private void btnFrequentPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrequentPatientActionPerformed
+        Map<String,Integer> patient = new HashMap<String, Integer>();
+        for (int i = 0; i < ecosystem.getAppointmentDirectory().getAppointmentDirectory().size(); i++) {
+            AppointmentDetails ad=ecosystem.getAppointmentDirectory().getAppointmentDirectory().get(i);
+            String patientsUserName  = ad.getPatient().getUsername();
+            int  NumberOfVisitsMadeByPatient = 0;
+            if(patient.containsKey(ad.getPatient().getUsername()))
             {
-                money = charity.get(name);
+                NumberOfVisitsMadeByPatient = patient.get(ad.getPatient().getUsername());
+            }
+            NumberOfVisitsMadeByPatient = NumberOfVisitsMadeByPatient + 1;
+            patient.put(patientsUserName, NumberOfVisitsMadeByPatient);    
+        }
+        
+        float maxNumberOfVisits =0;
+        String mostActivePatientName = new String();
+        
+        for(String s : patient.keySet())
+        {
+            if(patient.get(s) > maxNumberOfVisits)
+            {
+                maxNumberOfVisits = patient.get(s);
+                mostActivePatientName = s;
+            }
+        }
+        populateJTable(mostActivePatientName+ "is highly visited patient: ", maxNumberOfVisits);
+    }//GEN-LAST:event_btnFrequentPatientActionPerformed
+
+    private void btnFrequentlyVistedDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrequentlyVistedDoctorActionPerformed
+         Map<String,Integer> doctors = new HashMap<String, Integer>();
+        for (int i = 0; i < ecosystem.getAppointmentDirectory().getAppointmentDirectory().size(); i++) {
+            AppointmentDetails ad=ecosystem.getAppointmentDirectory().getAppointmentDirectory().get(i);
+            String doctorsName  = ad.getDoctorName();
+            int  visitMadeByPatient = 0;
+            
+            if(doctors.containsKey(ad.getDoctorName()))
+            {
+                visitMadeByPatient = doctors.get(ad.getDoctorName());
             }
             
-            money = money + Float.parseFloat(d.getDonation());
-            charity.put(name, money);    
+            visitMadeByPatient = visitMadeByPatient + 1;
+            doctors.put(doctorsName, visitMadeByPatient); 
         }
         
-        float max =0;
-        String charityName = new String();
-        for(String s : charity.keySet())
+        float maxNumberOfVisits =0;
+        String frequentlyVisitedDoctor = new String();
+        for(String s : doctors.keySet())
         {
-            if(charity.get(s) > max){
-                max = charity.get(s);
-                charityName = s;
+            if(doctors.get(s) > maxNumberOfVisits)
+            {
+                maxNumberOfVisits = doctors.get(s);
+                frequentlyVisitedDoctor = s;
             }
         }
         
-        populateJTable("Charity with maximum funds : " + charityName, max);
-        //JOptionPane.showMessageDialog(null,"Top donated Charity: "+ maxId+": Amount: " + max);
-    }
+        populateJTable(frequentlyVisitedDoctor+ "is a popular Doctor: ", maxNumberOfVisits);
+    }//GEN-LAST:event_btnFrequentlyVistedDoctorActionPerformed
 
-    private void mostCharity()
-    {
-        Map<String,Integer> mostCharity = new HashMap<String, Integer>();
-        for(FundsInfo d: ecosystem.getDonationDirectory().getFundsDirectory())
-        {
-            String name  = d.getFundsOrgName();
+    private void btnOrganisationWithMaximumDonorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganisationWithMaximumDonorsActionPerformed
+        Map<String,Integer> mostfundedOrg = new HashMap<String, Integer>();
+        for (int i = 0; i < ecosystem.getDonationDirectory().getFundsDirectory().size(); i++) {
+            FundsInfo fi=ecosystem.getDonationDirectory().getFundsDirectory().get(i);
+            String name  = fi.getFundsOrgName();
             int number = 0;
-            if(mostCharity.containsKey(name))
+            if(mostfundedOrg.containsKey(name))
             {
-                number = mostCharity.get(name);
+                number = mostfundedOrg.get(name);
             }
             number = number + 1;
-            mostCharity.put(name, number);    
+            mostfundedOrg.put(name, number); 
         }
         
         float max =0;
-        String charityName = new String();
-        for(String s : mostCharity.keySet())
+        String fundedOrg = new String();
+        for(String s : mostfundedOrg.keySet())
         {
-            if(mostCharity.get(s) > max)
+            if(mostfundedOrg.get(s) > max)
             {
-                max = mostCharity.get(s);
-                charityName = s;
+                max = mostfundedOrg.get(s);
+                fundedOrg = s;
             }
         }
         
-        populateJTable("Mosted Funded Charity by Donors: " + charityName , max);
-        //JOptionPane.showMessageDialog(null,"Top donated Charity: "+ maxId+": Amount: " + max);
-    }
+        populateJTable(fundedOrg + "received highest funds by Donors: " , max);
+    }//GEN-LAST:event_btnOrganisationWithMaximumDonorsActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        showPanel.remove(this);
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnMostActivePatient;
-    private javax.swing.JButton btnMostDonatedCharity;
-    private javax.swing.JButton btnMostVisitedHospital;
-    private javax.swing.JButton btnMostVistedDoctor;
-    private javax.swing.JButton btnTopDonatedCharity;
-    private javax.swing.JButton btnTopDonor;
-    private javax.swing.JTable displayJTable;
+    private javax.swing.JButton btnFrequentPatient;
+    private javax.swing.JButton btnFrequentlyVisitedHospital;
+    private javax.swing.JButton btnFrequentlyVistedDoctor;
+    private javax.swing.JButton btnOrganisationWithMaximumDonors;
+    private javax.swing.JButton btnOrganisationWithMaximumFunds;
+    private javax.swing.JButton btnPrimeDonor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblToDisplayAnalytics;
     // End of variables declaration//GEN-END:variables
 }

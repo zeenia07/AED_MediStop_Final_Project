@@ -15,24 +15,23 @@ import medistopBackend.UserData.PatientData;
 
 /**
  *
- * @author aviti
+ * @author Virendra Rathore
  */
 public class ManagePatientJPanel extends javax.swing.JPanel {
-JPanel displayJPanel;
+JPanel showPanel;
 EcoSystem ecosystem;
     /**
      * Creates new form ManagePatientJPanel
      */
-    public ManagePatientJPanel(JPanel displayJPanel, EcoSystem ecosystem) {
+    public ManagePatientJPanel(JPanel showPanel, EcoSystem ecosystem) {
         initComponents();
-        this.displayJPanel=displayJPanel;
+        this.showPanel=showPanel;
         this.ecosystem=ecosystem;
-        populateDonorTable();
+        populatePatinetTable();
     }
 
-    private void populateDonorTable() {
-        DefaultTableModel model = (DefaultTableModel) PatientJtable.getModel();
-
+    private void populatePatinetTable() {
+        DefaultTableModel model = (DefaultTableModel) tblPatient.getModel();
         model.setRowCount(0);
         for (PatientData network : ecosystem.getPatientDir().getPatientDirectory()) {
             Object[] row = new Object[1];
@@ -57,10 +56,10 @@ EcoSystem ecosystem;
         DeletejButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        PatientJtable = new javax.swing.JTable();
-        ViewjButton1 = new javax.swing.JButton();
-        BackjButton1 = new javax.swing.JButton();
-        DeletejButton1 = new javax.swing.JButton();
+        tblPatient = new javax.swing.JTable();
+        btnView = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,7 +91,7 @@ EcoSystem ecosystem;
         setBorder(javax.swing.BorderFactory.createTitledBorder("Manage Patient"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PatientJtable.setModel(new javax.swing.table.DefaultTableModel(
+        tblPatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -100,36 +99,36 @@ EcoSystem ecosystem;
                 "Patient"
             }
         ));
-        jScrollPane2.setViewportView(PatientJtable);
+        jScrollPane2.setViewportView(tblPatient);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 404, 145));
 
-        ViewjButton1.setText("View");
-        ViewjButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewjButton1ActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
-        add(ViewjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 286, 84, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 286, 84, -1));
 
-        BackjButton1.setText("<<Back");
-        BackjButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackjButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(BackjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 333, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 333, -1, -1));
 
-        DeletejButton1.setText("Delete");
-        DeletejButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButton1ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        add(DeletejButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel2.setText("MANAGE PATIENT INFO");
+        jLabel2.setText("MANAGE PATIENT INFORMATION");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, 34));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -137,17 +136,16 @@ EcoSystem ecosystem;
         // TODO add your handling code here:
     }//GEN-LAST:event_ViewjButtonActionPerformed
 
-    private void ViewjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewjButton1ActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         
-        int selectedRow = PatientJtable.getSelectedRow();
+        int selectedRow = tblPatient.getSelectedRow();
         if(selectedRow>=0){
         
-        PatientData patient = (PatientData)PatientJtable.getValueAt(selectedRow,0);
-       // ViewFlight vf = new ViewFlight(csj, mts,airplane);
-        ViewPatientJpanel vpj = new ViewPatientJpanel(displayJPanel,patient);
-        displayJPanel.add("ViewFlight",vpj);
-        CardLayout layout = (CardLayout)displayJPanel.getLayout();
-        layout.next(displayJPanel);
+        PatientData patient = (PatientData)tblPatient.getValueAt(selectedRow,0);
+        ViewPatientJpanel vp = new ViewPatientJpanel(showPanel,patient);
+        showPanel.add("ViewFlight",vp);
+        CardLayout layout = (CardLayout)showPanel.getLayout();
+        layout.next(showPanel);
         }
         else
         {
@@ -155,43 +153,40 @@ EcoSystem ecosystem;
         }
         
         
-    }//GEN-LAST:event_ViewjButton1ActionPerformed
+    }//GEN-LAST:event_btnViewActionPerformed
 
-    private void BackjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackjButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
-        
-        displayJPanel.remove(this);
-        Component[] componentArray = displayJPanel.getComponents();
+        showPanel.remove(this);
+        Component[] componentArray = showPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-    }//GEN-LAST:event_BackjButton1ActionPerformed
+        SystemAdministratorWorkAreaJPanel sysAdminwjp = (SystemAdministratorWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel);
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void DeletejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton1ActionPerformed
-       int selectedRow = PatientJtable.getSelectedRow();
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+       int selectedRow = tblPatient.getSelectedRow();
         if(selectedRow>=0){
-        
-        PatientData patient = (PatientData)PatientJtable.getValueAt(selectedRow,0);
+        PatientData patient = (PatientData)tblPatient.getValueAt(selectedRow,0);
         ecosystem.getUserAccountDirectory().removeUserAccount(patient.getUsername());
         ecosystem.getPatientDir().removePatient(patient);
-        populateDonorTable();
-    }//GEN-LAST:event_DeletejButton1ActionPerformed
+        populatePatinetTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackjButton;
-    private javax.swing.JButton BackjButton1;
     private javax.swing.JButton DeletejButton;
-    private javax.swing.JButton DeletejButton1;
-    private javax.swing.JTable PatientJtable;
     private javax.swing.JButton ViewjButton;
-    private javax.swing.JButton ViewjButton1;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPatient;
     // End of variables declaration//GEN-END:variables
 }

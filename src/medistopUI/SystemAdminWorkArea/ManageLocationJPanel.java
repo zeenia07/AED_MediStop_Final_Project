@@ -16,25 +16,23 @@ import medistopBackend.Network.Network;
 
 /**
  *
- * @author aviti
+ * @author Virendra Rathore
  */
 public class ManageLocationJPanel extends javax.swing.JPanel {
-JPanel displayJPanel;
+JPanel showPanel;
 EcoSystem ecosystem;
     /**
      * Creates new form ManageLocationJPanel
      */
-    public ManageLocationJPanel(JPanel displayJPanel, EcoSystem ecosystem) {
+    public ManageLocationJPanel(JPanel showPanel, EcoSystem ecosystem) {
         initComponents();
-        
-        this.displayJPanel=displayJPanel;
+        this.showPanel=showPanel;
         this.ecosystem=ecosystem;
         populateLocationTable();
     }
 
      private void populateLocationTable() {
         DefaultTableModel model = (DefaultTableModel) LocationJTable.getModel();
-
         model.setRowCount(0);
         for (Network network : ecosystem.getNetworkList()) {
             Object[] row = new Object[1];
@@ -54,10 +52,10 @@ EcoSystem ecosystem;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         LocationJTable = new javax.swing.JTable();
-        submitJButton = new javax.swing.JButton();
-        nameJTextField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+        txtEnterCity = new javax.swing.JTextField();
+        addCityjLabel = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -94,65 +92,63 @@ EcoSystem ecosystem;
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 97, 404, 91));
 
-        submitJButton.setText("Submit");
-        submitJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitJButtonActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 303, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 211, 93, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 303, -1, -1));
+        add(txtEnterCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 211, 93, -1));
 
-        jLabel1.setText("Add City");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 216, -1, -1));
+        addCityjLabel.setText("Add City");
+        add(addCityjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 216, -1, -1));
 
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 303, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 303, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("ADD NETWORK");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 33, -1, 46));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        String name = nameJTextField.getText();
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        String name = txtEnterCity.getText();
         if (name.isEmpty()==true)
          {
           JOptionPane.showMessageDialog(null, "Please add a City ","Success", JOptionPane.INFORMATION_MESSAGE);
-         
          }
          else
          {
             Network network = ecosystem.createAndAddNetwork();
             network.setNetworkName(name);
-
             populateLocationTable();
          }
-        nameJTextField.setText("");
-    }//GEN-LAST:event_submitJButtonActionPerformed
+        txtEnterCity.setText("");
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        displayJPanel.remove(this);
-        Component[] componentArray = displayJPanel.getComponents();
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        showPanel.remove(this);
+        Component[] componentArray = showPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-    }//GEN-LAST:event_backJButtonActionPerformed
+        SystemAdministratorWorkAreaJPanel sysAdminwjp = (SystemAdministratorWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LocationJTable;
-    private javax.swing.JButton backJButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel addCityjLabel;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameJTextField;
-    private javax.swing.JButton submitJButton;
+    private javax.swing.JTextField txtEnterCity;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,49 +7,42 @@ package medistopUI.SystemAdminWorkArea;
 
 
 import java.awt.CardLayout;
-import java.awt.Image;
-import java.io.File;
-import java.util.Date;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import medistopBackend.EcoSystem;
 import medistopBackend.UserData.*;
 
 /**
  *
- * @author 
+ * @author Virendra Rathore
  */
 public class ViewPatientJpanel extends javax.swing.JPanel 
 {
-    private JPanel displayJPanel;
+    private JPanel showPanel;
     private EcoSystem system;
-    private PatientDirectory patientDir;
     private PatientData patient;
     /**
      * Creates new form CreatePatientAccount
      */
-    public ViewPatientJpanel(JPanel displayJPanel, PatientData patient) 
+    public ViewPatientJpanel(JPanel showPanel, PatientData patient) 
     {
         initComponents();
         this.system=system;
-        this.displayJPanel=displayJPanel;
+        this.showPanel=showPanel;
         this.patient = patient;
-        txtAddress.setEnabled(false);
-        txtCity.setEnabled(false);
-        txtName.setEnabled(false);
-        txtPhone.setEnabled(false);
-        txtState.setEnabled(false);
+        txtPatientAddress.setEnabled(false);
+        txtPatientCity.setEnabled(false);
+        txtPatientName.setEnabled(false);
+        txtPatientContactNumber.setEnabled(false);
+        txtPatientState.setEnabled(false);
         txtZipCode.setEnabled(false);
-        txtUserName.setEnabled(false);
-        txtAddress.setText(patient.getAddress());
-        txtCity.setText(patient.getCity());
-        txtName.setText(patient.getPatientName());
+        txtPatientUserName.setEnabled(false);
+        txtPatientAddress.setText(patient.getAddress());
+        txtPatientCity.setText(patient.getCity());
+        txtPatientName.setText(patient.getPatientName());
         txtZipCode.setText(String.valueOf(patient.getZipCode()));
-        txtPhone.setText(patient.getContactNo());
-        txtState.setText(patient.getState());
-        txtUserName.setText(patient.getUsername());
+        txtPatientContactNumber.setText(patient.getContactNo());
+        txtPatientState.setText(patient.getState());
+        txtPatientUserName.setText(patient.getUsername());
     }
 
     /**
@@ -69,19 +62,19 @@ public class ViewPatientJpanel extends javax.swing.JPanel
         lblTitle = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         lblZipCode = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPhone = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        txtCity = new javax.swing.JTextField();
+        txtPatientName = new javax.swing.JTextField();
+        txtPatientContactNumber = new javax.swing.JTextField();
+        txtPatientAddress = new javax.swing.JTextField();
+        txtPatientCity = new javax.swing.JTextField();
         txtZipCode = new javax.swing.JTextField();
-        txtState = new javax.swing.JTextField();
-        btnCreate = new javax.swing.JButton();
+        txtPatientState = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtPatientUserName = new javax.swing.JTextField();
         lblUserPhoto = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Patient Info"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Patient Information"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblName.setText("Patient's Name");
@@ -106,65 +99,35 @@ public class ViewPatientJpanel extends javax.swing.JPanel
 
         lblZipCode.setText("ZipCode");
         add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 288, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 87, 181, -1));
-        add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 131, 181, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 169, 181, -1));
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 207, 181, -1));
+        add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 87, 181, -1));
+        add(txtPatientContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 131, 181, -1));
+        add(txtPatientAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 169, 181, -1));
+        add(txtPatientCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 207, 181, -1));
         add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 283, 181, -1));
-        add(txtState, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 245, 181, -1));
+        add(txtPatientState, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 245, 181, -1));
 
-        btnCreate.setText("<<Back");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 378, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 378, -1, -1));
 
         lblUserName.setText("UserName");
         add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 326, -1, -1));
-
-        txtUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserNameActionPerformed(evt);
-            }
-        });
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 321, 181, -1));
+        add(txtPatientUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 321, 181, -1));
         add(lblUserPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 87, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserNameActionPerformed
-
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        backAction();
-      
-    }//GEN-LAST:event_btnCreateActionPerformed
-
-    public void backAction()
-    {
-        displayJPanel.remove(this);
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-    }
-    
-  /*  public String getGender()
-    {
-        if(maleRadioBtn.isSelected())
-        {
-            return "Male";
-        }
-       // else if(femaleRadioBtn.isSelected())
-        {
-            return "Female";
-        }
-        
-        return null;
-    }
-*/
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        showPanel.remove(this);
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel); 
+    }//GEN-LAST:event_btnBackActionPerformed
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblGender;
@@ -175,12 +138,12 @@ public class ViewPatientJpanel extends javax.swing.JPanel
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserPhoto;
     private javax.swing.JLabel lblZipCode;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtPatientAddress;
+    private javax.swing.JTextField txtPatientCity;
+    private javax.swing.JTextField txtPatientContactNumber;
+    private javax.swing.JTextField txtPatientName;
+    private javax.swing.JTextField txtPatientState;
+    private javax.swing.JTextField txtPatientUserName;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
