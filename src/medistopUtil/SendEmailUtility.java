@@ -1,4 +1,4 @@
-package medistop.util;
+package medistopUtil;
 
 import java.util.Properties;
 import javax.mail.Message;

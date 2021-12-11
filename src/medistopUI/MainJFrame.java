@@ -5,10 +5,6 @@
  */
 package medistopUI;
 
-import medistop.util.SendEmailUtility;
-
-import java.sql.Array;
-
 /**
  *
  * @author 18577
@@ -22,11 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         initComponents();
 
-//        SendEmailUtility.sendEmail("First Subject",
-//                "medistop2021vzd@gmail.com",
-//                "TravelDell@26893",
-//                "Welcome to MediStop! ",
-//                new String[]{"diksha.c.bhatia@gmail.com"});
+
     }
 
     /**
@@ -38,29 +30,104 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        personDirLabel = new javax.swing.JLabel();
+        mainSplitPane = new javax.swing.JSplitPane();
+        headerPanel = new javax.swing.JPanel();
+        deliveryDirLabel = new javax.swing.JLabel();
+        donoeBtn = new javax.swing.JButton();
+        patientbtn = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
+        bodyPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        personDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        personDirLabel.setForeground(new java.awt.Color(0, 0, 102));
-        personDirLabel.setText("MediStop");
+        mainSplitPane.setDividerSize(1);
+        mainSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        headerPanel.setBackground(new java.awt.Color(0, 51, 102));
+        headerPanel.setForeground(new java.awt.Color(0, 0, 102));
+
+        deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel.setForeground(new java.awt.Color(204, 204, 204));
+        deliveryDirLabel.setText("MediStop");
+
+        donoeBtn.setBackground(new java.awt.Color(0, 51, 102));
+        donoeBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        donoeBtn.setForeground(new java.awt.Color(204, 204, 204));
+        donoeBtn.setText("DONOR");
+
+        patientbtn.setBackground(new java.awt.Color(0, 51, 102));
+        patientbtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        patientbtn.setForeground(new java.awt.Color(204, 204, 204));
+        patientbtn.setText("PATIENT");
+
+        loginBtn.setBackground(new java.awt.Color(0, 51, 102));
+        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(204, 204, 204));
+        loginBtn.setText("LOG IN");
+
+        logoutBtn.setBackground(new java.awt.Color(0, 51, 102));
+        logoutBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(204, 204, 204));
+        logoutBtn.setText("LOG OUT");
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                .addComponent(donoeBtn)
+                .addGap(18, 18, 18)
+                .addComponent(patientbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(loginBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logoutBtn)
+                .addGap(21, 21, 21))
+        );
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donoeBtn)
+                    .addComponent(patientbtn)
+                    .addComponent(loginBtn)
+                    .addComponent(logoutBtn))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        mainSplitPane.setTopComponent(headerPanel);
+
+        javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
+        bodyPanel.setLayout(bodyPanelLayout);
+        bodyPanelLayout.setHorizontalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1146, Short.MAX_VALUE)
+        );
+        bodyPanelLayout.setVerticalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 601, Short.MAX_VALUE)
+        );
+
+        mainSplitPane.setRightComponent(bodyPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(personDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(857, Short.MAX_VALUE))
+            .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(personDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(656, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -102,6 +169,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel personDirLabel;
+    private javax.swing.JPanel bodyPanel;
+    private javax.swing.JLabel deliveryDirLabel;
+    private javax.swing.JButton donoeBtn;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JSplitPane mainSplitPane;
+    private javax.swing.JButton patientbtn;
     // End of variables declaration//GEN-END:variables
 }
