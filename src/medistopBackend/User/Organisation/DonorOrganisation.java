@@ -15,9 +15,6 @@ import medistopBackend.Role.Role;
  * @author Zeenia
  */
 public class DonorOrganisation extends Organisation {
-<<<<<<< HEAD
-   
-=======
     public DonorOrganisation() 
     {
         super(Organisation.Type.Donor.getValue());
@@ -29,5 +26,4 @@ public class DonorOrganisation extends Organisation {
         role.add(new Donor());
         return role;
     }
->>>>>>> 00c5f2748efd10f74930fde961fc5d027f6154fd
 }

@@ -15,9 +15,6 @@ import medistopBackend.Role.Role;
  * @author Zeenia
  */
 public class PatientOrganisation extends Organisation {
-<<<<<<< HEAD
-   
-=======
      public PatientOrganisation()
     {
         super(Organisation.Type.Patient.getValue());
@@ -29,5 +26,4 @@ public class PatientOrganisation extends Organisation {
         role.add(new Patient());
         return role;
     }
->>>>>>> 00c5f2748efd10f74930fde961fc5d027f6154fd
 }
