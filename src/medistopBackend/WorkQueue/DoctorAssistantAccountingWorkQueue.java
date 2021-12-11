@@ -4,6 +4,8 @@
  */
 package medistopBackend.WorkQueue;
 
+import medistopBackend.Hospital.Appointment.AppointmentDetails;
+
 /**
  *
  * @author virendra
@@ -23,7 +25,7 @@ public class DoctorAssistantAccountingWorkQueue extends WorkRequest{
         this.apd = apd;
     }
     
-    public DoctorReceptionistFinancialWorkQueue(){
+    public DoctorAssistantAccountingWorkQueue(){
         this.apd = new AppointmentDetails();
     }
     public boolean isFundingRequired() {
@@ -51,6 +53,6 @@ public class DoctorAssistantAccountingWorkQueue extends WorkRequest{
     
     @Override
     public String toString(){
-        return apd.getPatient().getName();
+        return apd.getPatient().getPatientName();
     }
 }

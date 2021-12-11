@@ -10,6 +10,22 @@ import medistopBackend.Organisation.Organisation.Type;
 import medistopBackend.User.Organisation.DonorOrganisation;
 import medistopBackend.User.Organisation.PatientOrganisation;
 import medistopBackend.UserAccount.UserAccount;
+
+import medistopBackend.Bloodbank.Organisation.BloodbankAdminOrg;
+import medistopBackend.Bloodbank.Organisation.HeadsOrganisation;
+import medistopBackend.Funds.Organisation.FundsOrganisationAdmin;
+import medistopBackend.Funds.Organisation.FundsOrganisationManager;
+import medistopBackend.Funds.Organisation.FundsOrganisationVolunteer;
+import medistopBackend.Enterprise.FundingEnterprise;
+import medistopBackend.Organisation.Organisation.Type;
+import medistopBackend.User.Organisation.DonorOrganisation;
+import medistopBackend.User.Organisation.PatientOrganisation;
+import medistopBackend.UserAccount.UserAccount;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationDoctor;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAdmin;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAttendant;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
+
 import java.util.ArrayList;
 
 /**
@@ -32,7 +48,7 @@ public class OrganisationDirectory {
         Organisation organisation = null;
         if (type.getValue().equals(Type.Doctor.getValue()))
         {
-            organisation = new DoctorOrganisation();
+            organisation = new HospitalOrganisationDoctor();
             organisationList.add(organisation);
         }
         
@@ -49,42 +65,42 @@ public class OrganisationDirectory {
         }
         else if(type.getValue().equals(Type.HospitalAdmin.getValue()))
         {
-            organisation = new HospitalAdminOrganisation();
+            organisation = new HospitalOrganisationAdmin();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.Assistant.getValue()))
         {
-            organisation = new AssistantOrganisation();
+            organisation = new HospitalOrganisationAssistant();
             organisationList.add(organisation);
         }
-        else if(type.getValue().equals(Type.attendant.getValue()))
+        else if(type.getValue().equals(Type.Attendant.getValue()))
         {
-            organisation = new attendantOrganisation();
+            organisation = new HospitalOrganisationAttendant();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.BloodbankAdmin.getValue()))
         {
-            organisation = new BloodbankAdminOrganisation();
+            organisation = new BloodbankAdminOrg();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.BloodBankHead.getValue()))
         {
-            organisation = new HeadOrganisation();
+            organisation = new HeadsOrganisation();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.FunderAdmin.getValue()))
         {
-            organisation = new FunderAdminOrganisation();
+            organisation = new FundsOrganisationAdmin();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.Volunteer.getValue()))
         {
-            organisation = new VolunteerOrganisation();
+            organisation = new FundsOrganisationVolunteer();
             organisationList.add(organisation);
         }
         else if(type.getValue().equals(Type.Manager.getValue()))
         {
-            organisation = new ManagerOrganisation();
+            organisation = new FundsOrganisationManager();
             organisationList.add(organisation);
         }
         

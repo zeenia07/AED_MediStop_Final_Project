@@ -10,6 +10,7 @@ import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccountDirectory;
 import medistopBackend.WorkQueue.WorkQueue;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  *
@@ -20,8 +21,9 @@ public abstract class Organisation {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
-    private int organizationID;
-    private static int counter=0;
+    private String organizationID;
+    private String cause;
+//    private static int counter=0;
     
     public enum Type{
         HospitalAdmin("Hospital Admin Organisation"), 
@@ -95,17 +97,26 @@ public abstract class Organisation {
         workQueue = new WorkQueue();
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
-        organizationID = counter;
-        ++counter;
+        organizationID = UUID.randomUUID().toString();
+//        ++counter;
     }
 
     public abstract ArrayList<Role> getSupportedRole();
+
+    public String getCause() {
+        return cause;
+    }
+
+    public void setCause(String cause) {
+        this.cause = cause;
+    }
+    
     
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
 
-    public int getOrganizationID() {
+    public String getOrganizationID() {
         return organizationID;
     }
 

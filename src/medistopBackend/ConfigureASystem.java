@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package medistopBackend;
-
+import medistopBackend.Employee.Employee;
+import medistopBackend.Role.SystemAdmin;
+import medistopBackend.UserAccount.UserAccountDirectory;
+import medistopBackend.UserAccount.UserAccount;
 
 /**
  *
@@ -15,8 +18,8 @@ public class ConfigureASystem
     public static EcoSystem configure()
     {    
         EcoSystem system = EcoSystem.getInstance();
-        Employee employee = system.getEmployeeDirectory().createEmployee("sysadmin");
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee,new SystemAdminRole());
+        Employee employee = system.getEmployeeDirectory().addEmployee("sysadmin");
+        UserAccount ua = system.getUserAccountDirectory().newUserAccount("sysadmin", "sysadmin", employee,new SystemAdmin());
         
         return system;
     }

@@ -16,11 +16,11 @@ import medistopBackend.UserAccount.UserAccount;
  *
  * @author Zeenia
  */
-public class SystemAdmin {
+public class SystemAdmin extends Role{
+
     @Override
-
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) {
-    return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
-
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+   
 }

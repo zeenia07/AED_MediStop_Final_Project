@@ -18,8 +18,10 @@ import medistopBackend.UserAccount.UserAccount;
  * @author Zeenia
  */
 public class BloodBankHead extends Role {
+
     @Override
-    public JPanel createWorkArea (JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network, EcoSystem business) {
-        return new BloodBankInchargeLandingJPanel(userProcessContainer,account,(InchargeOrganisation)organisation,(BloodbankEnterprise)enterprise,network,business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+   
 }

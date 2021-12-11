@@ -7,6 +7,7 @@ package medistopBackend.Role;
 
 import javax.swing.JPanel;
 import medistopBackend.EcoSystem;
+import medistopBackend.Enterprise.Enterprise;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.UserAccount.UserAccount;
@@ -15,10 +16,11 @@ import medistopBackend.UserAccount.UserAccount;
  *
  * @author Zeenia
  */
-public class Patient {
+public class Patient extends Role {
+
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation,Enterprise enterprise,Network network ,EcoSystem system) 
-    {
-        return new PatientWorkAreaJPanel(userProcessContainer,account,organisation, system);
-    } 
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

@@ -11,6 +11,6 @@ import medistopBackend.Role.Role;
  *
  * @author Zeenia
  */
-public class HospitalAttendant extends Role {
+public class HospitalAttendant  {
     
 }

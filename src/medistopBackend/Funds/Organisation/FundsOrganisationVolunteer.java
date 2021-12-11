@@ -5,10 +5,21 @@
  */
 package medistopBackend.Funds.Organisation;
 
+import java.util.ArrayList;
+import medistopBackend.Organisation.Organisation;
+import medistopBackend.Role.Role;
+
 /**
  *
  * @author Zeenia
  */
-public class FundsOrganisationVolunteer {
+public class FundsOrganisationVolunteer extends Organisation{
+    public FundsOrganisationVolunteer() {
+        super(Organisation.Type.Volunteer.getValue());
+    }
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

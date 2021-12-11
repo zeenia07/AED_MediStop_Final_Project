@@ -17,8 +17,8 @@ import medistopBackend.WorkQueue.WorkQueue;
 public class HospitalOrganisationAttendant extends Organisation {
     private WorkQueue doctorAttendantWQ;
     private WorkQueue BloodHeadAttendantWQ;
-
-    public HospitalOrganisationAttendant(String name) {
+    
+    public HospitalOrganisationAttendant() {
         super(Organisation.Type.Attendant.getValue());
         doctorAttendantWQ = new WorkQueue();
         BloodHeadAttendantWQ= new WorkQueue();

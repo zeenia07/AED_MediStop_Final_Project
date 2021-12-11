@@ -4,14 +4,16 @@
  */
 package medistopBackend.WorkQueue;
 
+import medistopBackend.Hospital.Appointment.AppointmentDetails;
+
 /**
  *
  * @author virendra
  */
-public class DoctorattendantWorkQueue extends WorkRequest{
+public class DoctorAttendentWorkQueue extends WorkRequest{
    private AppointmentDetails appointmentDetails;
 
-    public DoctorattendantWorkQueue() {
+    public DoctorAttendentWorkQueue() {
        appointmentDetails = new AppointmentDetails();
     }
 
@@ -24,6 +26,6 @@ public class DoctorattendantWorkQueue extends WorkRequest{
     }
     @Override
     public String toString(){
-        return appointmentDetails.getPatient().getName();
+        return appointmentDetails.getPatient().getPatientName();
     }
 }

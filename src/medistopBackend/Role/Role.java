@@ -20,10 +20,17 @@ public abstract class Role {
     
     
     public enum RoleType{
-            HospitalAdmin("HospitalAdmin"), Doctor("Doctor"),Nurse("Nurse"),Receptionist("Receptionist"),
-            Donor("Donor"),Patient("Patient"),
-            CharityAdmin("CharityAdmin"),Manager("Manager"),Volunteer("Volunteer"),
-            BloodBankAdmin("BloodbankAdmin"),BloodBankIncharge("BloodbankIncharge"),;
+            HospitalAdmin("HospitalAdmin"), 
+            Doctor("Doctor"),
+            Nurse("Nurse"),
+            Receptionist("Receptionist"),
+            Donor("Donor"),
+            Patient("Patient"),
+            CharityAdmin("CharityAdmin"),
+            Manager("Manager"),
+            Volunteer("Volunteer"),
+            BloodBankAdmin("BloodbankAdmin"),
+            BloodBankIncharge("BloodbankIncharge"),;
             
     private String val;
     private RoleType(String val){

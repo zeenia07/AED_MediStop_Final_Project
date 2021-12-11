@@ -12,5 +12,5 @@ import medistopBackend.Organisation.Organisation;
  * @author Zeenia
  */
 public class PatientOrganisation extends Organisation {
-    
+   
 }

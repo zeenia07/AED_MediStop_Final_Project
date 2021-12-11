@@ -14,6 +14,11 @@ import medistopBackend.Role.Role;
  * @author Zeenia
  */
 public class FundsOrganisationAdmin extends Organisation{
-     
-    
+ public FundsOrganisationAdmin() {
+        super(Organisation.Type.FunderAdmin.getValue());
+    }
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
