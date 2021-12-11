@@ -5,19 +5,52 @@
  */
 package medistopUI.doctor;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import medistopBackend.EcoSystem;
+import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Hospital.Appointment.AppointmentDetails;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAttendant;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationDoctor;
+import medistopBackend.Organisation.Organisation;
+import medistopBackend.UserAccount.UserAccount;
+import medistopBackend.WorkQueue.DoctorAssistantAccountingWorkQueue;
+import medistopBackend.WorkQueue.DoctorAttendentWorkQueue;
+
 /**
  *
- * @author Dell
+ * @author Zeenia
  */
 public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
+    
+    private EcoSystem ecosystem;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private HospitalOrganisationDoctor docOrganisation;
+    private AppointmentDetails appointment;
+    private JPanel displayJPanel;
+    
     public DoctorWorkAreaJPanel() {
         initComponents();
     }
 
+    public DoctorWorkAreaJPanel(JPanel displayJPanel,UserAccount userAccount ,HospitalOrganisationDoctor docOrganisation, Enterprise enterprise, EcoSystem ecosystem) 
+    {
+        initComponents();
+        this.displayJPanel = displayJPanel;
+        this.userAccount = userAccount;
+        valuePatientName.setText(userAccount.getUsername());
+        this.docOrganisation = docOrganisation;
+        this.enterprise = enterprise;
+        this.ecosystem = ecosystem;
+        
+        populateForm();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +67,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblBloodGroup = new javax.swing.JLabel();
         txtBloodGroup = new javax.swing.JTextField();
         lblDisease = new javax.swing.JLabel();
-        txtIllness = new javax.swing.JTextField();
+        txtDisease = new javax.swing.JTextField();
         lblPrescription = new javax.swing.JLabel();
         txtPrescription = new javax.swing.JTextField();
         menuItemName5 = new javax.swing.JLabel();
@@ -44,13 +77,15 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         RadioFundsYes = new javax.swing.JRadioButton();
         RadioFundsNo = new javax.swing.JRadioButton();
         lblWelcome = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        valuePatientName = new javax.swing.JLabel();
         lblWelcome1 = new javax.swing.JLabel();
         btnAddPrescription = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblPatientName1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPatientsWaiting = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         lblPatientName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPatientName.setForeground(new java.awt.Color(0, 0, 102));
@@ -84,11 +119,11 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblDisease.setForeground(new java.awt.Color(0, 0, 102));
         lblDisease.setText("Disease:");
 
-        txtIllness.setForeground(new java.awt.Color(0, 0, 102));
-        txtIllness.setText(" ");
-        txtIllness.addActionListener(new java.awt.event.ActionListener() {
+        txtDisease.setForeground(new java.awt.Color(0, 0, 102));
+        txtDisease.setText(" ");
+        txtDisease.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIllnessActionPerformed(evt);
+                txtDiseaseActionPerformed(evt);
             }
         });
 
@@ -139,8 +174,8 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblWelcome.setForeground(new java.awt.Color(0, 0, 102));
         lblWelcome.setText("Welcome ");
 
-        valueLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        valueLabel.setText("value");
+        valuePatientName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        valuePatientName.setText("value");
 
         lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblWelcome1.setForeground(new java.awt.Color(0, 0, 102));
@@ -170,7 +205,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblPatientName1.setForeground(new java.awt.Color(0, 0, 102));
         lblPatientName1.setText("Patients Waiting:");
 
-        jLabel2.setText("jLabel2");
+        lblPatientsWaiting.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -190,7 +225,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                     .addComponent(lblDisease, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(64, 64, 64)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIllness, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDisease, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(menuItemName5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -220,7 +255,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblWelcome)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(valuePatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(1, 1, 1)
                                         .addComponent(lblWelcome1))
                                     .addGroup(layout.createSequentialGroup()
@@ -229,7 +264,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                             .addComponent(lblPatientName1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(64, 64, 64)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
+                                            .addComponent(lblPatientsWaiting)
                                             .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel1)))
@@ -246,12 +281,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnRefresh)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblWelcome)
-                                .addComponent(valueLabel)
+                                .addComponent(valuePatientName)
                                 .addComponent(lblWelcome1)))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPatientName1)
-                            .addComponent(jLabel2))
+                            .addComponent(lblPatientsWaiting))
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -269,7 +304,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblDisease)
-                                    .addComponent(txtIllness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDisease, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrescription)
@@ -296,9 +331,9 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDOBActionPerformed
 
-    private void txtIllnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIllnessActionPerformed
+    private void txtDiseaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiseaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIllnessActionPerformed
+    }//GEN-LAST:event_txtDiseaseActionPerformed
 
     private void RadioBloodYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioBloodYesActionPerformed
         RadioBloodNo.setSelected(false);
@@ -310,19 +345,72 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void RadioFundsYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsYesActionPerformed
         // TODO add your handling code here:
+        RadioFundsYes.setSelected(false);
+
     }//GEN-LAST:event_RadioFundsYesActionPerformed
 
     private void RadioFundsNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsNoActionPerformed
         // TODO add your handling code here:
+         RadioFundsNo.setSelected(false);
     }//GEN-LAST:event_RadioFundsNoActionPerformed
 
     private void btnAddPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPrescriptionActionPerformed
         // TODO add your handling code here:
+         appointment.setDiseases(txtDisease.getText());
+                appointment.setPrescription(txtPrescription.getText());
+                boolean bloodRequired = isBloodRequired();
+                boolean donationRequired = isDonationRequired();
+                appointment.setisappointmentTaken(true);
+                appointment.setIsBloodNeeded(bloodRequired);
+                appointment.setIsFundNeeded(donationRequired);
+                
+                DoctorAttendentWorkQueue attendantWorkQueue = new DoctorAttendentWorkQueue();
+                DoctorAssistantAccountingWorkQueue assistantWorkQueue = new DoctorAssistantAccountingWorkQueue();
+                
+                attendantWorkQueue.setAppointmentDetails(appointment);
+                attendantWorkQueue.setSender(userAccount);
+                attendantWorkQueue.setMessage("Prescribed");
+                assistantWorkQueue.setApd(appointment);
+                assistantWorkQueue.setFundingRequired(donationRequired);
+                assistantWorkQueue.setFundingApproved(false);
+                assistantWorkQueue.setPrescribed(txtPrescription.getText());
+                HospitalOrganisationAttendant orgAttendant = null;
+                JOptionPane.showMessageDialog(null, "Prescription updated successfully!!","Success", JOptionPane.INFORMATION_MESSAGE);
+        
+        for (Organisation organisation : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organisation instanceof HospitalOrganisationAttendant){
+                orgAttendant = (HospitalOrganisationAttendant)organisation;
+                break;
+            }
+        }
+        if (orgAttendant!=null && appointment.isIsBloodNeeded() == true){
+            orgAttendant.getDoctorAttendantWQ().getWorkRequestList().add(attendantWorkQueue);
+            userAccount.getWorkQueue().getWorkRequestList().add(attendantWorkQueue);
+        }
+        HospitalOrganisationAssistant orgAssistant = null;
+        for (Organisation organisation : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organisation instanceof HospitalOrganisationAssistant){
+                orgAssistant = (HospitalOrganisationAssistant)organisation;
+                break;
+            }
+        }
+        if (orgAssistant!=null && appointment.isFundNeeded() == true){
+            orgAssistant.getFundApplicationQueue().getWorkRequestList().add(assistantWorkQueue);
+            userAccount.getWorkQueue().getWorkRequestList().add(assistantWorkQueue);
+        }
+        
+        //--->Resetting form fields
+        
+                resetFields();
+                
+                populateForm();
+                
 
     }//GEN-LAST:event_btnAddPrescriptionActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        resetFields();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
 
@@ -334,12 +422,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAddPrescription;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBloodGroup;
     private javax.swing.JLabel lblDOB;
     private javax.swing.JLabel lblDisease;
     private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblPatientName1;
+    private javax.swing.JLabel lblPatientsWaiting;
     private javax.swing.JLabel lblPrescription;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lblWelcome1;
@@ -347,9 +435,85 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel menuItemName6;
     private javax.swing.JTextField txtBloodGroup;
     private javax.swing.JTextField txtDOB;
-    private javax.swing.JTextField txtIllness;
+    private javax.swing.JTextField txtDisease;
     private javax.swing.JTextField txtPatientName;
     private javax.swing.JTextField txtPrescription;
-    private javax.swing.JLabel valueLabel;
+    private javax.swing.JLabel valuePatientName;
     // End of variables declaration//GEN-END:variables
+
+public void populateForm()
+    {
+        for(AppointmentDetails appointment : ecosystem.getAppointmentDirectory().getAppointmentDirectory())
+        {
+            if(appointment.isisappointmentTaken() != true)
+            {
+                this.appointment = appointment;
+                txtPatientName.setText(appointment.getPatient().getPatientName());
+                txtDOB.setText(String.valueOf(appointment.getPatient().getDateOfBirth()));
+                txtBloodGroup.setText(appointment.getPatient().getBloodGroup());
+                populateLabel();
+                break;
+                
+            }
+        }
+    }
+
+public void populateLabel(){
+        int count = -1;
+        for(AppointmentDetails appointment : ecosystem.getAppointmentDirectory().getAppointmentDirectory())
+        {
+            if(appointment.isisappointmentTaken() == false)
+            {
+                count++;
+            }
+        }
+        lblPatientsWaiting.setText(String.valueOf(count));
+    }
+
+public boolean isBloodRequired()
+    {
+         boolean output=false;
+//        if(RadioBloodYes.isSelected())
+//        {
+//            return true;
+//        }
+//        else if(RadioBloodNo.isSelected())
+//        {
+//            return false;
+//        }
+        
+         output=RadioBloodYes.isSelected()?true:false;
+         output=RadioBloodNo.isSelected()?false:true;
+         
+        return output;
+        
+    }
+
+public boolean isDonationRequired()
+    {
+        boolean output=false;
+//        if(yesDonationRadioButton.isSelected())
+//        {
+//            return true;
+//        }
+//        else if(noDonationRadioButton.isSelected())
+//        {
+//            return false;
+//        }
+//        
+//        return false;
+
+         output=RadioFundsYes.isSelected()?true:false;
+         output=RadioFundsNo.isSelected()?false:true;
+         
+        return output;
+    }
+
+public void resetFields(){
+    txtPatientName.setText("");
+        txtDOB.setText("");
+        txtBloodGroup.setText("");
+        txtDisease.setText("");
+        txtPrescription.setText("");
+}
 }
