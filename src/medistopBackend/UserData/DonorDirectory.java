@@ -5,10 +5,35 @@
  */
 package medistopBackend.UserData;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Zeenia
  */
 public class DonorDirectory {
-    
+    private ArrayList<DonorData> donorDirectory;
+     public DonorDirectory(){
+        
+        this.donorDirectory = new ArrayList<DonorData>();
+    }
+
+    public ArrayList<DonorData> getDonorDirectory() 
+    {
+        return donorDirectory;
+    }
+
+    public void setDonorDirectory(ArrayList<DonorData> donorDirectory) 
+    {
+        this.donorDirectory = donorDirectory;
+    }
+    public void deleteDonor(DonorData donor){
+        donorDirectory.remove(donor);
+    }
+    public DonorData addDonor()
+    {
+        DonorData donor = new DonorData();
+        donorDirectory.add(donor);
+        return donor;
+    }
 }

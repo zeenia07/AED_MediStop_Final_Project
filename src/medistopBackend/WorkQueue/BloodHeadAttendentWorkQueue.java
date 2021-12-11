@@ -8,7 +8,7 @@ package medistopBackend.WorkQueue;
  *
  * @author virendra
  */
-public class BloodHeadNurseWorkQueue extends WorkRequest {
+public class BloodHeadAttendentWorkQueue extends WorkRequest {
     
     private String nameOfPatient;
     private String whichTypeOfBlood;
