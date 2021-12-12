@@ -127,7 +127,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String userName = Utilities.getTrimmedText(usernameTF);
-        String password = String.valueOf(passPF.getPassword().toString());
+        String password = String.valueOf(passPF.getPassword());
         
         UserAccount userAccount= ecosystem.getUserAccountDirectory().authenticateUserAccount(userName, password);
         Enterprise inEnterprise=null;

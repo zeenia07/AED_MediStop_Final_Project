@@ -6,6 +6,9 @@
 
 package medistopUI.donor;
 
+import medistopBackend.EcoSystem;
+import medistopBackend.UserAccount.UserAccount;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,12 +17,17 @@ import javax.swing.table.DefaultTableModel;
  * @author 18577
  */
 public class DonorWorkAreaPanel extends javax.swing.JPanel {
+    private UserAccount userAccount;
+    private EcoSystem ecoSystem;
+
     DefaultTableModel charityDirectoryTableModel;
     DefaultTableModel donationHistoryTableModel;
     
 
     /** Creates new form DonorWorkAreaPanel */
-    public DonorWorkAreaPanel() {
+    public DonorWorkAreaPanel(EcoSystem ecoSys,UserAccount userAcc) {
+        ecoSystem = ecoSys;
+        userAccount = userAcc;
         initCharityDirTableModel();
         initDonationHistoryDirTableModel();
         initComponents();

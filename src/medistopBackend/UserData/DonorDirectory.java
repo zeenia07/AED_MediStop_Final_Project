@@ -36,4 +36,11 @@ public class DonorDirectory {
         donorDirectory.add(donor);
         return donor;
     }
+
+    public DonorData addDonor(DonorData donorData)
+    {
+
+        donorDirectory.add(donorData);
+        return donorData;
+    }
 }

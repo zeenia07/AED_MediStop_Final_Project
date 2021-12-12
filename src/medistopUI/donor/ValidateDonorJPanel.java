@@ -11,6 +11,7 @@ import medistopBackend.EcoSystem;
 import medistopBackend.Role.Donor;
 import medistopBackend.UserData.DonorData;
 import medistopUtil.Utilities;
+import medistopBackend.DB4OUtil.DB4OUtil;
 
 /**
  *
@@ -22,6 +23,8 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private boolean isValidated;
     private String validationCode;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+
     /**
      * Creates new form ValidateDonorJPanel
      */
@@ -229,13 +232,16 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         String userName = Utilities.getTrimmedText(usernameTF);
-        String password = passPF.getPassword().toString();
+        String password = String.valueOf(passPF.getPassword());
         
         boolean result = ecosystem.getUserAccountDirectory().isUserNameUnique(userName);
         
         if (result) {
             donorData.setUsername(userName);
             ecosystem.getUserAccountDirectory().newDonorAccount(userName, password, donorData, new Donor());
+            ecosystem.getDonorDir().addDonor(donorData);
+            dB4OUtil.storeSystem(ecosystem);
+
             JOptionPane.showMessageDialog(null, "You have been officially registered as Donor \nPlease Login to start donating.. ",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             

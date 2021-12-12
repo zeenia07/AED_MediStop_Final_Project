@@ -11,6 +11,7 @@ import medistopBackend.Enterprise.Enterprise;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.UserAccount.UserAccount;
+import medistopUI.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -20,7 +21,9 @@ public class SystemAdmin extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+
+
     }
    
 }
