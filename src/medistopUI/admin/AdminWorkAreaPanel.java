@@ -91,7 +91,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         menuItemName12 = new javax.swing.JLabel();
         menuItemName13 = new javax.swing.JLabel();
         menuItemName14 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        empNameTF = new javax.swing.JTextField();
         deliveryDirLabel9 = new javax.swing.JLabel();
         btnAddEmployee = new javax.swing.JButton();
         comboViewEmpOrg = new javax.swing.JComboBox();
@@ -481,7 +481,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
                                 .addComponent(menuItemName13)
                                 .addGap(31, 31, 31)))
                         .addGroup(manageUserPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(empNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboUpdateEmpOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(manageUserPanel1Layout.createSequentialGroup()
                         .addGap(309, 309, 309)
@@ -515,7 +515,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
                     .addComponent(comboUpdateEmpOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(manageUserPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(empNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(menuItemName14))
                 .addGap(27, 27, 27)
                 .addComponent(btnAddEmployee)
@@ -579,7 +579,8 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         populateEmployeeUpdateOrgCombo();
         populateManageOrganisationCombo();
         populateUserOrganizationCombo();
-        populateUserRoleCombo(enterprise);
+        populateEmployeeViewOrgCombo();
+       
         
         JOptionPane.showMessageDialog(null, "Organisation Added Successfully!!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnCreateOrgActionPerformed
@@ -591,7 +592,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
     private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
         // TODO add your handling code here:
         Organisation organisation = (Organisation) comboUpdateEmpOrg.getSelectedItem();
-        String name = txtUsername.getText();
+        String name = empNameTF.getText();
         if(!name.isEmpty())  {
         organisation.getEmployeeDirectory().addEmployee(name);
         populateEmployeeTable(organisation);
@@ -653,13 +654,13 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel deliveryDirLabel8;
     private javax.swing.JLabel deliveryDirLabel9;
     private javax.swing.JTabbedPane donationTabbedPane;
+    private javax.swing.JTextField empNameTF;
     private javax.swing.JLabel helpTextLabel;
     private javax.swing.JLabel helpTextLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel manageOrgPanel;
     private javax.swing.JPanel manageUserPanel;
     private javax.swing.JPanel manageUserPanel1;
