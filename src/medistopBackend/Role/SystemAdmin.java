@@ -11,7 +11,7 @@ import medistopBackend.Enterprise.Enterprise;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.UserAccount.UserAccount;
-import medistopUI.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+import medistopUI.SystemAdminWorkArea.SystemAdministratorWorkAreaJPanel;
 
 /**
  *
@@ -21,7 +21,7 @@ public class SystemAdmin extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+        return new SystemAdministratorWorkAreaJPanel(userProcessContainer, system);
 
 
     }
