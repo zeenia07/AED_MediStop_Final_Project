@@ -6,23 +6,52 @@
 
 package medistopUI.donor;
 
+import medistopBackend.EcoSystem;
+import medistopBackend.UserAccount.UserAccount;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Funds.Donation.FundsInfo;
+import medistopBackend.Network.Network;
+import medistopBackend.UserData.DonorData;
+import medistopUtil.SMSUtility;
+import medistopUtil.SendEmailUtility;
+import medistopUtil.Utilities;
 
 /**
  *
  * @author 18577
  */
 public class DonorWorkAreaPanel extends javax.swing.JPanel {
+    private UserAccount userAccount;
+    private EcoSystem ecoSystem;
+    private DonorData donorData;
+
     DefaultTableModel charityDirectoryTableModel;
     DefaultTableModel donationHistoryTableModel;
     
 
     /** Creates new form DonorWorkAreaPanel */
-    public DonorWorkAreaPanel() {
+    public DonorWorkAreaPanel(EcoSystem ecoSys,UserAccount userAcc) {
+        ecoSystem = ecoSys;
+        userAccount = userAcc;
+        donorData = ecoSystem.getDonorDir().getDonor(userAcc.getUsername());
+
         initCharityDirTableModel();
         initDonationHistoryDirTableModel();
         initComponents();
+        populateCharityTable();
+        populateDonationHistoryTable();
+
+        userAccLabel.setText("Hi  " + donorData.getDonorName());
     }
     
     public void initCharityDirTableModel() {
@@ -32,12 +61,139 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         charityDirectoryTableModel.addColumn("Charity Cause");
     }
     
+    
+    public void populateCharityTable()
+    {
+        DefaultTableModel charityModel = (DefaultTableModel) charityDirTable.getModel();
+
+        charityModel.setRowCount(0);
+
+        for (Network net : ecoSystem.getNetworkList()) {
+
+            String networkName = net.getNetworkName();
+
+            List<Enterprise> charityList = net.getEnterpriseDirectory().getEnterpriseList().stream()
+                    .filter(enterprise ->
+                            enterprise.getEnterpriseClassification().equals(Enterprise.EnterpriseClassification.Funds))
+                    .collect(Collectors.toList());
+
+            for (Enterprise enterprise: charityList) {
+
+                String[] rowData = {enterprise.getName(), networkName, enterprise.getCause()};
+
+                charityModel.addRow(rowData);
+
+
+            }
+
+        }
+
+ 
+    }
+    
+    
+    public void populateDonationHistoryTable() {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForADonor(userAccount.getUsername());
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }
+        
+        
+                
+        
+    
+    }
+    
+    public void populateDonationHistoryTableWithCharityName(String charityname) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityName(charityname);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }
+        
+        
+                
+        
+    
+    }
+    
+    
+     public void populateDonationHistoryTableWithCharityCause(String cause) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityCause(cause);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }
+        
+        
+   }
+     
+    public void populateDonationHistoryTableWithCharityCity(String city) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityCity(city);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }           
+        
+    
+    } 
+     
+     
+     
     public void initDonationHistoryDirTableModel() {
         
         donationHistoryTableModel = new DefaultTableModel();
-        donationHistoryTableModel.addColumn("Charity Name");   
+        donationHistoryTableModel.addColumn("Charity Name");
+        donationHistoryTableModel.addColumn("Charity City");
         donationHistoryTableModel.addColumn("Charity Cause");  
-        donationHistoryTableModel.addColumn("Donation Amount");    
+        donationHistoryTableModel.addColumn("Donation Frequency");
+        donationHistoryTableModel.addColumn("Donation Amount");
+        donationHistoryTableModel.addColumn("Donation Date");
 
 
     }
@@ -74,8 +230,9 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         resetTableButton = new javax.swing.JButton();
         searchCarCatalogScrollPanel = new javax.swing.JScrollPane();
         searchDonationCatalogTable = new javax.swing.JTable();
-        deliveryDirLabel4 = new javax.swing.JLabel();
+        userAccLabel = new javax.swing.JLabel();
         helpTextLabel = new javax.swing.JLabel();
+        deliveryDirLabel5 = new javax.swing.JLabel();
 
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -102,11 +259,35 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         deliveryDirLabel3.setForeground(new java.awt.Color(0, 0, 102));
         deliveryDirLabel3.setText("DONATE, Save Lives!");
 
+        twoHundBtn.setBackground(new java.awt.Color(0, 51, 102));
+        twoHundBtn.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        twoHundBtn.setForeground(new java.awt.Color(204, 204, 204));
         twoHundBtn.setText("$ 200");
+        twoHundBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoHundBtnActionPerformed(evt);
+            }
+        });
 
+        hundBtn.setBackground(new java.awt.Color(0, 51, 102));
+        hundBtn.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        hundBtn.setForeground(new java.awt.Color(204, 204, 204));
         hundBtn.setText("$ 100");
+        hundBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hundBtnActionPerformed(evt);
+            }
+        });
 
+        onefiftyBtn.setBackground(new java.awt.Color(0, 51, 102));
+        onefiftyBtn.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        onefiftyBtn.setForeground(new java.awt.Color(204, 204, 204));
         onefiftyBtn.setText("$ 150");
+        onefiftyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onefiftyBtnActionPerformed(evt);
+            }
+        });
 
         amountTF.setText(" ");
 
@@ -123,7 +304,14 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         menuItemName6.setForeground(new java.awt.Color(0, 0, 102));
         menuItemName6.setText("Frequency");
 
+        createDonationBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        createDonationBtn.setForeground(new java.awt.Color(0, 0, 102));
         createDonationBtn.setText("Make Donation");
+        createDonationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createDonationBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
@@ -190,13 +378,14 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                     .addComponent(menuItemName6))
                 .addGap(35, 35, 35)
                 .addComponent(createDonationBtn)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         donationTabbedPane.addTab("New Donation", menuPanel);
 
         propertyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         propertyComboBox.setForeground(new java.awt.Color(0, 0, 102));
+        propertyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Charity Name", "City", "Charity Cause" }));
         propertyComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 propertyComboBoxActionPerformed(evt);
@@ -210,6 +399,8 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         propertyValueTextField.setForeground(new java.awt.Color(0, 0, 102));
         propertyValueTextField.setText(" ");
 
+        donationListSearchButton.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        donationListSearchButton.setForeground(new java.awt.Color(0, 0, 102));
         donationListSearchButton.setText("Search");
         donationListSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +408,8 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        resetTableButton.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        resetTableButton.setForeground(new java.awt.Color(0, 0, 102));
         resetTableButton.setText("Reset");
         resetTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,13 +423,17 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         searchDonationCatalogTable.setRowHeight(40);
         searchCarCatalogScrollPanel.setViewportView(searchDonationCatalogTable);
 
-        deliveryDirLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel4.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel4.setText("Donation History");
+        userAccLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        userAccLabel.setForeground(new java.awt.Color(0, 0, 102));
+        userAccLabel.setText(" ");
 
         helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
         helpTextLabel.setText(" ");
+
+        deliveryDirLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        deliveryDirLabel5.setText("Donation History");
 
         javax.swing.GroupLayout manageOrdersTabLayout = new javax.swing.GroupLayout(manageOrdersTab);
         manageOrdersTab.setLayout(manageOrdersTabLayout);
@@ -246,6 +443,9 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                 .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageOrdersTabLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
+                        .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(manageOrdersTabLayout.createSequentialGroup()
                                 .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,21 +455,22 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                                 .addComponent(donationListSearchButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(resetTableButton))
-                            .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(172, Short.MAX_VALUE))
+            .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(965, Short.MAX_VALUE)))
         );
         manageOrdersTabLayout.setVerticalGroup(
             manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(21, 21, 21)
+                .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(searchHeaderLabel)
                 .addGap(18, 18, 18)
                 .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -278,11 +479,16 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(propertyComboBox)
                         .addComponent(propertyValueTextField)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(helpTextLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                    .addGap(69, 69, 69)
+                    .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(699, Short.MAX_VALUE)))
         );
 
         donationTabbedPane.addTab("Donation History", manageOrdersTab);
@@ -324,26 +530,92 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String propertyLabel = ((Object)propertyComboBox.getSelectedItem()).toString();
-        String propertyName = ((Object)propertyComboBox.getSelectedItem()).toString();
 
         String filterPropertyValue = propertyValueTextField.getText();
-
-        System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
-
-//        ArrayList<Object> filteredList = new Utility().filterTable(propertyName, filterPropertyValue, carCatalog.getCars());
-//
-//        populateSearchTableHistory(filteredList);
+        
+        if (propertyLabel.equals("Charity Name")) {
+            populateDonationHistoryTableWithCharityName(filterPropertyValue);
+        
+        } else if (propertyLabel.equals("City")) {
+            populateDonationHistoryTableWithCharityCity(filterPropertyValue);
+        
+        } else if (propertyLabel.equals("Charity Cause")) {
+            populateDonationHistoryTableWithCharityCause(filterPropertyValue);
+        }
 
     }//GEN-LAST:event_donationListSearchButtonActionPerformed
 
     private void resetTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTableButtonActionPerformed
         // TODO add your handling code here:
        // populateSearchTableHistory(carCatalog.getCars());
+       populateDonationHistoryTable();
     }//GEN-LAST:event_resetTableButtonActionPerformed
 
     private void frequencyComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyComboboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frequencyComboboxActionPerformed
+
+    private void hundBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hundBtnActionPerformed
+        // TODO add your handling code here:
+        amountTF.setText("100.0");
+    }//GEN-LAST:event_hundBtnActionPerformed
+
+    private void onefiftyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onefiftyBtnActionPerformed
+        // TODO add your handling code here:
+        amountTF.setText("150.0");
+    }//GEN-LAST:event_onefiftyBtnActionPerformed
+
+    private void twoHundBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoHundBtnActionPerformed
+        // TODO add your handling code here:
+        amountTF.setText("200.0");
+    }//GEN-LAST:event_twoHundBtnActionPerformed
+
+    private void createDonationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDonationBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = charityDirTable.getSelectedRow();
+        
+          try
+            {
+                float am = Float.parseFloat(amountTF.getText().trim());
+            
+                if(amountTF.getText() != "" || amountTF.getText() != null)
+                {
+                    FundsInfo fundInfo = ecoSystem.getDonationDirectory().newDonation();
+                    fundInfo.setDonationDate(new Date());
+                    fundInfo.setFundsOrgName(charityDirTable.getValueAt(selectedRow, 0).toString());
+                    fundInfo.setFundsOrgCity(charityDirTable.getValueAt(selectedRow, 1).toString());
+                    fundInfo.setDonation(amountTF.getText());
+                    fundInfo.setFrequencyType(((Object)frequencyCombobox.getSelectedItem()).toString());
+                    fundInfo.setDonor(ecoSystem.getDonorDir().getDonor(userAccount.getUsername()));
+
+
+                    fundInfo.setFundsCause(Objects.isNull(charityDirTable.getValueAt(selectedRow, 2)) ? " " : charityDirTable.getValueAt(selectedRow, 2).toString());
+                   
+
+                    String body = "Hi, " + fundInfo.getDonor().getDonorName() +"\n $  " + amountTF.getText() + "was donated to " + fundInfo.getFundsOrgName();
+                    JOptionPane.showMessageDialog(null, body, "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                    String subject = " Receipt of your donation! ";
+                    SendEmailUtility.sendEmail(subject, Utilities.email, Utilities.password, body, new String[]{fundInfo.getDonor().getEmail()});
+                    SMSUtility.sendSMS(fundInfo.getDonor().getContactNo(), body);
+
+                    populateDonationHistoryTable();
+
+                    amountTF.setText("");
+                }
+            
+                else
+                {
+                    JOptionPane.showMessageDialog(null, " Incorrect amount added. Please correct it! ", "Error! ", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Incorrect amount added. Please correct it!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+    }//GEN-LAST:event_createDonationBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -354,7 +626,7 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JLabel deliveryDirLabel2;
     private javax.swing.JLabel deliveryDirLabel3;
-    private javax.swing.JLabel deliveryDirLabel4;
+    private javax.swing.JLabel deliveryDirLabel5;
     private javax.swing.JButton donationListSearchButton;
     private javax.swing.JTabbedPane donationTabbedPane;
     private javax.swing.JComboBox<String> frequencyCombobox;
@@ -372,6 +644,7 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JTable searchDonationCatalogTable;
     private javax.swing.JLabel searchHeaderLabel;
     private javax.swing.JButton twoHundBtn;
+    private javax.swing.JLabel userAccLabel;
     // End of variables declaration//GEN-END:variables
 
 }

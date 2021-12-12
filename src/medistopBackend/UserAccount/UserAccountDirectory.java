@@ -6,6 +6,8 @@
 package medistopBackend.UserAccount;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import medistopBackend.Employee.Employee;
 import medistopBackend.Role.Role;
 import medistopBackend.UserData.DonorData;
@@ -72,12 +74,19 @@ public class UserAccountDirectory {
     }
    //To authenticate user
    public UserAccount authenticateUserAccount(String username, String password){
-        for (UserAccount ua : userAccountDirectory)
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
-                return ua;
-            }
-        return null;
+       List<UserAccount> useraccList = userAccountDirectory.stream().filter(acc -> acc.getUsername().equals(username) && acc.getPassword().equals(password))
+                .collect(Collectors.toList());
+       
+        return useraccList.size() > 0 ? useraccList.get(0) : null;
+        
     }
+   
+   public boolean isUserNameUnique(String username) {
+       List<UserAccount> useraccList = userAccountDirectory.stream().filter(acc -> acc.getUsername().equals(username))
+                .collect(Collectors.toList());
+       
+       return useraccList.size() == 0; 
+   }
    
    //To remove user
     public void removeUserAccount(String username){

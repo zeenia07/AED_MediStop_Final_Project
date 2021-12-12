@@ -5,19 +5,81 @@
  */
 package medistopUI.patient;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import medistopBackend.DB4OUtil.DB4OUtil;
+import medistopBackend.EcoSystem;
+import medistopBackend.Role.Donor;
+import medistopBackend.Role.Patient;
+import medistopBackend.UserData.DonorData;
+import medistopBackend.UserData.PatientData;
 import medistopUI.donor.*;
+import medistopUtil.Utilities;
 
 /**
  *
  * @author 18577
  */
 public class ValidatePatientJPanel extends javax.swing.JPanel {
+     private PatientData patientData;
+    private JPanel bodyPanel;
+    private EcoSystem ecosystem;
+    private boolean isValidated;
+    private String validationCode;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
     /**
      * Creates new form ValidateDonorJPanel
      */
-    public ValidatePatientJPanel() {
+    public ValidatePatientJPanel(JPanel bodyPanel, EcoSystem ecosystem, String code, PatientData patient) {
         initComponents();
+         this.bodyPanel = bodyPanel;
+        this.ecosystem = ecosystem;
+        validationCode = code;
+        this.patientData = patient;
+        setValidated(false);
+    }
+    
+    
+    public boolean getValidated() {
+        return isValidated;
+    }
+    
+    public void setValidated(boolean valid) {
+       isValidated = valid;
+       
+       if (isValidated) {
+           valAccL.setVisible(false);
+           codeL.setVisible(false);
+           codeTF.setVisible(false);
+           helperLabel.setVisible(false);
+           registerBtn.setVisible(false);
+
+           setAccL.setVisible(true);
+           userNameLabel.setVisible(true);
+           usernameTF.setVisible(true);
+           passPF.setVisible(true);
+           paswdL.setVisible(true);
+           saveBtn.setVisible(true);
+       
+       } else {
+
+           valAccL.setVisible(true);
+           codeL.setVisible(true);
+           codeTF.setVisible(true);
+           helperLabel.setVisible(true);
+           registerBtn.setVisible(true);
+
+
+           setAccL.setVisible(false);
+           userNameLabel.setVisible(false);
+           usernameTF.setVisible(false);
+           passPF.setVisible(false);
+           paswdL.setVisible(false);
+           saveBtn.setVisible(false);
+       
+       }
+       
     }
 
     /**
@@ -160,6 +222,9 @@ public class ValidatePatientJPanel extends javax.swing.JPanel {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        boolean valid = Utilities.getTrimmedText(codeTF).equals(validationCode);
+        setValidated(valid);
+
 
     }//GEN-LAST:event_registerBtnActionPerformed
 
@@ -169,6 +234,33 @@ public class ValidatePatientJPanel extends javax.swing.JPanel {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
+        
+        String userName = Utilities.getTrimmedText(usernameTF);
+        String password = String.valueOf(passPF.getPassword());
+        
+        boolean result = ecosystem.getUserAccountDirectory().isUserNameUnique(userName);
+        
+        if (result) {
+            patientData.setUsername(userName);
+            ecosystem.getUserAccountDirectory().newPatientAccount(userName, password,
+                    patientData, new Patient());
+            ecosystem.getPatientDir().addPat(patientData);
+            dB4OUtil.storeSystem(ecosystem);
+
+            JOptionPane.showMessageDialog(null, "You have been officially registered as Donor \nPlease Login to start donating.. ",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+            saveBtn.setEnabled(false);
+            usernameTF.setEditable(false);
+            passPF.setEditable(false);
+            usernameTF.setText("");
+            passPF.setText("");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Try a different username, current username already exists","Error", JOptionPane.ERROR_MESSAGE);
+            usernameTF.setText("");
+            passPF.setText("");
+        }
     }//GEN-LAST:event_saveBtnActionPerformed
 
 

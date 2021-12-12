@@ -6,6 +6,7 @@
 package medistopBackend.UserData;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -36,4 +37,23 @@ public class DonorDirectory {
         donorDirectory.add(donor);
         return donor;
     }
+
+    public DonorData addDonor(DonorData donorData)
+    {
+
+        donorDirectory.add(donorData);
+        return donorData;
+    }
+    
+    
+    public DonorData getDonor(String username) {
+        
+        return donorDirectory.stream().filter(donor -> donor.getUsername()
+                .equals(username))
+                .collect(Collectors.toList()).get(0);
+    
+    
+    }
+
+
 }

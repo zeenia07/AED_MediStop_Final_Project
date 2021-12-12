@@ -7,7 +7,22 @@
 package medistopUI.patient;
 
 
+import medistopBackend.EcoSystem;
+import medistopBackend.Organisation.Organisation;
+import medistopBackend.Role.Patient;
+import medistopBackend.UserAccount.UserAccount;
+import medistopBackend.UserData.DonorData;
+import medistopBackend.UserData.PatientData;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import medistopBackend.Network.Network;
+import medistopBackend.WorkQueue.AssistantAddingTimingsWorkQueue;
+import medistopBackend.WorkQueue.WorkRequest;
+
+import java.awt.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -16,13 +31,25 @@ import javax.swing.table.DefaultTableModel;
 public class PatientWorkAreaPanel extends javax.swing.JPanel {
     DefaultTableModel appointmentDirectoryTableModel;
     DefaultTableModel appointmentHistoryTableModel;
-    
+    private UserAccount userAccount;
+    private EcoSystem ecoSystem;
+    private PatientData patientData;
+    private Organisation organisation;
+    private JPanel bodyPanel;
 
     /** Creates new form DonorWorkAreaPanel */
-    public PatientWorkAreaPanel() {
+    public PatientWorkAreaPanel(JPanel bodyPanel, EcoSystem ecoSys, UserAccount userAcc, Organisation organisation) {
+        ecoSystem = ecoSys;
+        userAccount = userAcc;
+        this.bodyPanel = bodyPanel;
+        patientData = ecoSystem.getPatientDir().getPatient(userAcc.getUsername());
+        this.organisation = organisation;
         initApptDirTableModel();
         initApptHistoryDirTableModel();
         initComponents();
+        populateAvailAppontments();
+
+
     }
     
     public void initApptDirTableModel() {
@@ -44,6 +71,41 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
 
 
     }
+    
+    
+     public void populateAvailAppontments()
+    {
+        DefaultTableModel model = (DefaultTableModel) appointDirTable.getModel();
+        
+        model.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (Network network: ecoSystem.getNetworkList()) {
+        
+          for(WorkRequest request: ecoSystem.getPatientDir().getWorkQueue().getWorkRequestList()){
+            AssistantAddingTimingsWorkQueue assistantAddingTimingsWorkQueue = new AssistantAddingTimingsWorkQueue();
+              assistantAddingTimingsWorkQueue = (AssistantAddingTimingsWorkQueue)request;
+            if(network.getNetworkName().equals(assistantAddingTimingsWorkQueue.getCity()))
+            {
+
+                Object[] rowdata = {assistantAddingTimingsWorkQueue, assistantAddingTimingsWorkQueue.getDoctor(),
+                        formatter.format(assistantAddingTimingsWorkQueue.getTimings()),
+                        assistantAddingTimingsWorkQueue.getStatus() };
+
+                model.addRow(rowdata);
+            }
+        }
+          
+        
+        
+        
+        
+        }
+        
+        
+        
+          
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -58,16 +120,11 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         menuPanel = new javax.swing.JPanel();
         deliveryDirLabel = new javax.swing.JLabel();
         delDirectoryScollPanel = new javax.swing.JScrollPane();
-        charityDirTable = new javax.swing.JTable();
+        appointDirTable = new javax.swing.JTable();
         deliveryDirLabel2 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         registerBtn = new javax.swing.JButton();
         manageOrdersTab = new javax.swing.JPanel();
-        propertyComboBox = new javax.swing.JComboBox<>();
-        searchHeaderLabel = new javax.swing.JLabel();
-        propertyValueTextField = new javax.swing.JTextField();
-        donationListSearchButton = new javax.swing.JButton();
-        resetTableButton = new javax.swing.JButton();
         searchCarCatalogScrollPanel = new javax.swing.JScrollPane();
         searchDonationCatalogTable = new javax.swing.JTable();
         deliveryDirLabel4 = new javax.swing.JLabel();
@@ -80,11 +137,11 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));
         deliveryDirLabel.setText("Book an appoinment with us to get the help you need...");
 
-        charityDirTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
-        charityDirTable.setForeground(new java.awt.Color(0, 0, 102));
-        charityDirTable.setModel(appointmentDirectoryTableModel);
-        charityDirTable.setRowHeight(40);
-        delDirectoryScollPanel.setViewportView(charityDirTable);
+        appointDirTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        appointDirTable.setForeground(new java.awt.Color(0, 0, 102));
+        appointDirTable.setModel(appointmentDirectoryTableModel);
+        appointDirTable.setRowHeight(40);
+        delDirectoryScollPanel.setViewportView(appointDirTable);
 
         deliveryDirLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         deliveryDirLabel2.setForeground(new java.awt.Color(0, 0, 102));
@@ -125,7 +182,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(802, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,35 +201,6 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         );
 
         donationTabbedPane.addTab("New Appointment", menuPanel);
-
-        propertyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        propertyComboBox.setForeground(new java.awt.Color(0, 0, 102));
-        propertyComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                propertyComboBoxActionPerformed(evt);
-            }
-        });
-
-        searchHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        searchHeaderLabel.setText("Select property to filter out records");
-
-        propertyValueTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        propertyValueTextField.setForeground(new java.awt.Color(0, 0, 102));
-        propertyValueTextField.setText(" ");
-
-        donationListSearchButton.setText("Search");
-        donationListSearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                donationListSearchButtonActionPerformed(evt);
-            }
-        });
-
-        resetTableButton.setText("Reset");
-        resetTableButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetTableButtonActionPerformed(evt);
-            }
-        });
 
         searchDonationCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         searchDonationCatalogTable.setForeground(new java.awt.Color(0, 0, 102));
@@ -195,44 +223,28 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(manageOrdersTabLayout.createSequentialGroup()
                 .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                                .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(donationListSearchButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resetTableButton))
-                            .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(manageOrdersTabLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(172, Short.MAX_VALUE))
+                        .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manageOrdersTabLayout.setVerticalGroup(
             manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageOrdersTabLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(searchHeaderLabel)
-                .addGap(18, 18, 18)
-                .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(resetTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(donationListSearchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(propertyComboBox)
-                        .addComponent(propertyValueTextField)))
-                .addGap(18, 18, 18)
-                .addComponent(helpTextLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(helpTextLabel))
+                    .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         donationTabbedPane.addTab("Appointment History", manageOrdersTab);
@@ -243,7 +255,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(donationTabbedPane)
+                .addComponent(donationTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1913, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -254,72 +266,86 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void propertyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_propertyComboBoxActionPerformed
-        // TODO add your handling code here:
-
-        String propertyLabel = ((Object)propertyComboBox.getSelectedItem()).toString();
-        String propertyName = ((Object)propertyComboBox.getSelectedItem()).toString();
-        propertyValueTextField.setText("");
-
-        helpTextLabel.setText("");
-        switch (propertyName) {
-            case "charityName": helpTextLabel.setText("Please type in valid charity name. Any other value would result in invalid filters."); break;
-            case "charityCause": helpTextLabel.setText("Acceptable values: X1, X2 etc.");break;
- 
-        }
-
-    }//GEN-LAST:event_propertyComboBoxActionPerformed
-
-    private void donationListSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donationListSearchButtonActionPerformed
-        // TODO add your handling code here:
-
-        String propertyLabel = ((Object)propertyComboBox.getSelectedItem()).toString();
-        String propertyName = ((Object)propertyComboBox.getSelectedItem()).toString();
-
-        String filterPropertyValue = propertyValueTextField.getText();
-
-        System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
-
-//        ArrayList<Object> filteredList = new Utility().filterTable(propertyName, filterPropertyValue, carCatalog.getCars());
-//
-//        populateSearchTableHistory(filteredList);
-
-    }//GEN-LAST:event_donationListSearchButtonActionPerformed
-
-    private void resetTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTableButtonActionPerformed
-        // TODO add your handling code here:
-       // populateSearchTableHistory(carCatalog.getCars());
-    }//GEN-LAST:event_resetTableButtonActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        bodyPanel.remove(this);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.previous(bodyPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
 
+        DefaultTableModel model = (DefaultTableModel) appointDirTable.getModel();
+        int selectedRow = appointDirTable.getSelectedRow();
+        if (selectedRow < 0){
+            return;
+        }
+        AssistantAddingTimingsWorkQueue request = (AssistantAddingTimingsWorkQueue)appointDirTable.getValueAt(selectedRow,0);
+        if(request.getStatus().equals("Booked")){
+            JOptionPane.showMessageDialog(null,"Select Valid Slot");
+        }
+        else{
+            request.setStatus("Booked");
+//            Network net = (Network) cityJComboBox.getSelectedItem();
+//            populateTable(net);
+//            PatientBookedWorkQueue req = new PatientBookedWorkQueue();
+//            PatientInfo p = null;
+//            for(PatientInfo f : system.getPatientDir().getPatientDirectory()){
+//                if(f.getUsername().equals(account.getUsername()))
+//                {
+//                    p = f;
+//                    break;
+//                }
+//            }
+//            req.setPatient(p);
+//            req.setSender(account);
+//            req.setStatus("Booked");
+//            req.setCity(request.getCity());
+//            req.setDoctor(request.getDoctor());
+//            req.setHospitalName(request.getHospitalName());
+//            Enterprise d = null;
+//            for(Network n: system.getNetworkList() ){
+//                for(Enterprise e: n.getEnterpriseDirectory().getEnterpriseList()){
+//                    if(e.getName().equalsIgnoreCase(request.getHospitalName()))
+//                    {
+//                        d = e;
+//                        break;
+//                    }
+//                }
+//            }
+//            ReceptionistOrganisation org = null;
+//            for (Organisation o : d.getOrganizationDirectory().getOrganizationList()){
+//                if(o instanceof ReceptionistOrganisation)
+//                {
+//                    org = (ReceptionistOrganisation)o;
+//                    break;
+//                }
+//            }
+//            org.getIncomingPatients().getWorkRequestList().add(req);
+//            account.getWorkQueue().getWorkRequestList().add(req);
+        }
+
+
+
+
     }//GEN-LAST:event_registerBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable appointDirTable;
     private javax.swing.JButton backBtn;
-    private javax.swing.JTable charityDirTable;
     private javax.swing.JScrollPane delDirectoryScollPanel;
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JLabel deliveryDirLabel2;
     private javax.swing.JLabel deliveryDirLabel4;
-    private javax.swing.JButton donationListSearchButton;
     private javax.swing.JTabbedPane donationTabbedPane;
     private javax.swing.JLabel helpTextLabel;
     private javax.swing.JPanel manageOrdersTab;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JComboBox<String> propertyComboBox;
-    private javax.swing.JTextField propertyValueTextField;
     private javax.swing.JButton registerBtn;
-    private javax.swing.JButton resetTableButton;
     private javax.swing.JScrollPane searchCarCatalogScrollPanel;
     private javax.swing.JTable searchDonationCatalogTable;
-    private javax.swing.JLabel searchHeaderLabel;
     // End of variables declaration//GEN-END:variables
 
 }

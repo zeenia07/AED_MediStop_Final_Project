@@ -5,6 +5,15 @@
  */
 package medistopUI;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import medistopBackend.DB4OUtil.DB4OUtil;
+import medistopBackend.EcoSystem;
+import medistopUI.donor.CreateDonorJPanel;
+import medistopUI.login.LoginJPanel;
+import medistopUI.patient.CreatePatientJPanel;
+import medistopUtil.Utilities;
+
 /**
  *
  * @author 18577
@@ -14,9 +23,12 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public MainJFrame() {
 
         initComponents();
+        system=dB4OUtil.retrieveSystem();
 
 
     }
@@ -55,21 +67,41 @@ public class MainJFrame extends javax.swing.JFrame {
         donoeBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         donoeBtn.setForeground(new java.awt.Color(204, 204, 204));
         donoeBtn.setText("DONOR");
+        donoeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                donoeBtnActionPerformed(evt);
+            }
+        });
 
         patientbtn.setBackground(new java.awt.Color(0, 51, 102));
         patientbtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         patientbtn.setForeground(new java.awt.Color(204, 204, 204));
         patientbtn.setText("PATIENT");
+        patientbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientbtnActionPerformed(evt);
+            }
+        });
 
         loginBtn.setBackground(new java.awt.Color(0, 51, 102));
         loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         loginBtn.setForeground(new java.awt.Color(204, 204, 204));
         loginBtn.setText("LOG IN");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
 
         logoutBtn.setBackground(new java.awt.Color(0, 51, 102));
         logoutBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(204, 204, 204));
         logoutBtn.setText("LOG OUT");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -98,29 +130,21 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(patientbtn)
                     .addComponent(loginBtn)
                     .addComponent(logoutBtn))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainSplitPane.setTopComponent(headerPanel);
 
-        javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
-        bodyPanel.setLayout(bodyPanelLayout);
-        bodyPanelLayout.setHorizontalGroup(
-            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1146, Short.MAX_VALUE)
-        );
-        bodyPanelLayout.setVerticalGroup(
-            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
-        );
-
+        bodyPanel.setBackground(new java.awt.Color(255, 255, 255));
+        bodyPanel.setPreferredSize(new java.awt.Dimension(2000, 700));
+        bodyPanel.setLayout(new java.awt.CardLayout());
         mainSplitPane.setRightComponent(bodyPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE)
+            .addComponent(mainSplitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,6 +156,59 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        // TODO add your handling code here:
+        
+        
+        LoginJPanel loginJPanel = new LoginJPanel(bodyPanel, system);
+        bodyPanel.add("LoginJPanel", loginJPanel);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
+
+        logoutBtn.setEnabled(true);
+
+        
+       
+        
+        
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void donoeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donoeBtnActionPerformed
+        // TODO add your handling code here:
+        
+        CreateDonorJPanel createDonor = new CreateDonorJPanel(bodyPanel, system);
+        bodyPanel.add("CreateDonorJPanel", createDonor);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
+
+
+    }//GEN-LAST:event_donoeBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+        
+        logoutBtn.setEnabled(false);
+        loginBtn.setEnabled(true);
+        donoeBtn.setEnabled(true);
+        patientbtn.setEnabled(true);
+        
+        bodyPanel.removeAll();
+        JPanel blankJP = new JPanel();
+        bodyPanel.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) bodyPanel.getLayout();
+        crdLyt.next(bodyPanel);
+        dB4OUtil.storeSystem(system);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void patientbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientbtnActionPerformed
+        // TODO add your handling code here:      
+        
+        CreatePatientJPanel createDonor = new CreatePatientJPanel(bodyPanel, system);
+        bodyPanel.add("CreatePatientJPanel", createDonor);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
+    }//GEN-LAST:event_patientbtnActionPerformed
 
     /**
      * @param args the command line arguments
