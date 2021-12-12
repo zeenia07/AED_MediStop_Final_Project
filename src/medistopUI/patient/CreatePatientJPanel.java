@@ -402,6 +402,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             patient.setZipCode(zipCode);
             patient.setEmail(email);
 
+            //this is done in order to validate the email format:
                 if (femail) {
                     String[] to = {email};
                     String phoneNumber = patient.getContactNo();
@@ -425,24 +426,6 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 else{
                     JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-//        String[] to = {email};
-//        String phoneNumber = patient.getContactNo();
-//        String from = "medistop2021vzd@gmail.com";
-//        String pwd = "TravelDell@26893";
-//
-//        String code = OTPUtility.generateOTP(4);
-//        
-//        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
-//        String subject = "Account Verification Mail";
-//        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
-//        SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
-//        
-//        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
-//        
-//        ValidatePatientJPanel validatePatientJPanel = new ValidatePatientJPanel(bodyPanel, ecosystem,code, patient );
-//        bodyPanel.add("ValidatePatientJPanel", validatePatientJPanel);
-//        CardLayout layout = (CardLayout) bodyPanel.getLayout();
-//        layout.next(bodyPanel);
         }
         catch(Exception e)
         {
