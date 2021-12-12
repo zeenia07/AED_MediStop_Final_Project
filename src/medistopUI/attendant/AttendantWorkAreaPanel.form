@@ -16,16 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="attendantTabbedPane" alignment="0" pref="2176" max="32767" attributes="0"/>
+          <Component id="attendantTabbedPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
           <Component id="attendantTabbedPane" alignment="0" max="32767" attributes="0"/>
-=======
-          <Component id="attendantTabbedPane" alignment="0" pref="1075" max="32767" attributes="0"/>
->>>>>>> zeenia_ui
       </Group>
     </DimensionLayout>
   </Layout>
@@ -61,15 +57,9 @@
                               <Component id="deliveryDirLabel3" min="-2" pref="651" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-<<<<<<< HEAD
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-=======
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
->>>>>>> zeenia_ui
                               <Component id="lblVolunteerName" min="-2" pref="74" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -77,31 +67,14 @@
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="1063" max="32767" attributes="0"/>
-=======
                       <EmptySpace pref="189" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
->>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="deliveryDirLabel3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblWelcome" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="lblVolunteerName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="518" max="32767" attributes="0"/>
-=======
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -121,7 +94,6 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="501" max="32767" attributes="0"/>
->>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
@@ -330,16 +302,13 @@
                 </Component>
               </SubComponents>
             </Container>
-<<<<<<< HEAD
-=======
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dell\Desktop\assistant.png"/>
+                  <Image iconType="3" name="/medistopUI.images/assistant.png"/>
                 </Property>
               </Properties>
             </Component>
->>>>>>> zeenia_ui
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="checkStatus">
@@ -361,32 +330,32 @@
                               <Component id="deliveryDirLabel4" min="-2" pref="551" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="1130" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="1043" max="32767" attributes="0"/>
->>>>>>> zeenia_ui
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="384" max="-2" attributes="0"/>
+                      <EmptySpace pref="644" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="deliveryDirLabel4" min="-2" pref="64" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="165" max="-2" attributes="0"/>
-                      <EmptySpace pref="639" max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="625" max="32767" attributes="0"/>
->>>>>>> zeenia_ui
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="deliveryDirLabel4" min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="432" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="549" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -465,6 +434,13 @@
                 </Container>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Dell\Desktop\bloodStatus.jpg"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
