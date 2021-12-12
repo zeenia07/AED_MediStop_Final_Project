@@ -9,6 +9,8 @@ package medistopUI.donor;
 import java.awt.CardLayout;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -76,6 +78,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         emailTF = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        lblemailformat = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setAutoscrolls(true);
@@ -177,6 +180,11 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
+        emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTFKeyReleased(evt);
+            }
+        });
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -258,8 +266,17 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(322, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(lblemailformat, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(163, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(946, Short.MAX_VALUE)))
+                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,15 +331,23 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menuItemName9)
+                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblemailformat, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(registerBtn)
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(737, Short.MAX_VALUE)
                     .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
                     .addComponent(registerBtn))
                 .addGap(85, 85, 85))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean femail=true;
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biRBActionPerformed
@@ -354,6 +379,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         
         
          try {
+
             String date = Utilities.getTrimmedText(dobTF);
             String name = Utilities.getTrimmedText(donorNameTF);
             String gender = getGenderValuesFromGivenRadioButtons();
@@ -373,6 +399,17 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter the valid details for Email", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
+//            String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
+//            Pattern patt = Pattern.compile(PATTERN);
+//            Matcher match = patt.matcher(email);
+//            if (!match.matches()) {
+//    //            femail = false;
+//                emailTF.setText("Email Format is not correct");
+//            } else {
+//    //            femail = true;
+//                emailTF.setText(null);
+//            }
+
             DonorData donor = new DonorData();
             donor.setDonorName(name);
             donor.setAddress(address);
@@ -385,25 +422,47 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             donor.setZipCode(zipCode);
             donor.setEmail(email);
 
-        
-        String[] to = {email};
-        String phoneNumber = donor.getContactNo();
-        String from = "medistop2021vzd@gmail.com";
-        String pwd = "TravelDell@26893";
+            if (femail) {
+                    String[] to = {email};
+                    String phoneNumber = donor.getContactNo();
+                    String from = "medistop2021vzd@gmail.com";
+                    String pwd = "TravelDell@26893";
 
-        String code = OTPUtility.generateOTP(4);
-        
-        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
-        String subject = "Account Verification Mail";
-        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
-        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
-        
-        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
-        
-        ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
-        bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
-        CardLayout layout = (CardLayout) bodyPanel.getLayout();
-        layout.next(bodyPanel);
+                    String code = OTPUtility.generateOTP(4);
+
+                    String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+                    String subject = "Account Verification Mail";
+                    SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+                    SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
+
+                    JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+
+                    ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
+                    bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
+                    CardLayout layout = (CardLayout) bodyPanel.getLayout();
+                    layout.next(bodyPanel);
+             }else{
+                JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+//        String[] to = {email};
+//        String phoneNumber = donor.getContactNo();
+//        String from = "medistop2021vzd@gmail.com";
+//        String pwd = "TravelDell@26893";
+//
+//        String code = OTPUtility.generateOTP(4);
+//
+//        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+//        String subject = "Account Verification Mail";
+//        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+//        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
+//
+//        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+//
+//        ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
+//        bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
+//        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+//        layout.next(bodyPanel);
         }
         catch(Exception e)
         {
@@ -446,6 +505,21 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void emailTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyReleased
+        // TODO add your handling code here:
+
+        String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(emailTF.getText());
+        if (!match.matches()) {
+            femail = false;
+//            lblemailformat.setText("Email Format is not correct");
+        } else {
+            femail = true;
+//            lblemailformat.setText(null);
+        }
+    }//GEN-LAST:event_emailTFKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addTF;
@@ -459,6 +533,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField donorNameTF;
     private javax.swing.JTextField emailTF;
     private javax.swing.JRadioButton femaleRB;
+    private javax.swing.JLabel lblemailformat;
     private javax.swing.JRadioButton maleRB;
     private javax.swing.JLabel menuItemName;
     private javax.swing.JLabel menuItemName1;
