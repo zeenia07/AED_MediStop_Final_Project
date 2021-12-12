@@ -5,10 +5,9 @@
  */
 package medistopBackend.UserData;
 
-import medistopBackend.WorkQueue.WorkQueue;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
+import medistopBackend.WorkQueue.WorkQueue;
 
 /**
  *
