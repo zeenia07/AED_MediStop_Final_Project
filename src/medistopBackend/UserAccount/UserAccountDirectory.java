@@ -98,5 +98,12 @@ public class UserAccountDirectory {
             }
         }
     }
+    
+    //to return the user on the basis of userName for login attempt functionality:
+    public UserAccount getUser(String username){
+        System.out.println(userAccountDirectory.size());
+       return userAccountDirectory.stream().filter(acc -> acc.getUsername().equals(username))
+         .collect(Collectors.toList()).get(0);
+    }
 
 }
