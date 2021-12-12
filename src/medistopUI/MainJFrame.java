@@ -53,7 +53,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 153, 255));
 
+        mainSplitPane.setBackground(new java.awt.Color(255, 255, 255));
         mainSplitPane.setDividerSize(1);
         mainSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
