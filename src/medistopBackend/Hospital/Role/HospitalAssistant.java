@@ -8,10 +8,12 @@ package medistopBackend.Hospital.Role;
 import javax.swing.JPanel;
 import medistopBackend.EcoSystem;
 import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
+import medistopUI.Assistant.AssistantWorkAreaPanel;
 
 /**
  *
@@ -21,7 +23,7 @@ public class HospitalAssistant extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new AssistantWorkAreaPanel(userProcessContainer,account,(HospitalOrganisationAssistant)organisation,enterprise,network,system); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

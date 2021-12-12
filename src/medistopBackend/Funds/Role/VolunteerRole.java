@@ -12,6 +12,7 @@ import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import medistopUI.FundVolunteer.VolunteerWorkAreaJPanel;
 
 /**
  *
@@ -22,6 +23,6 @@ public class VolunteerRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network, EcoSystem business)
     {
         //need to write the code here
-        return null;
+        return new VolunteerWorkAreaJPanel(userProcessContainer, account,(FundsOrganisationVolunteer) organisation,(FundingEnterprise) enterprise,network, business);
     }
 }

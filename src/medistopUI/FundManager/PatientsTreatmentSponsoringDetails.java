@@ -11,7 +11,7 @@ import medistopBackend.Enterprise.Enterprise;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.UserAccount.UserAccount;
-import medistopBackend.WorkQueue.RecivedFundWorkRequest;
+import medistopBackend.WorkQueue.ReceivedFundWorkRequest;
 import medistopBackend.WorkQueue.HospitalFundsRequestWorkQueue;
 import medistopBackend.WorkQueue.WorkRequest;
 import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
@@ -195,7 +195,7 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
                     request.setFunderName(fundingEnterprise.getName());
                     populateJTable();
                     amountFromFunding = amountFromFunding-amount;
-                    RecivedFundWorkRequest recivedFundWorkRequest = new RecivedFundWorkRequest();
+                    ReceivedFundWorkRequest recivedFundWorkRequest = new ReceivedFundWorkRequest();
                     
                     recivedFundWorkRequest.setPatientName(request.getPatientName());
                     recivedFundWorkRequest.setFunderName(fundingEnterprise.getName());
