@@ -16,12 +16,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="attendantTabbedPane" alignment="0" max="32767" attributes="0"/>
+          <Component id="attendantTabbedPane" alignment="0" pref="2176" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Component id="attendantTabbedPane" alignment="0" max="32767" attributes="0"/>
+=======
+          <Component id="attendantTabbedPane" alignment="0" pref="1075" max="32767" attributes="0"/>
+>>>>>>> zeenia_ui
       </Group>
     </DimensionLayout>
   </Layout>
@@ -57,9 +61,15 @@
                               <Component id="deliveryDirLabel3" min="-2" pref="651" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
+<<<<<<< HEAD
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+=======
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> zeenia_ui
                               <Component id="lblVolunteerName" min="-2" pref="74" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -67,12 +77,19 @@
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="1063" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="189" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
+>>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="deliveryDirLabel3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -84,6 +101,27 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="518" max="32767" attributes="0"/>
+=======
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="deliveryDirLabel3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblWelcome" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="lblVolunteerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="501" max="32767" attributes="0"/>
+>>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
@@ -292,6 +330,16 @@
                 </Component>
               </SubComponents>
             </Container>
+<<<<<<< HEAD
+=======
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Dell\Desktop\assistant.png"/>
+                </Property>
+              </Properties>
+            </Component>
+>>>>>>> zeenia_ui
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="checkStatus">
@@ -313,11 +361,15 @@
                               <Component id="deliveryDirLabel4" min="-2" pref="551" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="828" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="1130" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="1043" max="32767" attributes="0"/>
+>>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
@@ -326,9 +378,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="deliveryDirLabel4" min="-2" pref="64" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="165" max="-2" attributes="0"/>
                       <EmptySpace pref="639" max="32767" attributes="0"/>
+=======
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="625" max="32767" attributes="0"/>
+>>>>>>> zeenia_ui
                   </Group>
               </Group>
             </DimensionLayout>
@@ -345,28 +403,66 @@
                 <Property name="text" type="java.lang.String" value="BLOOD BANK REQUEST STATUS"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder>
+                      <Color PropertyName="highlight" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+                      <Color PropertyName="shadow" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
+                    </EtchetBorder>
+                  </Border>
+                </Property>
+              </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="828" max="-2" attributes="0"/>
+                          <EmptySpace pref="91" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="165" max="-2" attributes="0"/>
+                          <EmptySpace pref="47" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblBloodStatus">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="0">
-                        <Column editable="true" title="Patient Name" type="java.lang.Object"/>
-                        <Column editable="true" title="Blood Type" type="java.lang.Object"/>
-                        <Column editable="true" title="Quantity of Blood" type="java.lang.Object"/>
-                        <Column editable="true" title="Request Status" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tblBloodStatus">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="4" rowCount="0">
+                            <Column editable="true" title="Patient Name" type="java.lang.Object"/>
+                            <Column editable="true" title="Blood Type" type="java.lang.Object"/>
+                            <Column editable="true" title="Quantity of Blood" type="java.lang.Object"/>
+                            <Column editable="true" title="Request Status" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>
