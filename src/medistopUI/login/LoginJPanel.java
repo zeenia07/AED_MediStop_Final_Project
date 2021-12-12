@@ -206,12 +206,6 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         if(userAccount==null)
         {
-            UserAccount ua=ecosystem.getUserAccountDirectory().getUser(userName);
-            if (ua.getLoginattempt()>3) {
-             ecosystem.getUserAccountDirectory().removeUserAccount(userName);
-             return;
-            }
-            ua.setLoginattempt(1);
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         }

@@ -4,8 +4,11 @@
  */
 package medistopBackend.WorkQueue;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import medistopBackend.UserAccount.UserAccount;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -16,7 +19,7 @@ public class AssistantAddingTimingsWorkQueue extends WorkRequest{
     private String doctor;
     public String city;
     private String nameOfHospital;
-    private Date timings;
+    private LocalDateTime timings;
 
     public String getHospitalName() {
         return nameOfHospital;
@@ -44,11 +47,11 @@ public class AssistantAddingTimingsWorkQueue extends WorkRequest{
         this.doctor = doctor;
     }
     
-    public Date getTimings() {
-        return timings;
+    public String getTimings() {
+        return timings.format(Utilities.formatter);
     }
 
-    public void setTimings(Date timings) {
+    public void setTimings(LocalDateTime timings) {
         this.timings = timings;
     }
     @Override
