@@ -90,15 +90,6 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         comboYear = new javax.swing.JComboBox();
         lblWelcome = new javax.swing.JLabel();
         lblAssistantName = new javax.swing.JLabel();
-        manageAppointmentsPanel = new javax.swing.JPanel();
-        helpTextLabel = new javax.swing.JLabel();
-        deliveryDirLabel7 = new javax.swing.JLabel();
-        btnAccept = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAppointment = new javax.swing.JTable();
-        btnReject = new javax.swing.JButton();
-        lblWelcome3 = new javax.swing.JLabel();
-        lblAssistantName3 = new javax.swing.JLabel();
         manageFundingRequestsPanel = new javax.swing.JPanel();
         helpTextLabel1 = new javax.swing.JLabel();
         deliveryDirLabel8 = new javax.swing.JLabel();
@@ -115,6 +106,15 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         tblAcknowledgement = new javax.swing.JTable();
         lblWelcome2 = new javax.swing.JLabel();
         lblAssistantName2 = new javax.swing.JLabel();
+        manageAppointmentsPanel = new javax.swing.JPanel();
+        helpTextLabel = new javax.swing.JLabel();
+        deliveryDirLabel7 = new javax.swing.JLabel();
+        btnAccept = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAppointment = new javax.swing.JTable();
+        btnReject = new javax.swing.JButton();
+        lblWelcome3 = new javax.swing.JLabel();
+        lblAssistantName3 = new javax.swing.JLabel();
 
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -223,107 +223,6 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         );
 
         donationTabbedPane.addTab("Manage Doctor Slots", manageDocSlotsPanel);
-
-        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
-        helpTextLabel.setText(" ");
-
-        deliveryDirLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        deliveryDirLabel7.setForeground(new java.awt.Color(255, 51, 51));
-        deliveryDirLabel7.setText("ASSISTANT WORK AREA");
-
-        btnAccept.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnAccept.setForeground(new java.awt.Color(0, 0, 102));
-        btnAccept.setText("Accept");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
-            }
-        });
-
-        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Patient Name", "Patient ID", "Appointment Details", "Type Of Consultation", "Doctor"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblAppointment);
-
-        btnReject.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnReject.setForeground(new java.awt.Color(0, 0, 102));
-        btnReject.setText("Reject");
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
-            }
-        });
-
-        lblWelcome3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome3.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome3.setText("Welcome ");
-
-        lblAssistantName3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblAssistantName3.setText("value");
-
-        javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
-        manageAppointmentsPanel.setLayout(manageAppointmentsPanelLayout);
-        manageAppointmentsPanelLayout.setHorizontalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                                .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))))
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                                .addGap(272, 272, 272)
-                                .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                                .addComponent(lblWelcome3)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblAssistantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(358, Short.MAX_VALUE))
-        );
-        manageAppointmentsPanelLayout.setVerticalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome3)
-                    .addComponent(lblAssistantName3))
-                .addGap(51, 51, 51)
-                .addComponent(helpTextLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAccept)
-                    .addComponent(btnReject))
-                .addContainerGap(580, Short.MAX_VALUE))
-        );
-
-        donationTabbedPane.addTab("Manage Appointments", manageAppointmentsPanel);
 
         helpTextLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         helpTextLabel1.setForeground(new java.awt.Color(0, 0, 102));
@@ -495,6 +394,107 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         );
 
         donationTabbedPane.addTab(" Acknowledgments", fundingAcknowledgementPanel);
+
+        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
+        helpTextLabel.setText(" ");
+
+        deliveryDirLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deliveryDirLabel7.setForeground(new java.awt.Color(255, 51, 51));
+        deliveryDirLabel7.setText("ASSISTANT WORK AREA");
+
+        btnAccept.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(0, 0, 102));
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
+
+        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient Name", "Patient ID", "Appointment Details", "Type Of Consultation", "Doctor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblAppointment);
+
+        btnReject.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(0, 0, 102));
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        lblWelcome3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome3.setForeground(new java.awt.Color(0, 0, 102));
+        lblWelcome3.setText("Welcome ");
+
+        lblAssistantName3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName3.setText("value");
+
+        javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
+        manageAppointmentsPanel.setLayout(manageAppointmentsPanelLayout);
+        manageAppointmentsPanelLayout.setHorizontalGroup(
+            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                                .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))))
+                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                                .addComponent(lblWelcome3)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAssistantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(358, Short.MAX_VALUE))
+        );
+        manageAppointmentsPanelLayout.setVerticalGroup(
+            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome3)
+                    .addComponent(lblAssistantName3))
+                .addGap(51, 51, 51)
+                .addComponent(helpTextLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAccept)
+                    .addComponent(btnReject))
+                .addContainerGap(580, Short.MAX_VALUE))
+        );
+
+        donationTabbedPane.addTab("Manage Appointments", manageAppointmentsPanel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
