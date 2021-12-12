@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author virendra
  */
-public class RecivedFundWorkRequest extends WorkRequest{
+public class ReceivedFundWorkRequest extends WorkRequest{
     private String patientName;
     private String funderName;
     private String city;
