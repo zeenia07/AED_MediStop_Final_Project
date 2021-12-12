@@ -116,6 +116,75 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
     
     }
     
+    public void populateDonationHistoryTableWithCharityName(String charityname) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityName(charityname);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }
+        
+        
+                
+        
+    
+    }
+    
+    
+     public void populateDonationHistoryTableWithCharityCause(String cause) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityCause(cause);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }
+        
+        
+   }
+     
+    public void populateDonationHistoryTableWithCharityCity(String city) {
+
+        List<FundsInfo> donorData = ecoSystem.getDonationDirectory().getFundsInfoForACharityCity(city);
+        DefaultTableModel appointmentHisTable = (DefaultTableModel) searchDonationCatalogTable.getModel();
+        
+        appointmentHisTable.setRowCount(0);
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
+        for (FundsInfo fundInfo: donorData) {
+
+            String[] rowData = {fundInfo.getFundsOrgName(), fundInfo.getFundsOrgCity(),
+                    fundInfo.getFundsCause(), fundInfo.getFrequencyType(), fundInfo.getDonation(),
+                    formatter.format(fundInfo.getDonationDate())
+            };
+
+            appointmentHisTable.addRow(rowData);
+        }           
+        
+    
+    } 
+     
+     
+     
     public void initDonationHistoryDirTableModel() {
         
         donationHistoryTableModel = new DefaultTableModel();
@@ -316,6 +385,7 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
 
         propertyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         propertyComboBox.setForeground(new java.awt.Color(0, 0, 102));
+        propertyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Charity Name", "City", "Charity Cause" }));
         propertyComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 propertyComboBoxActionPerformed(evt);
@@ -330,6 +400,7 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         propertyValueTextField.setText(" ");
 
         donationListSearchButton.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        donationListSearchButton.setForeground(new java.awt.Color(0, 0, 102));
         donationListSearchButton.setText("Search");
         donationListSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,6 +409,7 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         });
 
         resetTableButton.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        resetTableButton.setForeground(new java.awt.Color(0, 0, 102));
         resetTableButton.setText("Reset");
         resetTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,21 +530,25 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String propertyLabel = ((Object)propertyComboBox.getSelectedItem()).toString();
-        String propertyName = ((Object)propertyComboBox.getSelectedItem()).toString();
 
         String filterPropertyValue = propertyValueTextField.getText();
-
-        System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
-
-//        ArrayList<Object> filteredList = new Utility().filterTable(propertyName, filterPropertyValue, carCatalog.getCars());
-//
-//        populateSearchTableHistory(filteredList);
+        
+        if (propertyLabel.equals("Charity Name")) {
+            populateDonationHistoryTableWithCharityName(filterPropertyValue);
+        
+        } else if (propertyLabel.equals("City")) {
+            populateDonationHistoryTableWithCharityCity(filterPropertyValue);
+        
+        } else if (propertyLabel.equals("Charity Cause")) {
+            populateDonationHistoryTableWithCharityCause(filterPropertyValue);
+        }
 
     }//GEN-LAST:event_donationListSearchButtonActionPerformed
 
     private void resetTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTableButtonActionPerformed
         // TODO add your handling code here:
        // populateSearchTableHistory(carCatalog.getCars());
+       populateDonationHistoryTable();
     }//GEN-LAST:event_resetTableButtonActionPerformed
 
     private void frequencyComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frequencyComboboxActionPerformed
