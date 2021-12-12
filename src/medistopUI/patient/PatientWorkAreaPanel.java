@@ -9,6 +9,7 @@ package medistopUI.patient;
 
 import medistopBackend.EcoSystem;
 import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Hospital.Appointment.AppointmentDetails;
 import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Patient;
@@ -51,6 +52,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         initApptHistoryDirTableModel();
         initComponents();
         populateAvailAppontments();
+        populateAppointmentHistoryTable();
 
 
     }
@@ -110,6 +112,30 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
           
     }
 
+
+    public void populateAppointmentHistoryTable() {
+        DefaultTableModel model = (DefaultTableModel) searchDonationCatalogTable.getModel();
+
+        model.setRowCount(0);
+
+        for(AppointmentDetails appDetails : ecoSystem.getAppointmentDirectory().getAppointmentDirectory())
+        {
+            if(userAccount.getUsername().equalsIgnoreCase(appDetails.getPatient().getUsername()))
+            {
+                Object[] row = new Object[6];
+                row[0] = appDetails.getPatient().getPatientName();
+                row[1] = appDetails.getDate();
+                row[2] = appDetails.getDoctorName();
+                row[3] = appDetails.getHospitalName();
+                row[4] = appDetails.getCityOfTreated();
+                row[5] = appDetails.getDiseases();
+
+                model.addRow(row);
+            }
+        }
+
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -139,6 +165,9 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));
         deliveryDirLabel.setText("Book an appoinment with us to get the help you need...");
+
+        delDirectoryScollPanel.setForeground(new java.awt.Color(0, 0, 102));
+        delDirectoryScollPanel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
 
         appointDirTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         appointDirTable.setForeground(new java.awt.Color(0, 0, 102));
@@ -258,7 +287,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(donationTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1913, Short.MAX_VALUE)
+                .addComponent(donationTabbedPane)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -286,7 +315,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         }
         AssistantAddingTimingsWorkQueue request = (AssistantAddingTimingsWorkQueue)appointDirTable.getValueAt(selectedRow,0);
         if(request.getStatus().equals("Booked")){
-            JOptionPane.showMessageDialog(null,"Select Valid Slot");
+            JOptionPane.showMessageDialog(null,"Select Valid Slot. The slot you are trying to book is not available.");
         }
         else{
             request.setStatus("Booked");
@@ -327,6 +356,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             }
             org.getIncomingPatients().getWorkRequestList().add(patientBookingWorkQueue);
             userAccount.getWorkQueue().getWorkRequestList().add(patientBookingWorkQueue);
+            populateAppointmentHistoryTable();
         }
 
 
