@@ -33,6 +33,11 @@ public class UserAccount {
         this.loginattempt += loginattempt;
     }
 
+    public void resetLogin() {
+        loginattempt = 0;
+
+    }
+
     public UserAccount() {
         workQueue = new WorkQueue();
     }
