@@ -17,8 +17,26 @@ public class FundsInfo {
     private String fundsOrgName;
     private String fundsOrgCity;
     private String donation;
+    private String frequencyType;
+    private String fundsCause;
     private Date donationDate;
     private DonorData donor;
+
+    public String getFundsCause() {
+        return fundsCause;
+    }
+
+    public void setFundsCause(String fundsCause) {
+        this.fundsCause = fundsCause;
+    }
+
+    public String getFrequencyType() {
+        return frequencyType;
+    }
+
+    public void setFrequencyType(String frequencyType) {
+        this.frequencyType = frequencyType;
+    }
 
     public String getFundsOrgName() {
         return fundsOrgName;
