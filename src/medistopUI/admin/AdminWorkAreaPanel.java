@@ -142,7 +142,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
 
         btnCreateOrg.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         btnCreateOrg.setForeground(new java.awt.Color(0, 0, 102));
-        btnCreateOrg.setText("Create Organisation");
+        btnCreateOrg.setText("Create Organisation Role");
         btnCreateOrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateOrgActionPerformed(evt);
@@ -167,12 +167,12 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
                                 .addComponent(comboManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                        .addGap(375, 375, 375)
-                        .addComponent(btnCreateOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
                         .addGap(281, 281, 281)
-                        .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(350, Short.MAX_VALUE))
+                        .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                        .addGap(375, 375, 375)
+                        .addComponent(btnCreateOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         manageOrgPanelLayout.setVerticalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,6 +576,10 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         Type type = (Type) comboManageOrg.getSelectedItem();
         organizationDirectory.createOrganisation(type);
         populateManageOrganisationTable();
+        populateEmployeeUpdateOrgCombo();
+        populateManageOrganisationCombo();
+        populateUserOrganizationCombo();
+        populateUserRoleCombo(enterprise);
         
         JOptionPane.showMessageDialog(null, "Organisation Added Successfully!!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnCreateOrgActionPerformed
