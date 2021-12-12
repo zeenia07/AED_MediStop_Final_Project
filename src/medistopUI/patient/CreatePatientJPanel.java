@@ -82,7 +82,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         registerBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         menuItemName10 = new javax.swing.JLabel();
-        bllodGroupTF = new javax.swing.JTextField();
+        bloodGroupTF = new javax.swing.JTextField();
 
         setAutoscrolls(true);
 
@@ -211,8 +211,13 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         menuItemName10.setForeground(new java.awt.Color(0, 0, 102));
         menuItemName10.setText("Blood Group");
 
-        bllodGroupTF.setForeground(new java.awt.Color(0, 0, 102));
-        bllodGroupTF.setText(" ");
+        bloodGroupTF.setForeground(new java.awt.Color(0, 0, 102));
+        bloodGroupTF.setText(" ");
+        bloodGroupTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                bloodGroupTFKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -272,23 +277,22 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                             .addComponent(phoneTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(menuItemName10, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(64, 64, 64)
-                            .addComponent(bllodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
                             .addComponent(menuItemName9, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(64, 64, 64)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(menuItemName10, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(64, 64, 64))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bloodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(322, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(946, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,19 +351,17 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menuItemName10)
-                    .addComponent(bllodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(registerBtn)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(824, Short.MAX_VALUE)
-                    .addComponent(backBtn)
-                    .addContainerGap()))
+                    .addComponent(bloodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerBtn)
+                    .addComponent(backBtn))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean femail=true;
+    private boolean fbloodgroup=true;
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biRBActionPerformed
@@ -401,7 +403,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             int zipCode = Integer.parseInt(Utilities.getTrimmedText(zipCodeTF));
             String email = Utilities.getTrimmedText(emailTF);
             String profilePath = profilePicPathLabel.getText();
-            String blood = Utilities.getTrimmedText(bllodGroupTF);
+            String blood = Utilities.getTrimmedText(bloodGroupTF);
                     
 
 
@@ -426,7 +428,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             patient.setEmail(email);
             patient.setBloodGroup(blood);
 
-                if (femail) {
+            //this is done in order to validate the email bloodGroup:
+                if (fbloodgroup && femail) {
                     String[] to = {email};
                     String phoneNumber = patient.getContactNo();
                     String from = "medistop2021vzd@gmail.com";
@@ -447,26 +450,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                     layout.next(bodyPanel);
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Email or Blood-Group inputes are not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-//        String[] to = {email};
-//        String phoneNumber = patient.getContactNo();
-//        String from = "medistop2021vzd@gmail.com";
-//        String pwd = "TravelDell@26893";
-//
-//        String code = OTPUtility.generateOTP(4);
-//        
-//        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
-//        String subject = "Account Verification Mail";
-//        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
-//        SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
-//        
-//        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
-//        
-//        ValidatePatientJPanel validatePatientJPanel = new ValidatePatientJPanel(bodyPanel, ecosystem,code, patient );
-//        bodyPanel.add("ValidatePatientJPanel", validatePatientJPanel);
-//        CardLayout layout = (CardLayout) bodyPanel.getLayout();
-//        layout.next(bodyPanel);
         }
         catch(Exception e)
         {
@@ -509,6 +494,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         layout.previous(bodyPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    //this code is to valdate the email format:
     private void emailTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyReleased
         // TODO add your handling code here:
          String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
@@ -521,12 +507,25 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_emailTFKeyReleased
 
+    //this code is to valdate the blood group:
+    private void bloodGroupTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bloodGroupTFKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^([AaBbOo]|[Aa][Bb])[\\+-]$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(bloodGroupTF.getText());
+        if (!match.matches()) {
+            fbloodgroup = false;
+        } else {
+            fbloodgroup = true;
+        }
+    }//GEN-LAST:event_bloodGroupTFKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addTF;
     private javax.swing.JButton backBtn;
     private javax.swing.JRadioButton biRB;
-    private javax.swing.JTextField bllodGroupTF;
+    private javax.swing.JTextField bloodGroupTF;
     private javax.swing.JTextField cityTF;
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JLabel deliveryDirLabel1;
