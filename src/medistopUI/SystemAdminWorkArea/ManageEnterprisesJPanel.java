@@ -16,25 +16,24 @@ import medistopBackend.Network.Network;
 
 /**
  *
- * @author aviti
+ * @author Virendra Rathore
  */
 public class ManageEnterprisesJPanel extends javax.swing.JPanel {
-JPanel displayJPanel;
+JPanel showPanel;
 EcoSystem ecosystem;
     /**
      * Creates new form ManageEnterprisesJPanel
      */
-    public ManageEnterprisesJPanel(JPanel displayJPanel, EcoSystem ecosystem) {
+    public ManageEnterprisesJPanel(JPanel showPanel, EcoSystem ecosystem) {
         initComponents();
-        this.displayJPanel=displayJPanel;
+        this.showPanel=showPanel;
         this.ecosystem= ecosystem;
         populateEnterpriseTable();
         populateComboBox();
     }
 
     private void populateEnterpriseTable() {
-        DefaultTableModel model = (DefaultTableModel) EnterprisejTable.getModel();
-
+        DefaultTableModel model = (DefaultTableModel) tblEnterpriseDetails.getModel();
         model.setRowCount(0);
         for (Network network : ecosystem.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -42,7 +41,6 @@ EcoSystem ecosystem;
                 row[0] = enterprise.getName();
                 row[1] = network.getNetworkName();
                 row[2] = enterprise.getEnterpriseClassification().getVal();
-
                 model.addRow(row);
             }
         }
@@ -51,15 +49,13 @@ EcoSystem ecosystem;
     private void populateComboBox() {
         networkJComboBox.removeAllItems();
         enterpriseTypeJComboBox.removeAllItems();
-
-        for (Network network : ecosystem.getNetworkList()) {
+        for (int i = 0; i < ecosystem.getNetworkList().size(); i++) {
+            Network network =ecosystem.getNetworkList().get(i);
             networkJComboBox.addItem(network);
         }
-
         for (Enterprise.EnterpriseClassification type : Enterprise.EnterpriseClassification.values()) {
             enterpriseTypeJComboBox.addItem(type);
         }
-
     }
 
     /**
@@ -72,14 +68,14 @@ EcoSystem ecosystem;
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        EnterprisejTable = new javax.swing.JTable();
+        tblEnterpriseDetails = new javax.swing.JTable();
         lblTitle = new javax.swing.JLabel();
         lblNetwork = new javax.swing.JLabel();
         networkJComboBox = new javax.swing.JComboBox();
         lblEnterprise = new javax.swing.JLabel();
         enterpriseTypeJComboBox = new javax.swing.JComboBox();
-        nameJTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
 
@@ -87,15 +83,15 @@ EcoSystem ecosystem;
         setBorder(javax.swing.BorderFactory.createTitledBorder("Manage Enterprise"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        EnterprisejTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblEnterpriseDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "EnterPrises Name", "Network", "Type"
+                "EnterPrise's Name", "Network", "Type"
             }
         ));
-        jScrollPane1.setViewportView(EnterprisejTable);
+        jScrollPane1.setViewportView(tblEnterpriseDetails);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, 370, 134));
 
@@ -112,12 +108,12 @@ EcoSystem ecosystem;
         add(lblEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 280, -1, -1));
 
         add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 276, 136, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 321, 136, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 321, 136, -1));
 
-        jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 326, -1, -1));
+        lblName.setText("Name");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 326, -1, -1));
 
-        btnBack.setText("<<Back");
+        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -138,14 +134,12 @@ EcoSystem ecosystem;
         // TODO add your handling code here:
         Network network = (Network) networkJComboBox.getSelectedItem();
         Enterprise.EnterpriseClassification type = (Enterprise.EnterpriseClassification) enterpriseTypeJComboBox.getSelectedItem();
-
         if (network == null || type == null) 
         {
             JOptionPane.showMessageDialog(null, "Invalid Input!");
             return;
         }
-
-        String name = nameJTextField.getText();
+        String name = txtName.getText();
         if(name.isEmpty()==true)
         {
             JOptionPane.showMessageDialog(null, "Please add a Name ","Success", JOptionPane.INFORMATION_MESSAGE);
@@ -154,37 +148,32 @@ EcoSystem ecosystem;
         {    
             Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
             populateEnterpriseTable();
-            nameJTextField.setText("");
+            txtName.setText("");
         }
-        
-        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         displayJPanel.remove(this);
-        Component[] componentArray = displayJPanel.getComponents();
+         showPanel.remove(this);
+        Component[] componentArray = showPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        CardLayout layout = (CardLayout) displayJPanel.getLayout();
-        layout.previous(displayJPanel);
-        
-        
-        
+        SystemAdministratorWorkAreaJPanel sysAdminwjp = (SystemAdministratorWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) showPanel.getLayout();
+        layout.previous(showPanel); 
     }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable EnterprisejTable;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox enterpriseTypeJComboBox;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEnterprise;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNetwork;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;
+    private javax.swing.JTable tblEnterpriseDetails;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

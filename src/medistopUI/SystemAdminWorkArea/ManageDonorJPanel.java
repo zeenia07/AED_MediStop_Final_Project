@@ -13,17 +13,17 @@ import medistopBackend.UserData.DonorData;
 
 /**
  *
- * @author virendra
+ * @author Virendra Rathore
  */
 public class ManageDonorJPanel extends javax.swing.JPanel {
-JPanel displayJPanel;
+JPanel showPanel;
 EcoSystem ecosystem;
     /**
      * Creates new form ManageDonorJPanel
      */
-    public ManageDonorJPanel(JPanel displayJPanel, EcoSystem ecosystem) {
+    public ManageDonorJPanel(JPanel showPanel, EcoSystem ecosystem) {
         initComponents();
-        this.displayJPanel=displayJPanel;
+        this.showPanel=showPanel;
         this.ecosystem=ecosystem;
         populateDonorTable();
     }
@@ -39,20 +39,20 @@ EcoSystem ecosystem;
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        ViewjButton = new javax.swing.JButton();
-        DeletejButton = new javax.swing.JButton();
-        BackjButton = new javax.swing.JButton();
+        tblDonorsInformation = new javax.swing.JTable();
+        btnView = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Manage Donor"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setText("MANAGE DONOR INFO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 33, -1, 34));
+        jLabel1.setText("MANAGE DONOR INFORMATION");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 33, 260, 34));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDonorsInformation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -60,28 +60,28 @@ EcoSystem ecosystem;
                 "Donor Name"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblDonorsInformation);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 85, 404, 145));
 
-        ViewjButton.setText("View");
-        ViewjButton.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewjButtonActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
-        jPanel1.add(ViewjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 276, 84, -1));
+        jPanel1.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 276, 84, -1));
 
-        DeletejButton.setText("Delete");
-        DeletejButton.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButtonActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(DeletejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 339, -1, -1));
+        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 339, -1, -1));
 
-        BackjButton.setText("Back");
-        jPanel1.add(BackjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        btnBack.setText("Back");
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,7 +106,7 @@ EcoSystem ecosystem;
     }// </editor-fold>//GEN-END:initComponents
 
     private void populateDonorTable() {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblDonorsInformation.getModel();
 
         model.setRowCount(0);
         for (DonorData test : ecosystem.getDonorDir().getDonorDirectory()) {
@@ -115,44 +115,41 @@ EcoSystem ecosystem;
             model.addRow(row);
         }
     }
-    private void ViewjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewjButtonActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = tblDonorsInformation.getSelectedRow();
         if(selectedRow>=0){
-
-            DonorData donor = (DonorData)jTable1.getValueAt(selectedRow,0);
-            // ViewFlight vf = new ViewFlight(csj, mts,airplane);
-            ViewDonorJpanel vpj = new ViewDonorJpanel(displayJPanel,donor);
-            displayJPanel.add("ViewFlight",vpj);
-            CardLayout layout = (CardLayout)displayJPanel.getLayout();
-            layout.next(displayJPanel);
+            DonorData donor = (DonorData)tblDonorsInformation.getValueAt(selectedRow,0);
+            ViewDonorJpanel viewDonorsDetails = new ViewDonorJpanel(showPanel,donor);
+            showPanel.add("ViewDonorsDetails",viewDonorsDetails);
+            CardLayout layout = (CardLayout)showPanel.getLayout();
+            layout.next(showPanel);
         }
         else
         {
             JOptionPane.showMessageDialog(null,"Please Select a row");
         }
-    }//GEN-LAST:event_ViewjButtonActionPerformed
+    }//GEN-LAST:event_btnViewActionPerformed
 
-    private void DeletejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButtonActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = tblDonorsInformation.getSelectedRow();
         if(selectedRow>=0){
-
-            DonorData donor = (DonorData)jTable1.getValueAt(selectedRow,0);
+            DonorData donor = (DonorData)tblDonorsInformation.getValueAt(selectedRow,0);
             ecosystem.getUserAccountDirectory().removeUserAccount(donor.getUsername());
             ecosystem.getDonorDir().deleteDonor(donor);
             populateDonorTable();
-    }//GEN-LAST:event_DeletejButtonActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackjButton;
-    private javax.swing.JButton DeletejButton;
-    private javax.swing.JButton ViewjButton;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblDonorsInformation;
     // End of variables declaration//GEN-END:variables
 }

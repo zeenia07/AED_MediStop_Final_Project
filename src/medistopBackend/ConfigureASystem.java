@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +14,10 @@ import medistopBackend.UserAccount.UserAccount;
  *
  * @author manor
  */
-public class ConfigureASystem
+public class ConfigureASystem 
 {
     public static EcoSystem configure()
-    {
+    {    
         EcoSystem system = EcoSystem.getInstance();
         Employee employee = system.getEmployeeDirectory().addEmployee("sysadmin");
         UserAccount ua = system.getUserAccountDirectory().newUserAccount("sysadmin", "sysadmin", employee,new SystemAdmin());
