@@ -125,7 +125,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\login4.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/login4.png"))); // NOI18N
         jLabel1.setMinimumSize(new java.awt.Dimension(160, 145));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
