@@ -54,14 +54,6 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         donationTabbedPane = new javax.swing.JTabbedPane();
-        manageOrgPanel = new javax.swing.JPanel();
-        deliveryDirLabel = new javax.swing.JLabel();
-        menuItemName6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblManageOrg = new javax.swing.JTable();
-        deliveryDirLabel5 = new javax.swing.JLabel();
-        btnCreateOrg = new javax.swing.JButton();
-        comboManageOrg = new javax.swing.JComboBox();
         manageUserPanel1 = new javax.swing.JPanel();
         deliveryDirLabel6 = new javax.swing.JLabel();
         helpTextLabel1 = new javax.swing.JLabel();
@@ -76,123 +68,40 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         btnAddEmployee = new javax.swing.JButton();
         comboViewEmpOrg = new javax.swing.JComboBox();
         comboUpdateEmpOrg = new javax.swing.JComboBox();
+        manageOrgPanel = new javax.swing.JPanel();
+        deliveryDirLabel = new javax.swing.JLabel();
+        menuItemName6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblManageOrg = new javax.swing.JTable();
+        deliveryDirLabel5 = new javax.swing.JLabel();
+        btnCreateOrg = new javax.swing.JButton();
+        comboManageOrg = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
         manageUserPanel = new javax.swing.JPanel();
-        deliveryDirLabel4 = new javax.swing.JLabel();
-        helpTextLabel = new javax.swing.JLabel();
         deliveryDirLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        userJTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         menuItemName7 = new javax.swing.JLabel();
+        comboUserOrganisation = new javax.swing.JComboBox();
         menuItemName8 = new javax.swing.JLabel();
+        comboUserEmployee = new javax.swing.JComboBox();
         menuItemName9 = new javax.swing.JLabel();
+        comboUserRole = new javax.swing.JComboBox();
         menuItemName10 = new javax.swing.JLabel();
-        menuItemName11 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        menuItemName11 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         deliveryDirLabel10 = new javax.swing.JLabel();
         btnCreateUser = new javax.swing.JButton();
-        comboUserEmployee = new javax.swing.JComboBox();
-        comboUserRole = new javax.swing.JComboBox();
-        comboUserOrganisation = new javax.swing.JComboBox();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        userJTable = new javax.swing.JTable();
+        deliveryDirLabel4 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
 
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-
-        manageOrgPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel.setText("MANAGE ORGANISATION");
-
-        menuItemName6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName6.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName6.setText("Organisation Type:");
-
-        tblManageOrg.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Organisation ID", "Organisation Name"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblManageOrg);
-
-        deliveryDirLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        deliveryDirLabel5.setForeground(new java.awt.Color(255, 51, 51));
-        deliveryDirLabel5.setText("ADMIN WORK AREA");
-
-        btnCreateOrg.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnCreateOrg.setForeground(new java.awt.Color(0, 0, 102));
-        btnCreateOrg.setText("Create Organisation Role");
-        btnCreateOrg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateOrgActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout manageOrgPanelLayout = new javax.swing.GroupLayout(manageOrgPanel);
-        manageOrgPanel.setLayout(manageOrgPanelLayout);
-        manageOrgPanelLayout.setHorizontalGroup(
-            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                        .addGap(298, 298, 298)
-                        .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                                .addComponent(menuItemName6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                        .addGap(375, 375, 375)
-                        .addComponent(btnCreateOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(387, Short.MAX_VALUE))
-        );
-        manageOrgPanelLayout.setVerticalGroup(
-            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
-                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName6)
-                    .addComponent(comboManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnCreateOrg)
-                .addContainerGap(605, Short.MAX_VALUE))
-        );
-
-        donationTabbedPane.addTab("Manage Organisation", manageOrgPanel);
 
         manageUserPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -308,7 +217,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
                     .addGroup(manageUserPanel1Layout.createSequentialGroup()
                         .addGap(365, 365, 365)
                         .addComponent(btnAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
         manageUserPanel1Layout.setVerticalGroup(
             manageUserPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,24 +246,241 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
                     .addComponent(menuItemName14))
                 .addGap(27, 27, 27)
                 .addComponent(btnAddEmployee)
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addContainerGap(1478, Short.MAX_VALUE))
         );
 
         donationTabbedPane.addTab("Manage Employee", manageUserPanel1);
 
+        manageOrgPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));
+        deliveryDirLabel.setText("MANAGE ORGANISATION");
+
+        menuItemName6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName6.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName6.setText("Organisation Type:");
+
+        tblManageOrg.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Organisation ID", "Organisation Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblManageOrg);
+
+        deliveryDirLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deliveryDirLabel5.setForeground(new java.awt.Color(255, 51, 51));
+        deliveryDirLabel5.setText("ADMIN WORK AREA");
+
+        btnCreateOrg.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnCreateOrg.setForeground(new java.awt.Color(0, 0, 102));
+        btnCreateOrg.setText("Create Organisation Role");
+        btnCreateOrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateOrgActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\favpng_vector-graphics-health-care-illustration-hospital-chalisgaon-city-guide.png")); // NOI18N
+
+        javax.swing.GroupLayout manageOrgPanelLayout = new javax.swing.GroupLayout(manageOrgPanel);
+        manageOrgPanel.setLayout(manageOrgPanelLayout);
+        manageOrgPanelLayout.setHorizontalGroup(
+            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                        .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                                .addGap(281, 281, 281)
+                                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                                        .addComponent(menuItemName6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                                .addGap(202, 202, 202)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE))
+                    .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCreateOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(330, 330, 330)))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageOrgPanelLayout.setVerticalGroup(
+            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menuItemName6))
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnCreateOrg)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1444, Short.MAX_VALUE))
+        );
+
+        donationTabbedPane.addTab("Manage Organisation", manageOrgPanel);
+
         manageUserPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        deliveryDirLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel4.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel4.setText("VIEW USER");
-
-        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
-        helpTextLabel.setText(" ");
 
         deliveryDirLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         deliveryDirLabel7.setForeground(new java.awt.Color(255, 51, 51));
         deliveryDirLabel7.setText("ADMIN WORK AREA");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\favpng_icon-design-user-icon.png")); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        menuItemName7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName7.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName7.setText("Organisation:");
+
+        comboUserOrganisation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboUserOrganisationActionPerformed(evt);
+            }
+        });
+
+        menuItemName8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName8.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName8.setText("Employee:");
+
+        menuItemName9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName9.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName9.setText("Role:");
+
+        menuItemName10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName10.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName10.setText("Username:");
+
+        menuItemName11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName11.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName11.setText("Password:");
+
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        deliveryDirLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        deliveryDirLabel10.setText("UPDATE/CREATE USER");
+
+        btnCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnCreateUser.setForeground(new java.awt.Color(0, 0, 102));
+        btnCreateUser.setText("Create User");
+        btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateUserActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(deliveryDirLabel10)
+                        .addGap(174, 174, 174))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(menuItemName9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(menuItemName8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(comboUserEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(menuItemName7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comboUserOrganisation, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(menuItemName11, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(menuItemName10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(14, 14, 14))
+                            .addComponent(btnCreateUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(122, 122, 122))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(deliveryDirLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menuItemName7)
+                    .addComponent(comboUserOrganisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName8)
+                    .addComponent(comboUserEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName9)
+                    .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menuItemName10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName11)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCreateUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -381,142 +507,63 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(userJTable);
 
-        menuItemName7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName7.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName7.setText("Organisation:");
+        deliveryDirLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        deliveryDirLabel4.setText("VIEW USER");
 
-        menuItemName8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName8.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName8.setText("Employee:");
-
-        menuItemName9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName9.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName9.setText("Role:");
-
-        menuItemName10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName10.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName10.setText("Username:");
-
-        menuItemName11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName11.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName11.setText("Password:");
-
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
-        deliveryDirLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel10.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel10.setText("UPDATE/CREATE USER");
-
-        btnCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnCreateUser.setForeground(new java.awt.Color(0, 0, 102));
-        btnCreateUser.setText("Create User");
-        btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateUserActionPerformed(evt);
-            }
-        });
-
-        comboUserOrganisation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboUserOrganisationActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(173, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout manageUserPanelLayout = new javax.swing.GroupLayout(manageUserPanel);
         manageUserPanel.setLayout(manageUserPanelLayout);
         manageUserPanelLayout.setHorizontalGroup(
             manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageUserPanelLayout.createSequentialGroup()
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(203, 203, 203)
+                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
                         .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(manageUserPanelLayout.createSequentialGroup()
-                                .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))))
-                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(manageUserPanelLayout.createSequentialGroup()
-                            .addGap(343, 343, 343)
-                            .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                                        .addComponent(menuItemName11, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                                        .addComponent(menuItemName8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(comboUserEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(manageUserPanelLayout.createSequentialGroup()
-                                    .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(menuItemName10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(menuItemName9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageUserPanelLayout.createSequentialGroup()
-                            .addGap(312, 312, 312)
-                            .addComponent(menuItemName7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(comboUserOrganisation, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(338, 338, 338)
-                        .addComponent(deliveryDirLabel10))
-                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(395, 395, 395)
-                        .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(403, 403, 403)
-                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(395, Short.MAX_VALUE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(150, 150, 150)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         manageUserPanelLayout.setVerticalGroup(
             manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageUserPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageUserPanelLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(helpTextLabel))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(deliveryDirLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(menuItemName7)
-                    .addComponent(comboUserOrganisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName8)
-                    .addComponent(comboUserEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName9)
-                    .addComponent(comboUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menuItemName10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(manageUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName11)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(btnCreateUser)
-                .addContainerGap(382, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageUserPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1432, Short.MAX_VALUE))
         );
 
         donationTabbedPane.addTab("Manage User", manageUserPanel);
@@ -538,7 +585,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1334, Short.MAX_VALUE)
+            .addGap(0, 1459, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -547,7 +594,7 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1079, Short.MAX_VALUE)
+            .addGap(0, 2110, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -687,9 +734,12 @@ public class AdminWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel deliveryDirLabel9;
     private javax.swing.JTabbedPane donationTabbedPane;
     private javax.swing.JTextField empNameTF;
-    private javax.swing.JLabel helpTextLabel;
     private javax.swing.JLabel helpTextLabel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
