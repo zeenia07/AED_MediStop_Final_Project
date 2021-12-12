@@ -5,6 +5,8 @@
  */
 package medistopBackend.UserData;
 
+import medistopBackend.WorkQueue.WorkQueue;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -14,19 +16,19 @@ import java.util.stream.Collectors;
  */
 public class PatientDirectory {
      private ArrayList<PatientData> patientDirectory;
-    //private WorkQueue workQueue;
+    private WorkQueue workQueue;
 
-//    public WorkQueue getWorkQueue() {
-//        return workQueue;
-//    }
-//
-//    public void setWorkQueue(WorkQueue workQueue) {
-//        this.workQueue = workQueue;
-//    }
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
     public PatientDirectory()
     {
         this.patientDirectory = new ArrayList<PatientData>();
-       // this.workQueue = new WorkQueue();
+       this.workQueue = new WorkQueue();
     }
 
     public ArrayList<PatientData> getPatientDirectory() {
