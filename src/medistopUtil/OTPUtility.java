@@ -2,7 +2,7 @@ package medistopUtil;
 
 public class OTPUtility {
 
-    static String generateOTP(int otpLength)
+   public static String generateOTP(int otpLength)
     {
         String charDirectory = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         int n = charDirectory.length();

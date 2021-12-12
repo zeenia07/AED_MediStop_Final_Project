@@ -6,13 +6,14 @@
 package medistopBackend.UserData;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
  * @author Zeenia
  */
 public class DonorData {
-    private int donorId;
+    private String donorId;
     private String username;
     private String donorName;
     private String gender;
@@ -25,18 +26,17 @@ public class DonorData {
     private String contactNo;
     private String profilePic;
     private String email;
-    private static int count = 1;
 
     public DonorData() 
     {
-        donorId = count;
-        count++;
+        donorId = UUID.randomUUID().toString();
+
     }
-    public int getDonorId() {
+    public String getDonorId() {
         return donorId;
     }
 
-    public void setDonorId(int donorId) {
+    public void setDonorId(String donorId) {
         this.donorId = donorId;
     }
 
@@ -136,13 +136,7 @@ public class DonorData {
         this.email = email;
     }
 
-    public static int getCount() {
-        return count;
-    }
 
-    public static void setCount(int count) {
-        DonorData.count = count;
-    }
 
     @Override
     public String toString() {

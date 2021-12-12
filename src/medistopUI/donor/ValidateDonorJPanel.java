@@ -5,17 +5,74 @@
  */
 package medistopUI.donor;
 
+import javax.swing.*;
+
+import medistopBackend.EcoSystem;
+import medistopBackend.Role.Donor;
+import medistopBackend.UserData.DonorData;
+import medistopUtil.Utilities;
+
 /**
  *
  * @author 18577
  */
 public class ValidateDonorJPanel extends javax.swing.JPanel {
-
+    private DonorData donorData;
+    private JPanel bodyPanel;
+    private EcoSystem ecosystem;
+    private boolean isValidated;
+    private String validationCode;
     /**
      * Creates new form ValidateDonorJPanel
      */
-    public ValidateDonorJPanel() {
+    public ValidateDonorJPanel(JPanel bodyPanel, EcoSystem ecosystem, String code, DonorData donorData) {
         initComponents();
+        this.bodyPanel = bodyPanel;
+        this.ecosystem = ecosystem;
+        validationCode = code;
+        this.donorData = donorData;
+        setValidated(false);
+    }
+    
+    public boolean getValidated() {
+        return isValidated;
+    }
+    
+    public void setValidated(boolean valid) {
+       isValidated = valid;
+       
+       if (isValidated) {
+           valAccL.setVisible(false);
+           codeL.setVisible(false);
+           codeTF.setVisible(false);
+           helperLabel.setVisible(false);
+           registerBtn.setVisible(false);
+
+           setAccL.setVisible(true);
+           userNameLabel.setVisible(true);
+           usernameTF.setVisible(true);
+           passPF.setVisible(true);
+           paswdL.setVisible(true);
+           saveBtn.setVisible(true);
+       
+       } else {
+
+           valAccL.setVisible(true);
+           codeL.setVisible(true);
+           codeTF.setVisible(true);
+           helperLabel.setVisible(true);
+           registerBtn.setVisible(true);
+
+
+           setAccL.setVisible(false);
+           userNameLabel.setVisible(false);
+           usernameTF.setVisible(false);
+           passPF.setVisible(false);
+           paswdL.setVisible(false);
+           saveBtn.setVisible(false);
+       
+       }
+       
     }
 
     /**
@@ -158,6 +215,9 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        
+        boolean valid = Utilities.getTrimmedText(codeTF).equals(validationCode);
+        setValidated(valid);
 
     }//GEN-LAST:event_registerBtnActionPerformed
 
@@ -167,6 +227,29 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
+        
+        String userName = Utilities.getTrimmedText(usernameTF);
+        String password = passPF.getPassword().toString();
+        
+        boolean result = ecosystem.getUserAccountDirectory().isUserNameUnique(userName);
+        
+        if (result) {
+            donorData.setUsername(userName);
+            ecosystem.getUserAccountDirectory().newDonorAccount(userName, password, donorData, new Donor());
+            JOptionPane.showMessageDialog(null, "You have been officially registered as Donor \nPlease Login to start donating.. ",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+            saveBtn.setEnabled(false);
+            usernameTF.setEditable(false);
+            passPF.setEditable(false);
+            usernameTF.setText("");
+            passPF.setText("");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Try a different username, current username already exists","Error", JOptionPane.ERROR_MESSAGE);
+            usernameTF.setText("");
+            passPF.setText("");
+        }
     }//GEN-LAST:event_saveBtnActionPerformed
 
 
