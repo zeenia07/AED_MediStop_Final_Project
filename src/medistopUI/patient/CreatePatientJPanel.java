@@ -6,15 +6,23 @@
 
 package medistopUI.patient;
 
+import java.awt.CardLayout;
 import medistopUI.donor.*;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 import medistopBackend.EcoSystem;
+import medistopBackend.UserData.DonorData;
 import medistopBackend.UserData.DonorDirectory;
+import medistopBackend.UserData.PatientData;
 import medistopBackend.UserData.PatientDirectory;
+import medistopUtil.OTPUtility;
+import medistopUtil.SMSUtility;
+import medistopUtil.SendEmailUtility;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -352,12 +360,99 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        
+        
+            try {
+            String date = Utilities.getTrimmedText(dobTF);
+            String name = Utilities.getTrimmedText(donorNameTF);
+            String gender = getGenderValuesFromGivenRadioButtons();
+            String phone = Utilities.getTrimmedText(phoneTF);
+            String city = Utilities.getTrimmedText(cityTF);
+            String state = stateCombobox.getSelectedItem().toString();
+            String address = Utilities.getTrimmedText(addTF);
+            int zipCode = Integer.parseInt(Utilities.getTrimmedText(zipCodeTF));
+            String email = Utilities.getTrimmedText(emailTF);
+            String profilePath = profilePicPathLabel.getText();
+        
+
+
+            if (phone.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the valid details for Phone Number", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the valid details for Email", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            PatientData patient = new PatientData();
+            patient.setPatientName(name);
+            patient.setAddress(address);
+            patient.setCity(city);
+            patient.setState(state);
+            patient.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy").parse(date));
+            patient.setContactNo(phone);
+            patient.setProfilePic(profilePath);
+            patient.setGender(gender);
+            patient.setZipCode(zipCode);
+            patient.setEmail(email);
+
+        
+        String[] to = {email};
+        String phoneNumber = patient.getContactNo();
+        String from = "medistop2021vzd@gmail.com";
+        String pwd = "TravelDell@26893";
+
+        String code = OTPUtility.generateOTP(4);
+        
+        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+        String subject = "Account Verification Mail";
+        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+        SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
+        
+        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+        
+        ValidatePatientJPanel validatePatientJPanel = new ValidatePatientJPanel(bodyPanel, ecosystem,code, patient );
+        bodyPanel.add("ValidatePatientJPanel", validatePatientJPanel);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Please enter the valid details", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
 
        
     }//GEN-LAST:event_registerBtnActionPerformed
 
+    
+    
+    public String getGenderValuesFromGivenRadioButtons()
+    {
+        if(maleRB.isSelected())
+        {
+            return "Male";
+        }
+        else if(femaleRB.isSelected())
+        {
+            return "Female";
+        }  else if(biRB.isSelected())
+        {
+            return "Bi Sexual";
+        }  else if(notToSayRB.isSelected())
+        {
+            return "Unknown";
+        }
+
+        return null;
+    }
+
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+          bodyPanel.remove(this);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.previous(bodyPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
 

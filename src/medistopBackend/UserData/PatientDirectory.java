@@ -6,6 +6,7 @@
 package medistopBackend.UserData;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -47,5 +48,24 @@ public class PatientDirectory {
     {
         patientDirectory.remove(patient);
     }
-    
+
+
+    public PatientData addPat(PatientData patientData)
+    {
+
+        patientDirectory.add(patientData);
+        return patientData;
+    }
+
+
+    public PatientData getPatient(String username) {
+
+        return patientDirectory.stream().filter(donor -> donor.getUsername()
+                        .equals(username))
+                .collect(Collectors.toList()).get(0);
+
+
+    }
+
+
 }
