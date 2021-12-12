@@ -23,6 +23,15 @@ public class UserAccount {
     private DonorData donor;
     private Role role;
     private WorkQueue workQueue;
+    private int loginattempt=0;
+
+    public int getLoginattempt() {
+        return loginattempt;
+    }
+
+    public void setLoginattempt(int loginattempt) {
+        this.loginattempt += loginattempt;
+    }
 
     public UserAccount() {
         workQueue = new WorkQueue();
