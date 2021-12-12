@@ -5,6 +5,7 @@
  */
 package medistopUI.Assistant;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -112,8 +113,8 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         lblWelcome = new javax.swing.JLabel();
         lblAssistantName = new javax.swing.JLabel();
         menuItemName13 = new javax.swing.JLabel();
+        comboMinute = new javax.swing.JComboBox();
         comboHour = new javax.swing.JComboBox();
-        comboHour1 = new javax.swing.JComboBox();
         manageFundingRequestsPanel = new javax.swing.JPanel();
         helpTextLabel1 = new javax.swing.JLabel();
         deliveryDirLabel8 = new javax.swing.JLabel();
@@ -199,19 +200,19 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         menuItemName13.setForeground(new java.awt.Color(0, 0, 102));
         menuItemName13.setText("Time: ");
 
-        comboHour.setForeground(new java.awt.Color(0, 0, 102));
-        comboHour.setModel(minuteModel);
-        comboHour.addActionListener(new java.awt.event.ActionListener() {
+        comboMinute.setForeground(new java.awt.Color(0, 0, 102));
+        comboMinute.setModel(minuteModel);
+        comboMinute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboHourActionPerformed(evt);
+                comboMinuteActionPerformed(evt);
             }
         });
 
-        comboHour1.setForeground(new java.awt.Color(0, 0, 102));
-        comboHour1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HH", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
-        comboHour1.addActionListener(new java.awt.event.ActionListener() {
+        comboHour.setForeground(new java.awt.Color(0, 0, 102));
+        comboHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HH", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        comboHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboHour1ActionPerformed(evt);
+                comboHourActionPerformed(evt);
             }
         });
 
@@ -245,7 +246,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                                         .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(32, 32, 32)
                                         .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
                                                 .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
@@ -254,7 +255,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
                     .addGap(226, 226, 226)
-                    .addComponent(comboHour1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(1585, Short.MAX_VALUE)))
         );
         manageDocSlotsPanelLayout.setVerticalGroup(
@@ -279,14 +280,14 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(45, 45, 45)
                 .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menuItemName13)
-                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(btnAddSlot)
                 .addContainerGap(628, Short.MAX_VALUE))
             .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
                     .addGap(336, 336, 336)
-                    .addComponent(comboHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(700, Short.MAX_VALUE)))
         );
 
@@ -613,19 +614,22 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
         // TODO add your handling code here:
-        String day,month,year, hour;
+        String day,month,year, hour, minute;
         
            day = (String)comboDay.getSelectedItem();
            month = (String)comboMonth.getSelectedItem();
            year = (String)comboYear.getSelectedItem();
            hour = (String) comboHour.getSelectedItem();
-
-           int date=1,monthValue=1,yearValue=1990;
+           minute =  (String) comboMinute.getSelectedItem();
+           int date=1,monthValue=1,yearValue=1990, hourValue=0, minuteValue =0;
 
            try {
                 date = Integer.parseInt(day);
                 monthValue = Integer.parseInt(month);
                 yearValue = Integer.parseInt(year);
+                hourValue = Integer.parseInt(hour);
+                minuteValue = Integer.parseInt(minute);
+
 
 
            } catch (Exception e) {
@@ -639,7 +643,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
            assistantAddSlot = new AssistantAddingTimingsWorkQueue();
            
-           assistantAddSlot.setTimings(new  Date(yearValue,monthValue, date));
+           assistantAddSlot.setTimings(LocalDateTime.of(yearValue, monthValue, hourValue, minuteValue, 0));
            for(Network net : ecosystem.getNetworkList())
            {
                for(Enterprise ent : net.getEnterpriseDirectory().getEnterpriseList())
@@ -783,13 +787,13 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboMonthActionPerformed
 
+    private void comboMinuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMinuteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboMinuteActionPerformed
+
     private void comboHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHourActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboHourActionPerformed
-
-    private void comboHour1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHour1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboHour1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -799,8 +803,8 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReject;
     private javax.swing.JComboBox comboDay;
     private javax.swing.JComboBox comboHour;
-    private javax.swing.JComboBox comboHour1;
     private javax.swing.JComboBox comboManageSlots;
+    private javax.swing.JComboBox comboMinute;
     private javax.swing.JComboBox comboMonth;
     private javax.swing.JComboBox comboYear;
     private javax.swing.JLabel deliveryDirLabel11;

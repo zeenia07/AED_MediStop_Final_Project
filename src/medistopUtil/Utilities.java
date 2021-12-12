@@ -6,6 +6,7 @@
 package medistopUtil;
 
 import javax.swing.JTextField;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.swing.JTextField;
 public class Utilities {
     public static String email = "medistop2021vzd@gmail.com";
     public static String password = "TravelDell@26893";
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 
     public static String getTrimmedText(JTextField textField) {
