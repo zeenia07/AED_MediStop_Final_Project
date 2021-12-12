@@ -77,6 +77,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         registerBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setAutoscrolls(true);
 
         deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N

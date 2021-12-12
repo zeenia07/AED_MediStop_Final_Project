@@ -76,7 +76,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="valuePatientName" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Component id="valuePatientName" min="-2" pref="269" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -396,9 +396,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientsWaiting">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
