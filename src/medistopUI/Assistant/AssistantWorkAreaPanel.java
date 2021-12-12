@@ -283,6 +283,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         lblWelcome1.setText("Welcome ");
 
         lblAssistantName1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName1.setForeground(new java.awt.Color(0, 0, 102));
         lblAssistantName1.setText("value");
 
         javax.swing.GroupLayout manageFundingRequestsPanelLayout = new javax.swing.GroupLayout(manageFundingRequestsPanel);
@@ -372,6 +373,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         lblWelcome2.setText("Welcome ");
 
         lblAssistantName2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName2.setForeground(new java.awt.Color(0, 0, 102));
         lblAssistantName2.setText("value");
 
         javax.swing.GroupLayout fundingAcknowledgementPanelLayout = new javax.swing.GroupLayout(fundingAcknowledgementPanel);
@@ -460,6 +462,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         lblWelcome3.setText("Welcome ");
 
         lblAssistantName3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName3.setForeground(new java.awt.Color(0, 0, 102));
         lblAssistantName3.setText("value");
 
         javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
@@ -570,6 +573,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                JOptionPane.showMessageDialog(null,
                        "Incorrect values for date, month, year", "Error", JOptionPane.INFORMATION_MESSAGE);
 
+               return;
            }
            
 
