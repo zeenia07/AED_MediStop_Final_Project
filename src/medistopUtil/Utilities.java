@@ -12,7 +12,10 @@ import javax.swing.JTextField;
  * @author 18577
  */
 public class Utilities {
-    
+    public static String email = "medistop2021vzd@gmail.com";
+    public static String password = "TravelDell@26893";
+
+
     public static String getTrimmedText(JTextField textField) {
             return textField.getText().trim();
     

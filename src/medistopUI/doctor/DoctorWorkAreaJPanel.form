@@ -76,9 +76,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="valuePatientName" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Component id="lblWelcome1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="valuePatientName" min="-2" pref="269" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -114,7 +112,6 @@
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="lblWelcome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="valuePatientName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblWelcome1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -352,17 +349,6 @@
         <Property name="text" type="java.lang.String" value="value"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblWelcome1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value=", be assured, you&apos;re in safe hands!!"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnAddPrescription">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -410,9 +396,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientsWaiting">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

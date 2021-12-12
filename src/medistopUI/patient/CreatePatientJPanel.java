@@ -6,15 +6,25 @@
 
 package medistopUI.patient;
 
+import java.awt.CardLayout;
 import medistopUI.donor.*;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 import medistopBackend.EcoSystem;
+import medistopBackend.UserData.DonorData;
 import medistopBackend.UserData.DonorDirectory;
+import medistopBackend.UserData.PatientData;
 import medistopBackend.UserData.PatientDirectory;
+import medistopUtil.OTPUtility;
+import medistopUtil.SMSUtility;
+import medistopUtil.SendEmailUtility;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -71,6 +81,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         emailTF = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        menuItemName10 = new javax.swing.JLabel();
+        bllodGroupTF = new javax.swing.JTextField();
 
         setAutoscrolls(true);
 
@@ -171,6 +183,11 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
+        emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTFKeyReleased(evt);
+            }
+        });
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -189,6 +206,13 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
+
+        menuItemName10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName10.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName10.setText("Blood Group");
+
+        bllodGroupTF.setForeground(new java.awt.Color(0, 0, 102));
+        bllodGroupTF.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -246,12 +270,19 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                                 .addGap(35, 35, 35)
                                 .addComponent(profilePicPathLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(phoneTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menuItemName9, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(menuItemName10, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(64, 64, 64)
+                            .addComponent(bllodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(menuItemName9, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(64, 64, 64)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(322, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -313,17 +344,22 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menuItemName9)
                     .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName10)
+                    .addComponent(bllodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(registerBtn)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(737, Short.MAX_VALUE)
+                    .addContainerGap(824, Short.MAX_VALUE)
                     .addComponent(backBtn)
                     .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean femail=true;
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biRBActionPerformed
@@ -352,19 +388,145 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        
+        
+            try {
+            String date = Utilities.getTrimmedText(dobTF);
+            String name = Utilities.getTrimmedText(donorNameTF);
+            String gender = getGenderValuesFromGivenRadioButtons();
+            String phone = Utilities.getTrimmedText(phoneTF);
+            String city = Utilities.getTrimmedText(cityTF);
+            String state = stateCombobox.getSelectedItem().toString();
+            String address = Utilities.getTrimmedText(addTF);
+            int zipCode = Integer.parseInt(Utilities.getTrimmedText(zipCodeTF));
+            String email = Utilities.getTrimmedText(emailTF);
+            String profilePath = profilePicPathLabel.getText();
+            String blood = Utilities.getTrimmedText(bllodGroupTF);
+                    
+
+
+            if (phone.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the valid details for Phone Number", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the valid details for Email", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (blood.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the valid details for Blood", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            PatientData patient = new PatientData();
+            patient.setPatientName(name);
+            patient.setAddress(address);
+            patient.setCity(city);
+            patient.setState(state);
+            patient.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy").parse(date));
+            patient.setContactNo(phone);
+            patient.setProfilePic(profilePath);
+            patient.setGender(gender);
+            patient.setZipCode(zipCode);
+            patient.setEmail(email);
+            patient.setBloodGroup(blood);
+
+                if (femail) {
+                    String[] to = {email};
+                    String phoneNumber = patient.getContactNo();
+                    String from = "medistop2021vzd@gmail.com";
+                    String pwd = "TravelDell@26893";
+
+                    String code = OTPUtility.generateOTP(4);
+
+                    String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+                    String subject = "Account Verification Mail";
+                    SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+                    SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
+
+                    JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+
+                    ValidatePatientJPanel validatePatientJPanel = new ValidatePatientJPanel(bodyPanel, ecosystem,code, patient );
+                    bodyPanel.add("ValidatePatientJPanel", validatePatientJPanel);
+                    CardLayout layout = (CardLayout) bodyPanel.getLayout();
+                    layout.next(bodyPanel);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+//        String[] to = {email};
+//        String phoneNumber = patient.getContactNo();
+//        String from = "medistop2021vzd@gmail.com";
+//        String pwd = "TravelDell@26893";
+//
+//        String code = OTPUtility.generateOTP(4);
+//        
+//        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+//        String subject = "Account Verification Mail";
+//        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+//        SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
+//        
+//        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+//        
+//        ValidatePatientJPanel validatePatientJPanel = new ValidatePatientJPanel(bodyPanel, ecosystem,code, patient );
+//        bodyPanel.add("ValidatePatientJPanel", validatePatientJPanel);
+//        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+//        layout.next(bodyPanel);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Please enter the valid details", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
 
        
     }//GEN-LAST:event_registerBtnActionPerformed
 
+    
+    
+    public String getGenderValuesFromGivenRadioButtons()
+    {
+        if(maleRB.isSelected())
+        {
+            return "Male";
+        }
+        else if(femaleRB.isSelected())
+        {
+            return "Female";
+        }  else if(biRB.isSelected())
+        {
+            return "Bi Sexual";
+        }  else if(notToSayRB.isSelected())
+        {
+            return "Unknown";
+        }
+
+        return null;
+    }
+
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+          bodyPanel.remove(this);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.previous(bodyPanel);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void emailTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyReleased
+        // TODO add your handling code here:
+         String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(emailTF.getText());
+        if (!match.matches()) {
+            femail = false;
+        } else {
+            femail = true;
+        }
+    }//GEN-LAST:event_emailTFKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addTF;
     private javax.swing.JButton backBtn;
     private javax.swing.JRadioButton biRB;
+    private javax.swing.JTextField bllodGroupTF;
     private javax.swing.JTextField cityTF;
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JLabel deliveryDirLabel1;
@@ -376,6 +538,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton maleRB;
     private javax.swing.JLabel menuItemName;
     private javax.swing.JLabel menuItemName1;
+    private javax.swing.JLabel menuItemName10;
     private javax.swing.JLabel menuItemName2;
     private javax.swing.JLabel menuItemName3;
     private javax.swing.JLabel menuItemName4;

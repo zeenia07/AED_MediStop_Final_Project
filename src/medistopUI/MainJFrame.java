@@ -50,6 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         bodyPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,7 +111,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1677, Short.MAX_VALUE)
                 .addComponent(donoeBtn)
                 .addGap(18, 18, 18)
                 .addComponent(patientbtn)
@@ -138,6 +139,10 @@ public class MainJFrame extends javax.swing.JFrame {
         bodyPanel.setBackground(new java.awt.Color(255, 255, 255));
         bodyPanel.setPreferredSize(new java.awt.Dimension(2000, 700));
         bodyPanel.setLayout(new java.awt.CardLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\bg8.jpg")); // NOI18N
+        bodyPanel.add(jLabel1, "card2");
+
         mainSplitPane.setRightComponent(bodyPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,6 +170,8 @@ public class MainJFrame extends javax.swing.JFrame {
         bodyPanel.add("LoginJPanel", loginJPanel);
         CardLayout layout = (CardLayout) bodyPanel.getLayout();
         layout.next(bodyPanel);
+
+        logoutBtn.setEnabled(true);
 
         
        
@@ -248,6 +255,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JButton donoeBtn;
     private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JSplitPane mainSplitPane;

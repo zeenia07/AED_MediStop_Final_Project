@@ -78,7 +78,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         RadioFundsNo = new javax.swing.JRadioButton();
         lblWelcome = new javax.swing.JLabel();
         valuePatientName = new javax.swing.JLabel();
-        lblWelcome1 = new javax.swing.JLabel();
         btnAddPrescription = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -177,10 +176,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         valuePatientName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         valuePatientName.setText("value");
 
-        lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome1.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome1.setText(", be assured, you're in safe hands!!");
-
         btnAddPrescription.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         btnAddPrescription.setForeground(new java.awt.Color(0, 0, 102));
         btnAddPrescription.setText("Add Prescription");
@@ -204,8 +199,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblPatientName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPatientName1.setForeground(new java.awt.Color(0, 0, 102));
         lblPatientName1.setText("Patients Waiting:");
-
-        lblPatientsWaiting.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -255,9 +248,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblWelcome)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(valuePatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(lblWelcome1))
+                                        .addComponent(valuePatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,8 +272,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnRefresh)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblWelcome)
-                                .addComponent(valuePatientName)
-                                .addComponent(lblWelcome1)))
+                                .addComponent(valuePatientName)))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPatientName1)
@@ -430,7 +420,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPatientsWaiting;
     private javax.swing.JLabel lblPrescription;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JLabel lblWelcome1;
     private javax.swing.JLabel menuItemName5;
     private javax.swing.JLabel menuItemName6;
     private javax.swing.JTextField txtBloodGroup;

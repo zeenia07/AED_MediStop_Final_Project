@@ -11,6 +11,7 @@ import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
 //import medistopUI.Admin.AdminWorkAreaJPanel;
 import javax.swing.JPanel;
+import medistopUI.admin.AdminWorkAreaPanel;
 
 /**
  *
@@ -21,6 +22,6 @@ public class FundsAdmin extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network ,EcoSystem business) 
     {
          //need to add the work Area for AdminWorkAreaHere
-        return null;
+        return new AdminWorkAreaPanel(userProcessContainer, enterprise);
     }
 }

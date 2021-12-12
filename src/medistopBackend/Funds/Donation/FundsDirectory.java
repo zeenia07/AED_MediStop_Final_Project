@@ -6,6 +6,8 @@
 package medistopBackend.Funds.Donation;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -32,5 +34,33 @@ public class FundsDirectory {
         FundsInfo donation = new FundsInfo();
         fundsDirectory.add(donation);
         return donation;
+    }
+
+
+    public List<FundsInfo> getFundsInfoForADonor(String username) {
+        return fundsDirectory.stream()
+                .filter(fundsInfo -> fundsInfo.getDonor().getUsername().equals(username))
+                .collect(Collectors.toList());
+
+    }
+    
+    
+     public List<FundsInfo> getFundsInfoForACharityName(String name) {
+        return fundsDirectory.stream()
+                .filter(fundsInfo -> fundsInfo.getFundsOrgName().equals(name))
+                .collect(Collectors.toList());
+
+    }
+     public List<FundsInfo> getFundsInfoForACharityCity(String city) {
+        return fundsDirectory.stream()
+                .filter(fundsInfo -> fundsInfo.getFundsOrgCity().equals(city))
+                .collect(Collectors.toList());
+
+    }
+     public List<FundsInfo> getFundsInfoForACharityCause(String cause) {
+        return fundsDirectory.stream()
+                .filter(fundsInfo -> fundsInfo.getFundsCause().equals(cause))
+                .collect(Collectors.toList());
+
     }
 }

@@ -193,7 +193,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         UserAccount account = enterprise.getUserAccountDirectory().newUserAccount(username, password, employee, new BloodBankAdmin());
         }
         populateEnterpriseAdminTable();
-        
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtName.setText("");
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -6,12 +6,15 @@
 package medistopBackend.Bloodbank.Role;
 
 import javax.swing.JPanel;
+import medistopBackend.Bloodbank.Organisation.HeadsOrganisation;
 import medistopBackend.EcoSystem;
+import medistopBackend.Enterprise.BloodbankEnterprise;
 import medistopBackend.Enterprise.Enterprise;
 import medistopBackend.Network.Network;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
+import medistopUI.BloodBank.HeadBloodBankMainPageJPanel;
 
 /**
  *
@@ -21,7 +24,7 @@ public class BloodBankHead extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new HeadBloodBankMainPageJPanel(userProcessContainer,account,(HeadsOrganisation)organisation,(BloodbankEnterprise)enterprise,network,system);
     }
    
 }
