@@ -16,6 +16,7 @@ import javax.swing.filechooser.FileSystemView;
 
 import medistopBackend.UserData.DonorData;
 import medistopUtil.OTPUtility;
+import medistopUtil.SMSUtility;
 import medistopUtil.SendEmailUtility;
 import medistopUtil.Utilities;
 
@@ -392,6 +393,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         
         String[] to = {email};
+        String phoneNumber = donor.getContactNo();
         String from = "medistop2021vzd@gmail.com";
         String pwd = "TravelDell@26893";
 
@@ -400,6 +402,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
         String subject = "Account Verification Mail";
         SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
         
         JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
         
