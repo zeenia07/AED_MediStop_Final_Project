@@ -26,4 +26,7 @@ public class ConfigureASystem
         return system;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> zeenia_ui

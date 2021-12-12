@@ -12,7 +12,7 @@ public class BloodHeadAttendentWorkQueue extends WorkRequest {
     
     private String nameOfPatient;
     private String whichTypeOfBlood;
-    private String unitsOfBlood;
+    private int unitsOfBlood;
    
     public String getNameOfPatient() {
         return nameOfPatient;
@@ -30,11 +30,11 @@ public class BloodHeadAttendentWorkQueue extends WorkRequest {
         this.whichTypeOfBlood = whichTypeOfBlood;
     }
     
-    public String getUnitsOfBlood() {
+    public int getUnitsOfBlood() {
         return unitsOfBlood;
     }
 
-    public void setUnitsOfBlood(String unitsOfBlood) {
+    public void setUnitsOfBlood(int unitsOfBlood) {
         this.unitsOfBlood = unitsOfBlood;
     }
     
