@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 import medistopBackend.DB4OUtil.DB4OUtil;
 import medistopBackend.EcoSystem;
 import medistopUI.donor.CreateDonorJPanel;
+import medistopUI.login.LoginJPanel;
 import medistopUI.patient.CreatePatientJPanel;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -157,6 +159,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
+        
+        
+        LoginJPanel loginJPanel = new LoginJPanel(bodyPanel, system);
+        bodyPanel.add("LoginJPanel", loginJPanel);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
+
+        
+       
+        
         
     }//GEN-LAST:event_loginBtnActionPerformed
 

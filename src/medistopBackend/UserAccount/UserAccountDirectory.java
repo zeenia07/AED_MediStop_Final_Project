@@ -74,11 +74,11 @@ public class UserAccountDirectory {
     }
    //To authenticate user
    public UserAccount authenticateUserAccount(String username, String password){
-        for (UserAccount ua : userAccountDirectory)
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
-                return ua;
-            }
-        return null;
+       List<UserAccount> useraccList = userAccountDirectory.stream().filter(acc -> acc.getUsername().equals(username) && acc.getPassword().equals(password))
+                .collect(Collectors.toList());
+       
+        return useraccList.size() > 0 ? useraccList.get(0) : null;
+        
     }
    
    public boolean isUserNameUnique(String username) {
