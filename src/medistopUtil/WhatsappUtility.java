@@ -11,13 +11,13 @@ public class WhatsappUtility {
     public static final String AUTH_TOKEN = "80b12cfc7a38afdf8fd6b518173ed64a";
 
     public static void sendWhatsappMessage(String fromPhoneNumber, String toPhoneNumber, String messageBody) {
-        Twilio.init("ACCOUNT_SID", "AUTH_TOKEN");
-        Message message = Message.creator(
-                        new com.twilio.type.PhoneNumber("whatsapp:" + toPhoneNumber),
-                        new com.twilio.type.PhoneNumber("whatsapp:" + fromPhoneNumber),
-                        messageBody)
-                .create();
-
-        System.out.println(message.getSid());
+//        Twilio.init("ACCOUNT_SID", "AUTH_TOKEN");
+//        Message message = Message.creator(
+//                        new com.twilio.type.PhoneNumber("whatsapp:" + toPhoneNumber),
+//                        new com.twilio.type.PhoneNumber("whatsapp:" + fromPhoneNumber),
+//                        messageBody)
+//                .create();
+//
+//        System.out.println(message.getSid());
     }
 }
