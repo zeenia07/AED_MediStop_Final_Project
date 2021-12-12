@@ -13,6 +13,7 @@ import medistopBackend.Role.Role;
 import medistopBackend.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import medistopBackend.Role.Role;
+import medistopUI.FundManager.ManagerWorkAreaJPanel;
 
 /**
  *
@@ -22,6 +23,6 @@ public class ManagerRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network,EcoSystem system) {
         //need to write the code here:
-        return null;
+       return new ManagerWorkAreaJPanel(userProcessContainer,account,(FundsOrganisationManager) organisation,(FundingEnterprise) enterprise,network,system);
     }
 }
