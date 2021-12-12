@@ -6,6 +6,7 @@
 package medistopUI.Assistant;
 
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +38,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private Network network;
     private HospitalOrganisationAssistant hospitalAssistant;
     private AssistantAddingTimingsWorkQueue assistantAddSlot;
+    private DefaultComboBoxModel minuteModel;
     
     /**
      * Creates new form AssistantWorkAreaPanel
@@ -63,6 +65,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.network = net;
+        populateMinuteComboBoxModel();
         populateFundingRequestsTable();
         populateComboDoctor();
         populateAppointmentTable();
@@ -72,6 +75,18 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         lblAssistantName2.setText(ua.getEmployee().getEmployeeName());
         lblAssistantName3.setText(ua.getEmployee().getEmployeeName());
 
+    }
+    
+    public void populateMinuteComboBoxModel() {
+        minuteModel = new DefaultComboBoxModel();
+        minuteModel.addElement("mm");
+        
+        for (int i=0; i<60; i++) {
+
+            minuteModel.addElement(String.valueOf(i));
+        }
+    
+    
     }
 
     /**
@@ -96,6 +111,9 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         comboYear = new javax.swing.JComboBox();
         lblWelcome = new javax.swing.JLabel();
         lblAssistantName = new javax.swing.JLabel();
+        menuItemName13 = new javax.swing.JLabel();
+        comboHour = new javax.swing.JComboBox();
+        comboHour1 = new javax.swing.JComboBox();
         manageFundingRequestsPanel = new javax.swing.JPanel();
         helpTextLabel1 = new javax.swing.JLabel();
         deliveryDirLabel8 = new javax.swing.JLabel();
@@ -151,16 +169,19 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         menuItemName12.setForeground(new java.awt.Color(0, 0, 102));
         menuItemName12.setText("Date:");
 
-        comboDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        comboDay.setForeground(new java.awt.Color(0, 0, 102));
+        comboDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MM", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        comboMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        comboMonth.setForeground(new java.awt.Color(0, 0, 102));
+        comboMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         comboMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboMonthActionPerformed(evt);
             }
         });
 
-        comboYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "2021", "2022", "2023" }));
+        comboYear.setForeground(new java.awt.Color(0, 0, 102));
+        comboYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "YYYY", "2021", "2022", "2023", "2024", "2025" }));
         comboYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboYearActionPerformed(evt);
@@ -173,6 +194,26 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
         lblAssistantName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblAssistantName.setText("value");
+
+        menuItemName13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName13.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName13.setText("Time: ");
+
+        comboHour.setForeground(new java.awt.Color(0, 0, 102));
+        comboHour.setModel(minuteModel);
+        comboHour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboHourActionPerformed(evt);
+            }
+        });
+
+        comboHour1.setForeground(new java.awt.Color(0, 0, 102));
+        comboHour1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HH", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        comboHour1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboHour1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout manageDocSlotsPanelLayout = new javax.swing.GroupLayout(manageDocSlotsPanel);
         manageDocSlotsPanel.setLayout(manageDocSlotsPanelLayout);
@@ -195,17 +236,26 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                             .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
                                 .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(menuItemName6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(menuItemName12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(menuItemName12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(menuItemName13, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboManageSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
                                         .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(32, 32, 32)
-                                        .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(comboYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(comboManageSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
+                                                .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(comboYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))))
                 .addContainerGap(1218, Short.MAX_VALUE))
+            .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
+                    .addGap(226, 226, 226)
+                    .addComponent(comboHour1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1585, Short.MAX_VALUE)))
         );
         manageDocSlotsPanelLayout.setVerticalGroup(
             manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,9 +276,18 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                     .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(45, 45, 45)
+                .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuItemName13)
+                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(btnAddSlot)
-                .addContainerGap(693, Short.MAX_VALUE))
+                .addContainerGap(628, Short.MAX_VALUE))
+            .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
+                    .addGap(336, 336, 336)
+                    .addComponent(comboHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(700, Short.MAX_VALUE)))
         );
 
         donationTabbedPane.addTab("Manage Doctor Slots", manageDocSlotsPanel);
@@ -554,11 +613,12 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
         // TODO add your handling code here:
-        String day,month,year;
+        String day,month,year, hour;
         
            day = (String)comboDay.getSelectedItem();
            month = (String)comboMonth.getSelectedItem();
            year = (String)comboYear.getSelectedItem();
+           hour = (String) comboHour.getSelectedItem();
 
            int date=1,monthValue=1,yearValue=1990;
 
@@ -723,6 +783,14 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboMonthActionPerformed
 
+    private void comboHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboHourActionPerformed
+
+    private void comboHour1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHour1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboHour1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
@@ -730,6 +798,8 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRaiseFundingRequest;
     private javax.swing.JButton btnReject;
     private javax.swing.JComboBox comboDay;
+    private javax.swing.JComboBox comboHour;
+    private javax.swing.JComboBox comboHour1;
     private javax.swing.JComboBox comboManageSlots;
     private javax.swing.JComboBox comboMonth;
     private javax.swing.JComboBox comboYear;
@@ -757,6 +827,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageDocSlotsPanel;
     private javax.swing.JPanel manageFundingRequestsPanel;
     private javax.swing.JLabel menuItemName12;
+    private javax.swing.JLabel menuItemName13;
     private javax.swing.JLabel menuItemName14;
     private javax.swing.JLabel menuItemName6;
     private javax.swing.JTable tblAcknowledgement;
