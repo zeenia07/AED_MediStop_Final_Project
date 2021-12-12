@@ -166,6 +166,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout = (CardLayout) bodyPanel.getLayout();
         layout.next(bodyPanel);
 
+        logoutBtn.setEnabled(true);
+
         
        
         
