@@ -607,7 +607,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField3" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <Component id="empNameTF" min="-2" pref="190" max="-2" attributes="0"/>
                                       <Component id="comboUpdateEmpOrg" min="-2" pref="193" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -650,7 +650,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="empNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="menuItemName14" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -771,7 +771,7 @@
                     <Property name="text" type="java.lang.String" value="Employee Name:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="empNameTF">
                 </Component>
                 <Component class="javax.swing.JLabel" name="deliveryDirLabel9">
                   <Properties>

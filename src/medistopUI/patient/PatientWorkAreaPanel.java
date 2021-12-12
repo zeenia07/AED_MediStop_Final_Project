@@ -8,6 +8,8 @@ package medistopUI.patient;
 
 
 import medistopBackend.EcoSystem;
+import medistopBackend.Enterprise.Enterprise;
+import medistopBackend.Hospital.Organisation.HospitalOrganisationAssistant;
 import medistopBackend.Organisation.Organisation;
 import medistopBackend.Role.Patient;
 import medistopBackend.UserAccount.UserAccount;
@@ -18,6 +20,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import medistopBackend.Network.Network;
 import medistopBackend.WorkQueue.AssistantAddingTimingsWorkQueue;
+import medistopBackend.WorkQueue.PatientBookingWorkQueue;
 import medistopBackend.WorkQueue.WorkRequest;
 
 import java.awt.*;
@@ -288,42 +291,42 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         else{
             request.setStatus("Booked");
 //            Network net = (Network) cityJComboBox.getSelectedItem();
-//            populateTable(net);
-//            PatientBookedWorkQueue req = new PatientBookedWorkQueue();
-//            PatientInfo p = null;
-//            for(PatientInfo f : system.getPatientDir().getPatientDirectory()){
-//                if(f.getUsername().equals(account.getUsername()))
-//                {
-//                    p = f;
-//                    break;
-//                }
-//            }
-//            req.setPatient(p);
-//            req.setSender(account);
-//            req.setStatus("Booked");
-//            req.setCity(request.getCity());
-//            req.setDoctor(request.getDoctor());
-//            req.setHospitalName(request.getHospitalName());
-//            Enterprise d = null;
-//            for(Network n: system.getNetworkList() ){
-//                for(Enterprise e: n.getEnterpriseDirectory().getEnterpriseList()){
-//                    if(e.getName().equalsIgnoreCase(request.getHospitalName()))
-//                    {
-//                        d = e;
-//                        break;
-//                    }
-//                }
-//            }
-//            ReceptionistOrganisation org = null;
-//            for (Organisation o : d.getOrganizationDirectory().getOrganizationList()){
-//                if(o instanceof ReceptionistOrganisation)
-//                {
-//                    org = (ReceptionistOrganisation)o;
-//                    break;
-//                }
-//            }
-//            org.getIncomingPatients().getWorkRequestList().add(req);
-//            account.getWorkQueue().getWorkRequestList().add(req);
+            populateAvailAppontments();
+            PatientBookingWorkQueue patientBookingWorkQueue = new PatientBookingWorkQueue();
+            PatientData patientData = null;
+            for(PatientData pat : ecoSystem.getPatientDir().getPatientDirectory()){
+                if(pat.getUsername().equals(userAccount.getUsername()))
+                {
+                    patientData = pat;
+                    break;
+                }
+            }
+            patientBookingWorkQueue.setPatient(patientData);
+            patientBookingWorkQueue.setSender(userAccount);
+            patientBookingWorkQueue.setStatus("Booked");
+            patientBookingWorkQueue.setCity(request.getCity());
+            patientBookingWorkQueue.setDoctor(request.getDoctor());
+            patientBookingWorkQueue.setHospitalName(request.getHospitalName());
+            Enterprise enterprise = null;
+            for(Network n: ecoSystem.getNetworkList() ){
+                for(Enterprise e: n.getEnterpriseDirectory().getEnterpriseList()){
+                    if(e.getName().equalsIgnoreCase(request.getHospitalName()))
+                    {
+                        enterprise = e;
+                        break;
+                    }
+                }
+            }
+            HospitalOrganisationAssistant org = null;
+            for (Organisation o : enterprise.getOrganizationDirectory().getOrganizationList()){
+                if(o instanceof HospitalOrganisationAssistant)
+                {
+                    org = (HospitalOrganisationAssistant)o;
+                    break;
+                }
+            }
+            org.getIncomingPatients().getWorkRequestList().add(patientBookingWorkQueue);
+            userAccount.getWorkQueue().getWorkRequestList().add(patientBookingWorkQueue);
         }
 
 
