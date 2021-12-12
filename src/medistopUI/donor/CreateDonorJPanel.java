@@ -176,7 +176,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         menuItemName9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuItemName9.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName9.setText("Email");
+        menuItemName9.setText("Email:");
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
@@ -211,6 +211,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuItemName6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
@@ -275,6 +276,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                     .addGap(30, 30, 30)
                     .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(946, Short.MAX_VALUE)))
+                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,8 +339,11 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(737, Short.MAX_VALUE)
+                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBtn)
-                    .addContainerGap()))
+                    .addComponent(registerBtn))
+                .addGap(85, 85, 85))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -374,7 +379,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         
         
          try {
-             
+
             String date = Utilities.getTrimmedText(dobTF);
             String name = Utilities.getTrimmedText(donorNameTF);
             String gender = getGenderValuesFromGivenRadioButtons();
@@ -393,7 +398,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             } else if (email.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter the valid details for Email", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            
+
 //            String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
 //            Pattern patt = Pattern.compile(PATTERN);
 //            Matcher match = patt.matcher(email);
@@ -440,6 +445,25 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
              }else{
                 JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
             }
+
+        String[] to = {email};
+        String phoneNumber = donor.getContactNo();
+        String from = "medistop2021vzd@gmail.com";
+        String pwd = "TravelDell@26893";
+
+        String code = OTPUtility.generateOTP(4);
+
+        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+        String subject = "Account Verification Mail";
+        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
+
+        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+
+        ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
+        bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
+        CardLayout layout = (CardLayout) bodyPanel.getLayout();
+        layout.next(bodyPanel);
         }
         catch(Exception e)
         {
@@ -484,7 +508,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
     private void emailTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyReleased
         // TODO add your handling code here:
-        
+
         String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match = patt.matcher(emailTF.getText());
