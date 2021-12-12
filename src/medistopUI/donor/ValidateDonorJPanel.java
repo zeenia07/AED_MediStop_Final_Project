@@ -259,7 +259,7 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_saveBtnActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declarat\ion - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel codeL;
     private javax.swing.JTextField codeTF;
     private javax.swing.JLabel helperLabel;

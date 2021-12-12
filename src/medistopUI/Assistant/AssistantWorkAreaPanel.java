@@ -34,7 +34,6 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private UserAccount ua;
     private Enterprise enterprise;
     private EcoSystem ecosystem;
-    private UserAccount userAccount;
     private Network network;
     private HospitalOrganisationAssistant hospitalAssistant;
     private AssistantAddingTimingsWorkQueue assistantAddSlot;
@@ -42,19 +41,19 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form AssistantWorkAreaPanel
      */
-    public AssistantWorkAreaPanel(JPanel dispJPanel, UserAccount account, HospitalOrganisationAssistant organisation, Enterprise enterprise,EcoSystem system) {
-        initComponents();
-        this.displayJPanel = dispJPanel;
-        this.ua = account;
-        this.hospitalAssistant = organisation;
-        this.enterprise = enterprise;
-        this.ecosystem = system;
-        this.userAccount = account;
-        lblAssistantName.setText(userAccount.getUsername());
-        populateAppointmentTable();
-        populateAcknowledgmentTable();
-        
-    }
+//    public AssistantWorkAreaPanel(JPanel dispJPanel, UserAccount account, HospitalOrganisationAssistant organisation, Enterprise enterprise,EcoSystem system) {
+//        initComponents();
+//        this.displayJPanel = dispJPanel;
+//        this.ua = account;
+//        this.hospitalAssistant = organisation;
+//        this.enterprise = enterprise;
+//        this.ecosystem = system;
+//        lblAssistantName.setText(ua.getUsername());
+//        populateAppointmentTable();
+//        populateAcknowledgmentTable();
+//
+//
+//    }
     
     public AssistantWorkAreaPanel(JPanel dispJPanel, UserAccount account, HospitalOrganisationAssistant organisation, Enterprise enterprise,Network net,EcoSystem system) {
         initComponents();
@@ -66,6 +65,8 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         this.network = net;
         populateFundingRequestsTable();
         populateComboDoctor();
+        populateAppointmentTable();
+        populateAcknowledgmentTable();
     }
 
     /**
@@ -563,13 +564,13 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
            e = (Employee)comboManageSlots.getSelectedItem();
            
            assistantAddSlot.setDoctor(e.getEmployeeName());
-           assistantAddSlot.setSender(userAccount);
+           assistantAddSlot.setSender(ua);
            assistantAddSlot.setStatus("Available");
            assistantAddSlot.setMessage("Available slots");
            assistantAddSlot.setHospitalName(enterprise.getName());
            assistantAddSlot.setCity(network.getNetworkName());
            ecosystem.getPatientDir().getWorkQueue().getWorkRequestList().add(assistantAddSlot);
-           userAccount.getWorkQueue().getWorkRequestList().add(assistantAddSlot);
+           ua.getWorkQueue().getWorkRequestList().add(assistantAddSlot);
             
            JOptionPane.showMessageDialog(null, "Doctor's  available slot added successfully!!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnAddSlotActionPerformed

@@ -21,6 +21,7 @@ import medistopBackend.UserAccount.UserAccount;
 import medistopBackend.WorkQueue.BloodHeadAttendentWorkQueue;
 import medistopBackend.WorkQueue.DoctorAttendentWorkQueue;
 import medistopBackend.WorkQueue.WorkRequest;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -32,7 +33,6 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem system;
     private Network network;
-    private UserAccount userAccount;
     private HospitalOrganisationAttendant attendantOrg;
     private UserAccount ua;
     private AppointmentDetails appointment;
@@ -47,6 +47,7 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         this.network=network;
         this.ua=userAccount;
         populateAttendantTable();
+        populateBloodStatusTable();
        
     }
 
@@ -231,13 +232,13 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         int selectedRow=tblAttendant.getSelectedRow();
-        if(selectedRow>0)
+        if(selectedRow>-1)
             {
                 try {
                 DoctorAttendentWorkQueue docAttendantWorkQueue = (DoctorAttendentWorkQueue)tblAttendant.getValueAt(selectedRow, 0);
                 BloodHeadAttendentWorkQueue bloodAttendantWorkQueue= new BloodHeadAttendentWorkQueue();   
                 bloodAttendantWorkQueue.setSender(ua);
-                bloodAttendantWorkQueue.setUnitsOfBlood(Integer.parseInt(txtBloodQuant.getText()));
+                bloodAttendantWorkQueue.setUnitsOfBlood(Integer.parseInt(Utilities.getTrimmedText(txtBloodQuant)));
                 bloodAttendantWorkQueue.setNameOfPatient(docAttendantWorkQueue.getAppointmentDetails().getPatient().getPatientName());
                 bloodAttendantWorkQueue.setTypeOfBlood(docAttendantWorkQueue.getAppointmentDetails().getPatient().getBloodGroup());
                 bloodAttendantWorkQueue.setMessage("InQueue");
@@ -248,13 +249,14 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
                     {
                     docAttendantWorkQueue.setMessage("Posted");
                     this.network.getBloodBankRequests().getWorkRequestList().add(bloodAttendantWorkQueue);
-                    userAccount.getWorkQueue().getWorkRequestList().add(bloodAttendantWorkQueue);
+                    ua.getWorkQueue().getWorkRequestList().add(bloodAttendantWorkQueue);
                     txtBloodQuant.setText("");
                     populateAttendantTable();
                     JOptionPane.showMessageDialog(null, "Request sent successfully!!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     break;  
                 } 
-            }                                                 
+            }
+                    populateBloodStatusTable();
             
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"Entered quantity is invalid!");
