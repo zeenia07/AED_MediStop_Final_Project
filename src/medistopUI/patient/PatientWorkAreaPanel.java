@@ -159,8 +159,12 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
         deliveryDirLabel4 = new javax.swing.JLabel();
         helpTextLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 153, 255));
+
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+
+        menuPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));

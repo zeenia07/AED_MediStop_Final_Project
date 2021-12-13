@@ -57,23 +57,28 @@ public class HeadBloodBankMainPageJPanel extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createTitledBorder("BBI Landing Area"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ViewRequestjButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ViewRequestjButton.setForeground(new java.awt.Color(0, 51, 153));
         ViewRequestjButton.setText("View Requests");
         ViewRequestjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewRequestjButtonActionPerformed(evt);
             }
         });
-        add(ViewRequestjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 125, 155, 66));
+        add(ViewRequestjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 125, 220, 66));
 
+        GoToInventoryjButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GoToInventoryjButton.setForeground(new java.awt.Color(0, 51, 153));
         GoToInventoryjButton.setText("Go To Inventory");
         GoToInventoryjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GoToInventoryjButtonActionPerformed(evt);
             }
         });
-        add(GoToInventoryjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 209, 155, 66));
+        add(GoToInventoryjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 209, 220, 66));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setText("BLOOD BANK INCHARGE");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 38, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

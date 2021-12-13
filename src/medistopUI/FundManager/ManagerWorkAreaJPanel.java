@@ -95,66 +95,145 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnPickUp = new javax.swing.JButton();
+        btnViewDonations = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         lblValue = new javax.swing.JLabel();
-        btnViewDonations = new javax.swing.JButton();
-        btnPickUp = new javax.swing.JButton();
         lblFunds = new javax.swing.JLabel();
         lblFundsValue = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblFundsUsed = new javax.swing.JLabel();
-        btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Funding Manager"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("FUNDING MANAGER:");
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 51));
+        lblTitle.setText("FUNDING MANAGER");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, -1));
 
-        lblName.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        lblName.setText("Funding Organisation Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 77, -1, -1));
-        add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 72, -1, -1));
-
-        btnViewDonations.setText("View Donations");
-        btnViewDonations.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDonationsActionPerformed(evt);
-            }
-        });
-        add(btnViewDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 163, 30));
-
-        btnPickUp.setText("Pick New Case");
-        btnPickUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPickUpActionPerformed(evt);
-            }
-        });
-        add(btnPickUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 163, 30));
-
-        lblFunds.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        lblFunds.setText("Funds Received");
-        add(lblFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 119, -1, -1));
-
-        lblFundsValue.setText("value");
-        add(lblFundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jLabel1.setText("Funds Used");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 161, -1, -1));
-
-        lblFundsUsed.setText("0");
-        add(lblFundsUsed, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 20, -1));
-
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(0, 51, 153));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
+
+        btnPickUp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPickUp.setForeground(new java.awt.Color(0, 51, 153));
+        btnPickUp.setText("Pick New Case");
+        btnPickUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPickUpActionPerformed(evt);
+            }
+        });
+
+        btnViewDonations.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnViewDonations.setForeground(new java.awt.Color(0, 51, 153));
+        btnViewDonations.setText("View Donations");
+        btnViewDonations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDonationsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnViewDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPickUp, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(btnPickUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnViewDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 380, 190));
+
+        jPanel6.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
+
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 51, 153));
+        lblName.setText("Funding Organisation Name");
+
+        lblValue.setText("value");
+
+        lblFunds.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblFunds.setForeground(new java.awt.Color(0, 51, 153));
+        lblFunds.setText("Funds Received");
+
+        lblFundsValue.setText("value");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setText("Funds Used");
+
+        lblFundsUsed.setText("0");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblName)
+                        .addGap(11, 11, 11)
+                        .addComponent(lblValue))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblFunds)
+                        .addGap(118, 118, 118)
+                        .addComponent(lblFundsValue))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1)
+                        .addGap(153, 153, 153)
+                        .addComponent(lblFundsUsed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblName)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblValue)))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblFunds)
+                    .addComponent(lblFundsValue))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(lblFundsUsed))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonationsActionPerformed
@@ -193,6 +272,8 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnViewDonations;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblFunds;
     private javax.swing.JLabel lblFundsUsed;
     private javax.swing.JLabel lblFundsValue;

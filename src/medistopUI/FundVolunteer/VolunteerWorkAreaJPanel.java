@@ -59,18 +59,57 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblPatientCharity = new javax.swing.JTable();
         lblWelcome = new javax.swing.JLabel();
         lblVolunteerName = new javax.swing.JLabel();
         lblWelcome1 = new javax.swing.JLabel();
+        btnPublish = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         lblFundsName = new javax.swing.JLabel();
         lblFundsOrgName = new javax.swing.JLabel();
         lblFundsName1 = new javax.swing.JLabel();
         lblFundsOrgCity = new javax.swing.JLabel();
-        btnPublish = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPatientCharity = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(204, 0, 51));
+        lblWelcome.setText("Welcome ");
+
+        lblVolunteerName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblVolunteerName.setText("value");
+
+        lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome1.setForeground(new java.awt.Color(204, 0, 51));
+        lblWelcome1.setText(", your gift, whether big or small, matters!!");
+
+        btnPublish.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnPublish.setForeground(new java.awt.Color(0, 0, 102));
+        btnPublish.setText("Publish Newsletter");
+        btnPublish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPublishActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/charity.png"))); // NOI18N
+
+        jPanel4.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
+
+        lblFundsName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblFundsName.setForeground(new java.awt.Color(0, 0, 102));
+        lblFundsName.setText("Funding Organisation Name:");
+
+        lblFundsOrgName.setText("value");
+
+        lblFundsName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblFundsName1.setForeground(new java.awt.Color(0, 0, 102));
+        lblFundsName1.setText("Funding Organisation Address:");
+
+        lblFundsOrgCity.setText("value");
 
         tblPatientCharity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,37 +132,43 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPatientCharity);
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome.setText("Welcome ");
-
-        lblVolunteerName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblVolunteerName.setText("value");
-
-        lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome1.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome1.setText(", your gift, whether big or small, matters!!");
-
-        lblFundsName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblFundsName.setForeground(new java.awt.Color(0, 0, 102));
-        lblFundsName.setText("Funding Organisation Name:");
-
-        lblFundsOrgName.setText("value");
-
-        lblFundsName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblFundsName1.setForeground(new java.awt.Color(0, 0, 102));
-        lblFundsName1.setText("Funding Organisation Address:");
-
-        lblFundsOrgCity.setText("value");
-
-        btnPublish.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnPublish.setForeground(new java.awt.Color(0, 0, 102));
-        btnPublish.setText("Publish Newsletter");
-        btnPublish.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPublishActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblFundsName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(lblFundsOrgName))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblFundsName1)
+                                .addGap(28, 28, 28)
+                                .addComponent(lblFundsOrgCity))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFundsName)
+                    .addComponent(lblFundsOrgName))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFundsName1)
+                    .addComponent(lblFundsOrgCity))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,49 +180,37 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFundsName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(lblFundsOrgName))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblWelcome)
                                 .addGap(4, 4, 4)
                                 .addComponent(lblVolunteerName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblWelcome1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFundsName1)
-                                .addGap(28, 28, 28)
-                                .addComponent(lblFundsOrgCity))))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(btnPublish, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(445, Short.MAX_VALUE))
+                        .addGap(266, 266, 266)
+                        .addComponent(btnPublish, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome)
-                    .addComponent(lblVolunteerName)
-                    .addComponent(lblWelcome1))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFundsName)
-                    .addComponent(lblFundsOrgName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFundsName1)
-                    .addComponent(lblFundsOrgCity))
-                .addGap(89, 89, 89)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnPublish)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblWelcome)
+                            .addComponent(lblVolunteerName)
+                            .addComponent(lblWelcome1))
+                        .addGap(32, 32, 32)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPublish))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,6 +274,8 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPublish;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFundsName;
     private javax.swing.JLabel lblFundsName1;

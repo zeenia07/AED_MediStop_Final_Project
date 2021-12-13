@@ -95,39 +95,50 @@ EcoSystem ecosystem;
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, 370, 134));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 153));
         lblTitle.setText("MANAGE ENTERPRISE ");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 33, -1, -1));
 
+        lblNetwork.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNetwork.setForeground(new java.awt.Color(0, 51, 153));
         lblNetwork.setText("Network");
         add(lblNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 235, -1, -1));
 
-        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 231, 136, -1));
+        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 136, -1));
 
+        lblEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblEnterprise.setForeground(new java.awt.Color(0, 51, 153));
         lblEnterprise.setText("Enterprise Type");
         add(lblEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 280, -1, -1));
 
-        add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 276, 136, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 321, 136, -1));
+        add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 136, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 136, -1));
 
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 51, 153));
         lblName.setText("Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 326, -1, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 376, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, -1));
 
+        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(0, 51, 153));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 376, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed

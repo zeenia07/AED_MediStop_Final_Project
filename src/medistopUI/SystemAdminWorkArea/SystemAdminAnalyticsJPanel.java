@@ -67,50 +67,63 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createTitledBorder("Analytics Information"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 153));
         lblTitle.setText("ANALYTICS");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, -1, -1));
 
+        btnOrganisationWithMaximumFunds.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnOrganisationWithMaximumFunds.setForeground(new java.awt.Color(0, 51, 153));
         btnOrganisationWithMaximumFunds.setText("Organisation With Maximum Funds");
         btnOrganisationWithMaximumFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrganisationWithMaximumFundsActionPerformed(evt);
             }
         });
-        add(btnOrganisationWithMaximumFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 270, -1));
+        add(btnOrganisationWithMaximumFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 350, -1));
 
+        btnFrequentlyVisitedHospital.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFrequentlyVisitedHospital.setForeground(new java.awt.Color(0, 51, 153));
         btnFrequentlyVisitedHospital.setText("Frequently Visited Hospital");
         btnFrequentlyVisitedHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFrequentlyVisitedHospitalActionPerformed(evt);
             }
         });
-        add(btnFrequentlyVisitedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 255, 200, -1));
+        add(btnFrequentlyVisitedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 255, 270, -1));
 
+        btnPrimeDonor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPrimeDonor.setForeground(new java.awt.Color(0, 51, 153));
         btnPrimeDonor.setText("Prime Donor");
         btnPrimeDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrimeDonorActionPerformed(evt);
             }
         });
-        add(btnPrimeDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 270, -1));
+        add(btnPrimeDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 350, -1));
 
+        btnFrequentPatient.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFrequentPatient.setForeground(new java.awt.Color(0, 51, 153));
         btnFrequentPatient.setText("Frequent Patient");
         btnFrequentPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFrequentPatientActionPerformed(evt);
             }
         });
-        add(btnFrequentPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, -1));
+        add(btnFrequentPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 270, -1));
 
-        btnFrequentlyVistedDoctor.setText("Frequently visited Doctor");
+        btnFrequentlyVistedDoctor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFrequentlyVistedDoctor.setForeground(new java.awt.Color(0, 51, 153));
+        btnFrequentlyVistedDoctor.setText("Frequently Visited Doctor");
         btnFrequentlyVistedDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFrequentlyVistedDoctorActionPerformed(evt);
             }
         });
-        add(btnFrequentlyVistedDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, -1));
+        add(btnFrequentlyVistedDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 270, -1));
 
+        btnOrganisationWithMaximumDonors.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnOrganisationWithMaximumDonors.setForeground(new java.awt.Color(0, 51, 153));
         btnOrganisationWithMaximumDonors.setText("Organisation With Maximum Donors");
         btnOrganisationWithMaximumDonors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,13 +159,15 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 86, 649, 107));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrganisationWithMaximumFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganisationWithMaximumFundsActionPerformed

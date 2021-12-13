@@ -75,28 +75,42 @@ public class ViewDonorJpanel extends javax.swing.JPanel
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Donor Information"));
+        setForeground(new java.awt.Color(0, 0, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 0, 153));
         lblName.setText("Donor's Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 77, -1, -1));
         add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 201, -1, -1));
 
+        lblPhoneNumber.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPhoneNumber.setForeground(new java.awt.Color(0, 0, 153));
         lblPhoneNumber.setText("Phone Number");
         add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 115, -1, -1));
 
+        lblAddress.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(0, 0, 153));
         lblAddress.setText("Address Line1");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
+        lblCity.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(0, 0, 153));
         lblCity.setText("City");
         add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("View Donor's ACCOUNT");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 213, 35));
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 0, 153));
+        lblTitle.setText("View Donor's Account");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 280, 35));
 
+        lblState.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblState.setForeground(new java.awt.Color(0, 0, 153));
         lblState.setText("State");
         add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
+        lblZipCode.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblZipCode.setForeground(new java.awt.Color(0, 0, 153));
         lblZipCode.setText("ZipCode");
         add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
         add(txtDonorsName, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 77, 181, -1));
@@ -106,14 +120,18 @@ public class ViewDonorJpanel extends javax.swing.JPanel
         add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 181, -1));
         add(txtDonorsState, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 181, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 0, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
+        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(0, 0, 153));
         lblUserName.setText("UserName");
         add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
         add(txtDonorUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 181, -1));

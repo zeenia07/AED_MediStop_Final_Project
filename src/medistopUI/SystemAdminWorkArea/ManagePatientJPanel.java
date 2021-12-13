@@ -103,31 +103,38 @@ EcoSystem ecosystem;
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 404, 145));
 
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnView.setForeground(new java.awt.Color(0, 51, 153));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 286, 84, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 84, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 333, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, -1));
 
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 51, 153));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
         jLabel2.setText("MANAGE PATIENT INFORMATION");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, 34));
     }// </editor-fold>//GEN-END:initComponents
