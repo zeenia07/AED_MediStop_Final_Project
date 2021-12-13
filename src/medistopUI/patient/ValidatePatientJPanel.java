@@ -105,7 +105,7 @@ public class ValidatePatientJPanel extends javax.swing.JPanel {
 
         setAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         setAccL.setForeground(new java.awt.Color(0, 51, 102));
-        setAccL.setText("SET YOUR ACCOUNT AS A DONOR");
+        setAccL.setText("SET YOUR ACCOUNT AS A PATIENT");
 
         codeL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         codeL.setForeground(new java.awt.Color(0, 0, 102));
@@ -247,7 +247,7 @@ public class ValidatePatientJPanel extends javax.swing.JPanel {
             ecosystem.getPatientDir().addPat(patientData);
             dB4OUtil.storeSystem(ecosystem);
 
-            JOptionPane.showMessageDialog(null, "You have been officially registered as Donor \nPlease Login to start donating.. ",
+            JOptionPane.showMessageDialog(null, "You have been officially registered as Patient \nPlease Login to start getting the help ",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             
             saveBtn.setEnabled(false);

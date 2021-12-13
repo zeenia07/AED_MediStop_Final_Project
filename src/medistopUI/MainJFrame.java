@@ -142,7 +142,7 @@ public class MainJFrame extends javax.swing.JFrame {
         bodyPanel.setPreferredSize(new java.awt.Dimension(2000, 700));
         bodyPanel.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\bg8.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/bg8.jpg"))); // NOI18N
         bodyPanel.add(jLabel1, "card2");
 
         mainSplitPane.setRightComponent(bodyPanel);

@@ -5,6 +5,8 @@
 package medistopBackend.WorkQueue;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -20,4 +22,10 @@ public class WorkQueue {
     public ArrayList<WorkRequest> getWorkRequestList() {
         return workRequestList;
     }
+    
+    public List<WorkRequest> getWorkRequestListWithNotAccMesg() {
+        return workRequestList.stream().filter(list -> !list.getMessage().equals("Acknowledged"))
+                .collect(Collectors.toList());
+    }
+    
 }

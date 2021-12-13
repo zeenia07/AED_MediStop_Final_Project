@@ -66,12 +66,17 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
     }
     
     public void initApptHistoryDirTableModel() {
+
+
         
         appointmentHistoryTableModel = new DefaultTableModel();
-        appointmentHistoryTableModel.addColumn("Hospital");   
-        appointmentHistoryTableModel.addColumn("Doctor");  
-        appointmentHistoryTableModel.addColumn("City");  
-        appointmentHistoryTableModel.addColumn("Timestamp");    
+        appointmentHistoryTableModel.addColumn("Patient Name");
+
+        appointmentHistoryTableModel.addColumn("Time stamp");
+        appointmentHistoryTableModel.addColumn("Doctor Name");
+
+        appointmentHistoryTableModel.addColumn("Hospital");
+        appointmentHistoryTableModel.addColumn("City");
         appointmentHistoryTableModel.addColumn("Disease");    
 
 
@@ -94,7 +99,7 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             {
 
                 Object[] rowdata = {assistantAddingTimingsWorkQueue, assistantAddingTimingsWorkQueue.getDoctor(),
-                        formatter.format(assistantAddingTimingsWorkQueue.getTimings()),
+                        assistantAddingTimingsWorkQueue.getTimings(),
                         assistantAddingTimingsWorkQueue.getStatus() };
 
                 model.addRow(rowdata);

@@ -186,7 +186,7 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblPatientCharity.getModel();
         int selectedRow = tblPatientCharity.getSelectedRow();
         
-        if (selectedRow > 0)
+        if (selectedRow > -1)
         {
             HospitalFundsRequestWorkQueue request = (HospitalFundsRequestWorkQueue)tblPatientCharity.getValueAt(selectedRow,0);
             

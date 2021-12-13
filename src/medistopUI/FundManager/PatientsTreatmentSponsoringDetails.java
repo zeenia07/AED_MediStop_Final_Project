@@ -204,7 +204,7 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
                     recivedFundWorkRequest.setHospitalName(request.getHospitalName());
                     recivedFundWorkRequest.setSender(userAccount);
                     recivedFundWorkRequest.setFundsSponsored(String.valueOf(request.getAmount()));
-                
+                    
                     Enterprise enterprise = null;
                     for(Network net: ecoSystem.getNetworkList())
                     {
