@@ -144,7 +144,7 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
         add(lblFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 119, -1, -1));
 
         lblFundsValue.setText("value");
-        add(lblFundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+        add(lblFundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 116, 80, 20));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 102));
