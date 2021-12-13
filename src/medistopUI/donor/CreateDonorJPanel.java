@@ -6,30 +6,30 @@
 
 package medistopUI.donor;
 
-import java.awt.CardLayout;
-import java.io.File;
-import java.text.SimpleDateFormat;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.filechooser.FileSystemView;
-
+import medistopBackend.EcoSystem;
 import medistopBackend.UserData.DonorData;
+import medistopBackend.UserData.DonorDirectory;
 import medistopUtil.OTPUtility;
 import medistopUtil.SMSUtility;
 import medistopUtil.SendEmailUtility;
 import medistopUtil.Utilities;
 
-import medistopBackend.EcoSystem;
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author 18577
  */
-public class CreateDonorJPanel extends javax.swing.JPanel {
+public class CreateDonorJPanel extends JPanel {
     private JPanel bodyPanel;
     private EcoSystem ecosystem;
-    //private DonorDirectory donorDir;
+    private DonorDirectory donorDir;
     
     /** Creates new form DonorForm */
     public CreateDonorJPanel(JPanel bodyPanel, EcoSystem ecosystem) {
@@ -198,12 +198,12 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         menuItemName9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuItemName9.setForeground(new java.awt.Color(0, 0, 102));
-<<<<<<< HEAD
+
         menuItemName9.setText("Email");
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
-=======
+
         menuItemName9.setText("Email:");
         add(menuItemName9);
 
@@ -211,11 +211,10 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         emailTF.setText(" ");
         emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                emailTFKeyReleased(evt);
+                //emailTFKeyReleased(evt);
             }
         });
         add(emailTF);
->>>>>>> zeenia_ui
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -235,7 +234,6 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -369,16 +367,14 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                     .addComponent(backBtn)
                     .addContainerGap()))
         );
-=======
         add(backBtn);
-        add(lblemailformat);
->>>>>>> zeenia_ui
+//        add(lblemailformat);
     }// </editor-fold>//GEN-END:initComponents
 
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biRBActionPerformed
-
+private boolean femail=true;
     private void uploadPicBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPicBtnActionPerformed
         // TODO add your handling code here:
         String profilePicPath;
@@ -437,25 +433,41 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             donor.setZipCode(zipCode);
             donor.setEmail(email);
 
-        
-        String[] to = {email};
-        String phoneNumber = donor.getContactNo();
-        String from = "medistop2021vzd@gmail.com";
-        String pwd = "TravelDell@26893";
 
-        String code = OTPUtility.generateOTP(4);
-        
-        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
-        String subject = "Account Verification Mail";
-        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
-        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
-        
-        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
-        
-        ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
-        bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
-        CardLayout layout = (CardLayout) bodyPanel.getLayout();
-        layout.next(bodyPanel);
+             String PATTERN = "^\\S+@\\S+$";
+             Pattern patt = Pattern.compile(PATTERN);
+             Matcher match = patt.matcher(emailTF.getText());
+             if (!match.matches()) {
+                 femail = false;
+//            lblemailformat.setText("Email Format is not correct");
+             } else {
+                 femail = true;
+//            lblemailformat.setText(null);
+             }
+
+        if(femail){
+            String[] to = {email};
+            String phoneNumber = donor.getContactNo();
+            String from = "medistop2021vzd@gmail.com";
+            String pwd = "TravelDell@26893";
+
+            String code = OTPUtility.generateOTP(4);
+
+            String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+            String subject = "Account Verification Mail";
+            SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+            SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
+
+            JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+
+            ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
+            bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
+            CardLayout layout = (CardLayout) bodyPanel.getLayout();
+            layout.next(bodyPanel);
+        }else{
+            JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         }
         catch(Exception e)
         {

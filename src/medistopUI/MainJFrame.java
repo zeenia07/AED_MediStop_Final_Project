@@ -9,10 +9,8 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import medistopBackend.DB4OUtil.DB4OUtil;
 import medistopBackend.EcoSystem;
-import medistopUI.donor.CreateDonorJPanel;
 import medistopUI.login.LoginJPanel;
 import medistopUI.patient.CreatePatientJPanel;
-import medistopUtil.Utilities;
 
 /**
  *
