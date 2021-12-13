@@ -120,25 +120,30 @@ public class HeadBloodBankWorkAreaJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 122, 545, 137));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("All BLOOD REQUESTS");
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 51));
+        lblTitle.setText("VIEW BLOOD REQUESTS");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 40, -1, 34));
 
+        btnAccept.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(0, 51, 153));
         btnAccept.setText("Accept Request");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
-        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 314, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed

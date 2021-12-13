@@ -246,7 +246,7 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/medistopUI.images/bloodStatus.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/bloodStatus.jpg"))); // NOI18N
 
         javax.swing.GroupLayout checkStatusLayout = new javax.swing.GroupLayout(checkStatus);
         checkStatus.setLayout(checkStatusLayout);

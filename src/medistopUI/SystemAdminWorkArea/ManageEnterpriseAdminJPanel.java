@@ -118,6 +118,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 81, 523, 95));
 
+        lblNetwork.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNetwork.setForeground(new java.awt.Color(0, 51, 153));
         lblNetwork.setText("Network");
         add(lblNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 221, -1, -1));
 
@@ -129,41 +131,54 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 217, 136, -1));
 
+        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(0, 51, 153));
         lblUserName.setText("Username");
         add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 312, -1, -1));
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 307, 136, -1));
 
+        lblEnterPrise.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblEnterPrise.setForeground(new java.awt.Color(0, 51, 153));
         lblEnterPrise.setText("Enterprise");
         add(lblEnterPrise, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 266, -1, -1));
 
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 262, 136, -1));
 
+        btnsubmit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnsubmit.setForeground(new java.awt.Color(0, 51, 153));
         btnsubmit.setText("Submit");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsubmitActionPerformed(evt);
             }
         });
-        add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 464, -1, -1));
+        add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
 
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 51, 153));
         lblPassword.setText("Password");
         add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 356, -1, -1));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 395, 136, -1));
 
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 51, 153));
         lblName.setText("Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 400, -1, -1));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 351, 134, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 464, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 153));
         lblTitle.setText("ADD ENTERPRISE ADMIN");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 33, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

@@ -234,11 +234,15 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
         helpTextLabel = new javax.swing.JLabel();
         deliveryDirLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 153, 255));
+
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
+        menuPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel.setForeground(new java.awt.Color(0, 0, 102));
+        deliveryDirLabel.setForeground(new java.awt.Color(204, 0, 51));
         deliveryDirLabel.setText("100% of your donation will help a patient in need ...");
 
         charityDirTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
@@ -253,10 +257,10 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
 
         deliveryDirLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         deliveryDirLabel2.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel2.setText("Charity Directory");
+        deliveryDirLabel2.setText("Funds Directory");
 
         deliveryDirLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel3.setForeground(new java.awt.Color(0, 0, 102));
+        deliveryDirLabel3.setForeground(new java.awt.Color(204, 0, 51));
         deliveryDirLabel3.setText("DONATE, Save Lives!");
 
         twoHundBtn.setBackground(new java.awt.Color(0, 51, 102));
@@ -383,6 +387,8 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
 
         donationTabbedPane.addTab("New Donation", menuPanel);
 
+        manageOrdersTab.setBackground(new java.awt.Color(255, 255, 255));
+
         propertyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         propertyComboBox.setForeground(new java.awt.Color(0, 0, 102));
         propertyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Charity Name", "City", "Charity Cause" }));
@@ -457,20 +463,24 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                                 .addComponent(resetTableButton))
                             .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(172, Short.MAX_VALUE))
-            .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(965, Short.MAX_VALUE)))
+                            .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                                .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         manageOrdersTabLayout.setVerticalGroup(
             manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageOrdersTabLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(userAccLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrdersTabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(searchHeaderLabel)
                 .addGap(18, 18, 18)
                 .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -484,11 +494,6 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
-            .addGroup(manageOrdersTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageOrdersTabLayout.createSequentialGroup()
-                    .addGap(69, 69, 69)
-                    .addComponent(deliveryDirLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(699, Short.MAX_VALUE)))
         );
 
         donationTabbedPane.addTab("Donation History", manageOrdersTab);

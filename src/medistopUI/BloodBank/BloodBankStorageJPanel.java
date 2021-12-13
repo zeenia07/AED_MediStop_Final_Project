@@ -67,23 +67,113 @@ public class BloodBankStorageJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        BloodInventoryjTable = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         lblBloodType = new javax.swing.JLabel();
         BloodTypeComboBox = new javax.swing.JComboBox<>();
-        btnBack = new javax.swing.JButton();
         lblBloodQuantity = new javax.swing.JLabel();
         txtUnitsOfBlood = new javax.swing.JTextField();
+        lblTitle = new javax.swing.JLabel();
         btnAddBlood = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        BloodInventoryjTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Blood Bank"));
+        setForeground(new java.awt.Color(0, 51, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
+        btnBack.setText("Back ");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
+
+        lblBloodType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBloodType.setForeground(new java.awt.Color(0, 51, 153));
+        lblBloodType.setText("Blood Type:");
+
+        BloodTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BloodTypeComboBoxActionPerformed(evt);
+            }
+        });
+
+        lblBloodQuantity.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBloodQuantity.setForeground(new java.awt.Color(0, 51, 153));
+        lblBloodQuantity.setText("Units of Blood:");
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("BLOOD BANK STOCK");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 37, -1, 34));
+
+        btnAddBlood.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAddBlood.setForeground(new java.awt.Color(0, 51, 153));
+        btnAddBlood.setText("Add Blood");
+        btnAddBlood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddBloodActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblBloodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUnitsOfBlood, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblBloodType)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BloodTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddBlood)
+                .addGap(45, 45, 45))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBloodType)
+                    .addComponent(BloodTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBloodQuantity)
+                    .addComponent(txtUnitsOfBlood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnAddBlood)
+                .addContainerGap())
+        );
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 340, 230));
+
+        jPanel5.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
 
         BloodInventoryjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,37 +185,30 @@ public class BloodBankStorageJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(BloodInventoryjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 404, 85));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
 
-        lblBloodType.setText("Blood Type");
-        add(lblBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 107, -1, -1));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 440, -1));
 
-        BloodTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BloodTypeComboBoxActionPerformed(evt);
-            }
-        });
-        add(BloodTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 103, 90, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/Blood-Bank-500.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 370, 370));
 
-        btnBack.setText("Back ");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
-
-        lblBloodQuantity.setText("Units of Blood");
-        add(lblBloodQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 148, 100, -1));
-        add(txtUnitsOfBlood, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 148, 90, -1));
-
-        btnAddBlood.setText("Add Blood");
-        btnAddBlood.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddBloodActionPerformed(evt);
-            }
-        });
-        add(btnAddBlood, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/blood-bank.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 340, 170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -193,6 +276,10 @@ public class BloodBankStorageJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<Object> BloodTypeComboBox;
     private javax.swing.JButton btnAddBlood;
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBloodQuantity;
     private javax.swing.JLabel lblBloodType;

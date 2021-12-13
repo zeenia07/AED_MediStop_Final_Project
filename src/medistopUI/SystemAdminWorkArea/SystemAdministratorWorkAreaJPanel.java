@@ -47,57 +47,70 @@ JPanel showPanel;
         setBorder(javax.swing.BorderFactory.createTitledBorder("System Administrator Work Area"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnManageLocation.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnManageLocation.setForeground(new java.awt.Color(0, 51, 153));
         btnManageLocation.setText("Manage Location");
         btnManageLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageLocationActionPerformed(evt);
             }
         });
-        add(btnManageLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 202, -1));
+        add(btnManageLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 310, -1));
 
+        btnManagePatient.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnManagePatient.setForeground(new java.awt.Color(0, 51, 153));
         btnManagePatient.setText("Manage Patient");
         btnManagePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagePatientActionPerformed(evt);
             }
         });
-        add(btnManagePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 202, -1));
+        add(btnManagePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 370, -1));
 
+        btnManageDonor.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnManageDonor.setForeground(new java.awt.Color(0, 51, 153));
         btnManageDonor.setText("Manage Donor");
         btnManageDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageDonorActionPerformed(evt);
             }
         });
-        add(btnManageDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 202, -1));
+        add(btnManageDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 310, -1));
 
+        btnManageEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnManageEnterprise.setForeground(new java.awt.Color(0, 51, 153));
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterpriseActionPerformed(evt);
             }
         });
-        add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 202, -1));
+        add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, -1));
 
-        btnTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnTitle.setForeground(new java.awt.Color(0, 51, 153));
         btnTitle.setText("SYSTEM ADMINISTRATOR");
-        add(btnTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 34, 200, -1));
+        add(btnTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 330, -1));
 
+        btnManageEnterAdministrator.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnManageEnterAdministrator.setForeground(new java.awt.Color(0, 51, 153));
         btnManageEnterAdministrator.setText("Manage Enterprise admin");
         btnManageEnterAdministrator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterAdministratorActionPerformed(evt);
             }
         });
-        add(btnManageEnterAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
+        add(btnManageEnterAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 370, -1));
 
+        btnApplicationAnalytics.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnApplicationAnalytics.setForeground(new java.awt.Color(0, 51, 153));
         btnApplicationAnalytics.setText("Application Analysis");
         btnApplicationAnalytics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApplicationAnalyticsActionPerformed(evt);
             }
         });
-        add(btnApplicationAnalytics, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 202, -1));
+        add(btnApplicationAnalytics, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 360, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLocationActionPerformed
@@ -125,14 +138,6 @@ JPanel showPanel;
         layout.next(showPanel);
     }//GEN-LAST:event_btnManageDonorActionPerformed
 
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        // TODO add your handling code here:
-        ManageEnterprisesJPanel manageEnterprisePanel=new  ManageEnterprisesJPanel(showPanel, ecosystem);
-        showPanel.add("manageEnterprisePanel",manageEnterprisePanel);
-        CardLayout layout=(CardLayout)showPanel.getLayout();
-        layout.next(showPanel);
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
-
     private void btnManageEnterAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterAdministratorActionPerformed
         // TODO add your handling code here:
         ManageEnterpriseAdminJPanel manageEnterpriseAdmin = new ManageEnterpriseAdminJPanel(showPanel,ecosystem);
@@ -147,6 +152,14 @@ JPanel showPanel;
         CardLayout layout=(CardLayout)showPanel.getLayout();
         layout.next(showPanel);
     }//GEN-LAST:event_btnApplicationAnalyticsActionPerformed
+
+    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
+        // TODO add your handling code here:
+        ManageEnterprisesJPanel manageEnterprisePanel=new  ManageEnterprisesJPanel(showPanel, ecosystem);
+        showPanel.add("manageEnterprisePanel",manageEnterprisePanel);
+        CardLayout layout=(CardLayout)showPanel.getLayout();
+        layout.next(showPanel);
+    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

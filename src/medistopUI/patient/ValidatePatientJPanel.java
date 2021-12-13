@@ -103,6 +103,8 @@ public class ValidatePatientJPanel extends javax.swing.JPanel {
         passPF = new javax.swing.JPasswordField();
         saveBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         setAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         setAccL.setForeground(new java.awt.Color(0, 51, 102));
         setAccL.setText("SET YOUR ACCOUNT AS A PATIENT");

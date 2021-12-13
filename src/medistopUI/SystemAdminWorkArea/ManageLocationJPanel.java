@@ -92,6 +92,8 @@ EcoSystem ecosystem;
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 97, 404, 91));
 
+        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(0, 51, 153));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,9 +103,13 @@ EcoSystem ecosystem;
         add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 303, -1, -1));
         add(txtEnterCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 211, 93, -1));
 
+        addCityjLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        addCityjLabel.setForeground(new java.awt.Color(0, 51, 153));
         addCityjLabel.setText("Add City");
         add(addCityjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 216, -1, -1));
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +118,8 @@ EcoSystem ecosystem;
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 303, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
         jLabel2.setText("ADD NETWORK");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 33, -1, 46));
     }// </editor-fold>//GEN-END:initComponents

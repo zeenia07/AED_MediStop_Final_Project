@@ -99,7 +99,9 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
         passPF = new javax.swing.JPasswordField();
         saveBtn = new javax.swing.JButton();
 
-        setAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        setAccL.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         setAccL.setForeground(new java.awt.Color(0, 51, 102));
         setAccL.setText("SET YOUR ACCOUNT AS A DONOR");
 
@@ -130,7 +132,7 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
         usernameTF.setForeground(new java.awt.Color(0, 0, 102));
         usernameTF.setText(" ");
 
-        valAccL.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        valAccL.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         valAccL.setForeground(new java.awt.Color(0, 51, 102));
         valAccL.setText("VALIDATE YOUR ACCOUNT AS A DONOR");
 
@@ -259,7 +261,7 @@ public class ValidateDonorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_saveBtnActionPerformed
 
 
-    // Variables declarat\ion - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel codeL;
     private javax.swing.JTextField codeTF;
     private javax.swing.JLabel helperLabel;

@@ -84,6 +84,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         menuItemName10 = new javax.swing.JLabel();
         bloodGroupCB = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setAutoscrolls(true);
 
         deliveryDirLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
