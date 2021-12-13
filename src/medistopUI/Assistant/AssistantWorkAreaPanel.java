@@ -5,6 +5,8 @@
  */
 package medistopUI.Assistant;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -25,6 +27,7 @@ import medistopBackend.WorkQueue.HospitalFundsRequestWorkQueue;
 import medistopBackend.WorkQueue.PatientBookingWorkQueue;
 import medistopBackend.WorkQueue.ReceivedFundWorkRequest;
 import medistopBackend.WorkQueue.WorkRequest;
+import medistopUtil.SMSUtility;
 
 /**
  *
@@ -495,7 +498,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Patient Name", "Patient ID", "Appointment Details", "Type Of Consultation", "Doctor"
+                "Patient Name", "Patient ID", "Appointment Details",  "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -679,10 +682,13 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                 
                 if(patientBooking.getStatus().equals("Approved"))
                 {
+
                     JOptionPane.showMessageDialog(null,"Patient appointment already approved!","Warning",JOptionPane.WARNING_MESSAGE);
                 }
                 else if(patientBooking.getStatus().equals("Rejected"))
                 {
+
+
                     JOptionPane.showMessageDialog(null,"Patient appointment already rejected!","Warning",JOptionPane.WARNING_MESSAGE);
                 }
                 
@@ -696,7 +702,9 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                     appointment.setHospitalName(patientBooking.getHospitalName());
                     appointment.setPatient(patientBooking.getPatient());
                     appointment.setDate(new Date());
-                
+                    String message = "Dear " + patientBooking.getPatient().getPatientName() + ",\n\nYour appointment has been confirmed.  " + " " + "\n\nThanks,\nTeam MediStop";
+
+                    SMSUtility.sendSMS(patientBooking.getPatient().getContactNo(), message);
                     JOptionPane.showMessageDialog(null, "Patient Appointment Approved!!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
@@ -774,7 +782,11 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                 {
                     patientBooking.setStatus("Rejected");
                     populateAppointmentTable();
-                    JOptionPane.showMessageDialog(null, "Patient Appointment Approved!!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                    JOptionPane.showMessageDialog(null, "Patient Appointment Rejected!!", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    String message = "Dear " + patientBooking.getPatient().getPatientName() + ",\n\nYour appointment has been rejected due to change in schedule. \n Please rebook your appointment.  " + " " + "\n\nThanks,\nTeam MediStop";
+
+                    SMSUtility.sendSMS(patientBooking.getPatient().getContactNo(), message);
                 }
               
             }
@@ -848,17 +860,17 @@ public void populateAppointmentTable()
         DefaultTableModel model = (DefaultTableModel) tblAppointment.getModel();
         
         model.setRowCount(0);
-        
+        DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+
         for(WorkRequest request : hospitalAssistant.getIncomingPatients().getWorkRequestList())
         {
             PatientBookingWorkQueue patient = new PatientBookingWorkQueue();
             patient = (PatientBookingWorkQueue)request;
-            Object[] row = new Object[5];
+            Object[] row = new Object[4];
             row[0] = patient;
             row[1] = patient.getPatient().getPatientId();
-            row[2] = patient.getMessage();
-            row[3] = patient.getSender();
-            row[4] = request.getStatus();
+            row[2] = formatter.format(patient.getRequestDate());;
+            row[3] = request.getStatus();
             
             model.addRow(row);
         }          
