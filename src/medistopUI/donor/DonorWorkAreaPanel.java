@@ -592,12 +592,20 @@ public class DonorWorkAreaPanel extends javax.swing.JPanel {
                     fundInfo.setFundsCause(Objects.isNull(charityDirTable.getValueAt(selectedRow, 2)) ? " " : charityDirTable.getValueAt(selectedRow, 2).toString());
                    
 
-                    String body = "Hi, " + fundInfo.getDonor().getDonorName() +"\n $  " + amountTF.getText() + "was donated to " + fundInfo.getFundsOrgName();
+                    String body = "Hi " + fundInfo.getDonor().getDonorName() +",\n $  " + amountTF.getText() + "was donated to organization " + fundInfo.getFundsOrgName() + "\n You have made a meaningful contribution. \n  " + " \n Frequency of donor:  " + fundInfo.getFrequencyType() + "\n Donation Cause  : " + fundInfo.getFundsCause() + "\n\n\n Thanks, \n Team MediStop";
                     JOptionPane.showMessageDialog(null, body, "Success", JOptionPane.INFORMATION_MESSAGE);
 
                     String subject = " Receipt of your donation! ";
-                    SendEmailUtility.sendEmail(subject, Utilities.email, Utilities.password, body, new String[]{fundInfo.getDonor().getEmail()});
-                    SMSUtility.sendSMS(fundInfo.getDonor().getContactNo(), body);
+
+                    try {
+                        SendEmailUtility.sendEmail(subject, Utilities.email, Utilities.password, body, new String[]{fundInfo.getDonor().getEmail()});
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
 
                     populateDonationHistoryTable();
 
