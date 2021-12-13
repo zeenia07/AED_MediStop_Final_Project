@@ -89,6 +89,7 @@ EcoSystem ecosystem;
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Manage Patient"));
+        setForeground(new java.awt.Color(0, 51, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,6 +104,7 @@ EcoSystem ecosystem;
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 404, 145));
 
+        btnView.setForeground(new java.awt.Color(0, 51, 153));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +113,7 @@ EcoSystem ecosystem;
         });
         add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 286, 84, -1));
 
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +122,7 @@ EcoSystem ecosystem;
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 333, -1, -1));
 
+        btnDelete.setForeground(new java.awt.Color(0, 51, 153));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,9 +131,10 @@ EcoSystem ecosystem;
         });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
         jLabel2.setText("MANAGE PATIENT INFORMATION");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, 34));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 410, 34));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ViewjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewjButtonActionPerformed
