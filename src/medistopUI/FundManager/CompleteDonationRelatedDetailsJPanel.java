@@ -78,9 +78,10 @@ public class CompleteDonationRelatedDetailsJPanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createTitledBorder("Donations Details"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 102));
         lblTitle.setText("DONATIONS INFORMATION:");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 340, -1));
 
         donationDetailsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,21 +109,27 @@ public class CompleteDonationRelatedDetailsJPanel extends javax.swing.JPanel
             donationDetailsJTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 89, 677, 264));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 677, 264));
 
+        btnBack.setFont(new java.awt.Font("Songti TC", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 102));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 371, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
+        lblName.setFont(new java.awt.Font("Songti TC", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 51, 102));
         lblName.setText("Funding Organisation Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 190, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 230, -1));
 
+        lblValue.setFont(new java.awt.Font("Songti TC", 1, 18)); // NOI18N
+        lblValue.setForeground(new java.awt.Color(0, 51, 102));
         lblValue.setText("value");
-        add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, 30));
+        add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

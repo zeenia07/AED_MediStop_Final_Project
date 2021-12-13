@@ -105,20 +105,6 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         donationTabbedPane = new javax.swing.JTabbedPane();
-        manageDocSlotsPanel = new javax.swing.JPanel();
-        menuItemName6 = new javax.swing.JLabel();
-        deliveryDirLabel5 = new javax.swing.JLabel();
-        btnAddSlot = new javax.swing.JButton();
-        comboManageSlots = new javax.swing.JComboBox();
-        menuItemName12 = new javax.swing.JLabel();
-        comboDay = new javax.swing.JComboBox();
-        comboMonth = new javax.swing.JComboBox();
-        comboYear = new javax.swing.JComboBox();
-        lblWelcome = new javax.swing.JLabel();
-        lblAssistantName = new javax.swing.JLabel();
-        menuItemName13 = new javax.swing.JLabel();
-        comboMinute = new javax.swing.JComboBox();
-        comboHour = new javax.swing.JComboBox();
         manageFundingRequestsPanel = new javax.swing.JPanel();
         helpTextLabel1 = new javax.swing.JLabel();
         deliveryDirLabel8 = new javax.swing.JLabel();
@@ -144,14 +130,314 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         btnReject = new javax.swing.JButton();
         lblWelcome3 = new javax.swing.JLabel();
         lblAssistantName3 = new javax.swing.JLabel();
+        manageDocSlotsPanel = new javax.swing.JPanel();
+        menuItemName6 = new javax.swing.JLabel();
+        deliveryDirLabel5 = new javax.swing.JLabel();
+        btnAddSlot = new javax.swing.JButton();
+        comboManageSlots = new javax.swing.JComboBox();
+        menuItemName12 = new javax.swing.JLabel();
+        comboDay = new javax.swing.JComboBox();
+        comboMonth = new javax.swing.JComboBox();
+        comboYear = new javax.swing.JComboBox();
+        lblWelcome = new javax.swing.JLabel();
+        lblAssistantName = new javax.swing.JLabel();
+        menuItemName13 = new javax.swing.JLabel();
+        comboMinute = new javax.swing.JComboBox();
+        comboHour = new javax.swing.JComboBox();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1925, 857));
 
         donationTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         donationTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
+        helpTextLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        helpTextLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        helpTextLabel1.setText(" ");
+
+        deliveryDirLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deliveryDirLabel8.setForeground(new java.awt.Color(255, 51, 51));
+        deliveryDirLabel8.setText("ASSISTANT WORK AREA");
+
+        menuItemName14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuItemName14.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName14.setText("Funding Required:      $");
+
+        btnRaiseFundingRequest.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnRaiseFundingRequest.setForeground(new java.awt.Color(0, 0, 102));
+        btnRaiseFundingRequest.setText("Raise Funding Request");
+        btnRaiseFundingRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaiseFundingRequestActionPerformed(evt);
+            }
+        });
+
+        tblFundingRequests.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        tblFundingRequests.setForeground(new java.awt.Color(0, 0, 102));
+        tblFundingRequests.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Patient Name", "Prescription", "Funding Required", "Funding Approved"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblFundingRequests.setRowHeight(40);
+        jScrollPane4.setViewportView(tblFundingRequests);
+
+        lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome1.setForeground(new java.awt.Color(0, 0, 102));
+        lblWelcome1.setText("Welcome ");
+
+        lblAssistantName1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName1.setForeground(new java.awt.Color(0, 0, 102));
+        lblAssistantName1.setText("value");
+
+        javax.swing.GroupLayout manageFundingRequestsPanelLayout = new javax.swing.GroupLayout(manageFundingRequestsPanel);
+        manageFundingRequestsPanel.setLayout(manageFundingRequestsPanelLayout);
+        manageFundingRequestsPanelLayout.setHorizontalGroup(
+            manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lblWelcome1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblAssistantName1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRaiseFundingRequest)
+                            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                                .addComponent(menuItemName14, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtFundReqd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                                .addComponent(helpTextLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))
+                            .addComponent(deliveryDirLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1089, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(797, Short.MAX_VALUE))
+        );
+        manageFundingRequestsPanelLayout.setVerticalGroup(
+            manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(deliveryDirLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome1)
+                    .addComponent(lblAssistantName1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(helpTextLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName14)
+                    .addComponent(txtFundReqd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(btnRaiseFundingRequest)
+                .addContainerGap(338, Short.MAX_VALUE))
+        );
+
+        donationTabbedPane.addTab("Funding Requests", manageFundingRequestsPanel);
+
+        fundingAcknowledgementPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        deliveryDirLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deliveryDirLabel11.setForeground(new java.awt.Color(255, 51, 51));
+        deliveryDirLabel11.setText("ASSISTANT WORK AREA");
+
+        tblAcknowledgement.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        tblAcknowledgement.setForeground(new java.awt.Color(0, 0, 102));
+        tblAcknowledgement.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Patient", "Date Acknowledged", "Funds", "Funding Location"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblAcknowledgement);
+
+        lblWelcome2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome2.setForeground(new java.awt.Color(0, 0, 102));
+        lblWelcome2.setText("Welcome ");
+
+        lblAssistantName2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName2.setForeground(new java.awt.Color(0, 0, 102));
+        lblAssistantName2.setText("value");
+
+        javax.swing.GroupLayout fundingAcknowledgementPanelLayout = new javax.swing.GroupLayout(fundingAcknowledgementPanel);
+        fundingAcknowledgementPanel.setLayout(fundingAcknowledgementPanelLayout);
+        fundingAcknowledgementPanelLayout.setHorizontalGroup(
+            fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
+                .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
+                                .addComponent(lblWelcome2)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAssistantName2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(deliveryDirLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(758, Short.MAX_VALUE))
+        );
+        fundingAcknowledgementPanelLayout.setVerticalGroup(
+            fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(deliveryDirLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome2)
+                    .addComponent(lblAssistantName2))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(478, Short.MAX_VALUE))
+        );
+
+        donationTabbedPane.addTab(" Acknowledgments", fundingAcknowledgementPanel);
+
+        manageAppointmentsPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
+        helpTextLabel.setText(" ");
+
+        deliveryDirLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deliveryDirLabel7.setForeground(new java.awt.Color(255, 51, 51));
+        deliveryDirLabel7.setText("ASSISTANT WORK AREA");
+
+        btnAccept.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(0, 0, 102));
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
+
+        tblAppointment.setForeground(new java.awt.Color(0, 0, 102));
+        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient Name", "Patient ID", "Appointment Details",  "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblAppointment.setRowHeight(40);
+        jScrollPane1.setViewportView(tblAppointment);
+
+        btnReject.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(0, 0, 102));
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        lblWelcome3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome3.setForeground(new java.awt.Color(0, 0, 102));
+        lblWelcome3.setText("Welcome ");
+
+        lblAssistantName3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblAssistantName3.setForeground(new java.awt.Color(0, 0, 102));
+        lblAssistantName3.setText("value");
+
+        javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
+        manageAppointmentsPanel.setLayout(manageAppointmentsPanelLayout);
+        manageAppointmentsPanelLayout.setHorizontalGroup(
+            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                                .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))))
+                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(lblWelcome3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblAssistantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(768, Short.MAX_VALUE))
+        );
+        manageAppointmentsPanelLayout.setVerticalGroup(
+            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome3)
+                    .addComponent(lblAssistantName3))
+                .addGap(51, 51, 51)
+                .addComponent(helpTextLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAccept)
+                    .addComponent(btnReject))
+                .addContainerGap(397, Short.MAX_VALUE))
+        );
+
+        donationTabbedPane.addTab("Manage Appointments", manageAppointmentsPanel);
+
+        manageDocSlotsPanel.setBackground(new java.awt.Color(255, 255, 255));
         manageDocSlotsPanel.setForeground(new java.awt.Color(0, 0, 102));
         manageDocSlotsPanel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        manageDocSlotsPanel.setMaximumSize(new java.awt.Dimension(1000, 500));
 
         menuItemName6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuItemName6.setForeground(new java.awt.Color(0, 0, 102));
@@ -247,7 +533,9 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                                 .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(comboManageSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
-                                        .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(32, 32, 32)
                                         .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,12 +543,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                                                 .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(comboYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))))
-                .addContainerGap(1218, Short.MAX_VALUE))
-            .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
-                    .addGap(226, 226, 226)
-                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1585, Short.MAX_VALUE)))
+                .addContainerGap(1165, Short.MAX_VALUE))
         );
         manageDocSlotsPanelLayout.setVerticalGroup(
             manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,298 +567,15 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(45, 45, 45)
                 .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menuItemName13)
-                    .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addComponent(btnAddSlot)
-                .addContainerGap(628, Short.MAX_VALUE))
-            .addGroup(manageDocSlotsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageDocSlotsPanelLayout.createSequentialGroup()
-                    .addGap(336, 336, 336)
-                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(700, Short.MAX_VALUE)))
+                .addContainerGap(661, Short.MAX_VALUE))
         );
 
         donationTabbedPane.addTab("Manage Doctor Slots", manageDocSlotsPanel);
-
-        helpTextLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        helpTextLabel1.setForeground(new java.awt.Color(0, 0, 102));
-        helpTextLabel1.setText(" ");
-
-        deliveryDirLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        deliveryDirLabel8.setForeground(new java.awt.Color(255, 51, 51));
-        deliveryDirLabel8.setText("ASSISTANT WORK AREA");
-
-        menuItemName14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        menuItemName14.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName14.setText("Funding Required:      $");
-
-        btnRaiseFundingRequest.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnRaiseFundingRequest.setForeground(new java.awt.Color(0, 0, 102));
-        btnRaiseFundingRequest.setText("Raise Funding Request");
-        btnRaiseFundingRequest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRaiseFundingRequestActionPerformed(evt);
-            }
-        });
-
-        tblFundingRequests.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
-        tblFundingRequests.setForeground(new java.awt.Color(0, 0, 102));
-        tblFundingRequests.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Patient Name", "Prescription", "Funding Required"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblFundingRequests.setRowHeight(40);
-        jScrollPane4.setViewportView(tblFundingRequests);
-
-        lblWelcome1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome1.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome1.setText("Welcome ");
-
-        lblAssistantName1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblAssistantName1.setForeground(new java.awt.Color(0, 0, 102));
-        lblAssistantName1.setText("value");
-
-        javax.swing.GroupLayout manageFundingRequestsPanelLayout = new javax.swing.GroupLayout(manageFundingRequestsPanel);
-        manageFundingRequestsPanel.setLayout(manageFundingRequestsPanelLayout);
-        manageFundingRequestsPanelLayout.setHorizontalGroup(
-            manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblWelcome1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAssistantName1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRaiseFundingRequest)
-                            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                                .addComponent(menuItemName14, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtFundReqd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                                .addComponent(helpTextLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))
-                            .addComponent(deliveryDirLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1089, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(818, Short.MAX_VALUE))
-        );
-        manageFundingRequestsPanelLayout.setVerticalGroup(
-            manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageFundingRequestsPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deliveryDirLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome1)
-                    .addComponent(lblAssistantName1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(helpTextLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(manageFundingRequestsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName14)
-                    .addComponent(txtFundReqd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnRaiseFundingRequest)
-                .addContainerGap(338, Short.MAX_VALUE))
-        );
-
-        donationTabbedPane.addTab("Funding Requests", manageFundingRequestsPanel);
-
-        deliveryDirLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        deliveryDirLabel11.setForeground(new java.awt.Color(255, 51, 51));
-        deliveryDirLabel11.setText("ASSISTANT WORK AREA");
-
-        tblAcknowledgement.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
-        tblAcknowledgement.setForeground(new java.awt.Color(0, 0, 102));
-        tblAcknowledgement.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Patient", "Date Acknowledged", "Charity", "Charity Location"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(tblAcknowledgement);
-
-        lblWelcome2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome2.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome2.setText("Welcome ");
-
-        lblAssistantName2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblAssistantName2.setForeground(new java.awt.Color(0, 0, 102));
-        lblAssistantName2.setText("value");
-
-        javax.swing.GroupLayout fundingAcknowledgementPanelLayout = new javax.swing.GroupLayout(fundingAcknowledgementPanel);
-        fundingAcknowledgementPanel.setLayout(fundingAcknowledgementPanelLayout);
-        fundingAcknowledgementPanelLayout.setHorizontalGroup(
-            fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
-                .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(deliveryDirLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
-                                .addComponent(lblWelcome2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblAssistantName2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(779, Short.MAX_VALUE))
-        );
-        fundingAcknowledgementPanelLayout.setVerticalGroup(
-            fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundingAcknowledgementPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(deliveryDirLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addGroup(fundingAcknowledgementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome2)
-                    .addComponent(lblAssistantName2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(472, Short.MAX_VALUE))
-        );
-
-        donationTabbedPane.addTab(" Acknowledgments", fundingAcknowledgementPanel);
-
-        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
-        helpTextLabel.setText(" ");
-
-        deliveryDirLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        deliveryDirLabel7.setForeground(new java.awt.Color(255, 51, 51));
-        deliveryDirLabel7.setText("ASSISTANT WORK AREA");
-
-        btnAccept.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnAccept.setForeground(new java.awt.Color(0, 0, 102));
-        btnAccept.setText("Accept");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
-            }
-        });
-
-        tblAppointment.setForeground(new java.awt.Color(0, 0, 102));
-        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Patient Name", "Patient ID", "Appointment Details",  "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblAppointment.setRowHeight(40);
-        jScrollPane1.setViewportView(tblAppointment);
-
-        btnReject.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        btnReject.setForeground(new java.awt.Color(0, 0, 102));
-        btnReject.setText("Reject");
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
-            }
-        });
-
-        lblWelcome3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblWelcome3.setForeground(new java.awt.Color(0, 0, 102));
-        lblWelcome3.setText("Welcome ");
-
-        lblAssistantName3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblAssistantName3.setForeground(new java.awt.Color(0, 0, 102));
-        lblAssistantName3.setText("value");
-
-        javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
-        manageAppointmentsPanel.setLayout(manageAppointmentsPanelLayout);
-        manageAppointmentsPanelLayout.setHorizontalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                                .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))))
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(lblWelcome3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAssistantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(789, Short.MAX_VALUE))
-        );
-        manageAppointmentsPanelLayout.setVerticalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(deliveryDirLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome3)
-                    .addComponent(lblAssistantName3))
-                .addGap(51, 51, 51)
-                .addComponent(helpTextLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAccept)
-                    .addComponent(btnReject))
-                .addContainerGap(397, Short.MAX_VALUE))
-        );
-
-        donationTabbedPane.addTab("Manage Appointments", manageAppointmentsPanel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -583,8 +583,8 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(donationTabbedPane)
-                .addContainerGap())
+                .addComponent(donationTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,7 +607,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1079, Short.MAX_VALUE)
+            .addGap(0, 857, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

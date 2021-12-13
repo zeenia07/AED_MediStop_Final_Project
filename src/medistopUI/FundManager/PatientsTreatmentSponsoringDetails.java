@@ -54,7 +54,7 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
     
     public void populateJTable()
     {
-            DefaultTableModel model = (DefaultTableModel) SponsoringDetailsJTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) patientSponsorshipJTable.getModel();
         
             model.setRowCount(0);
             for(WorkRequest request : network.getFundsRequests().getWorkRequestList())
@@ -83,17 +83,18 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
 
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        SponsoringDetailsJTable = new javax.swing.JTable();
+        patientSponsorshipJTable = new javax.swing.JTable();
         btnSelectSponsor = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Patient's Sponsoring Details"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("View Patients"));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("PATIENTS TREATMENT SPONSORIN:");
+        lblTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 102));
+        lblTitle.setText("SPONSOR PATIENTS TREATMENT");
 
-        SponsoringDetailsJTable.setModel(new javax.swing.table.DefaultTableModel(
+        patientSponsorshipJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -112,15 +113,17 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(SponsoringDetailsJTable);
-        if (SponsoringDetailsJTable.getColumnModel().getColumnCount() > 0) {
-            SponsoringDetailsJTable.getColumnModel().getColumn(0).setResizable(false);
-            SponsoringDetailsJTable.getColumnModel().getColumn(1).setResizable(false);
-            SponsoringDetailsJTable.getColumnModel().getColumn(2).setResizable(false);
-            SponsoringDetailsJTable.getColumnModel().getColumn(3).setResizable(false);
-            SponsoringDetailsJTable.getColumnModel().getColumn(4).setResizable(false);
+        jScrollPane1.setViewportView(patientSponsorshipJTable);
+        if (patientSponsorshipJTable.getColumnModel().getColumnCount() > 0) {
+            patientSponsorshipJTable.getColumnModel().getColumn(0).setResizable(false);
+            patientSponsorshipJTable.getColumnModel().getColumn(1).setResizable(false);
+            patientSponsorshipJTable.getColumnModel().getColumn(2).setResizable(false);
+            patientSponsorshipJTable.getColumnModel().getColumn(3).setResizable(false);
+            patientSponsorshipJTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        btnSelectSponsor.setFont(new java.awt.Font("Songti TC", 1, 14)); // NOI18N
+        btnSelectSponsor.setForeground(new java.awt.Color(0, 51, 102));
         btnSelectSponsor.setText("Sponsor>>");
         btnSelectSponsor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +131,8 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Songti TC", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 102));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,17 +147,17 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTitle))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBack)
                                 .addGap(355, 355, 355)
                                 .addComponent(btnSelectSponsor))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(162, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,21 +170,21 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSelectSponsor)
                     .addComponent(btnBack))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelectSponsorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectSponsorActionPerformed
         
-        DefaultTableModel model = (DefaultTableModel) SponsoringDetailsJTable.getModel();
-        int selectedRow = SponsoringDetailsJTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) patientSponsorshipJTable.getModel();
+        int selectedRow = patientSponsorshipJTable.getSelectedRow();
         if (selectedRow < 0)
         {
             JOptionPane.showMessageDialog(null, "Select a patient to sponsor", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            HospitalFundsRequestWorkQueue request = (HospitalFundsRequestWorkQueue)SponsoringDetailsJTable.getValueAt(selectedRow,0);
+            HospitalFundsRequestWorkQueue request = (HospitalFundsRequestWorkQueue)patientSponsorshipJTable.getValueAt(selectedRow,0);
             float amount = request.getAmount();
             
             if(amount<amountFromFunding)
@@ -254,10 +259,10 @@ public class PatientsTreatmentSponsoringDetails extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable SponsoringDetailsJTable;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSelectSponsor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable patientSponsorshipJTable;
     // End of variables declaration//GEN-END:variables
 }
