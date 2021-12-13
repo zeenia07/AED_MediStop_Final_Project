@@ -101,6 +101,15 @@ public abstract class Organisation {
 //        ++counter;
     }
 
+     public Organisation(String name, String cause) {
+        this.name = name;
+        workQueue = new WorkQueue();
+        employeeDirectory = new EmployeeDirectory();
+        userAccountDirectory = new UserAccountDirectory();
+        organizationID = UUID.randomUUID().toString();
+        this.cause=cause;
+//        ++counter;
+    }
     public abstract ArrayList<Role> getSupportedRole();
 
     public String getCause() {

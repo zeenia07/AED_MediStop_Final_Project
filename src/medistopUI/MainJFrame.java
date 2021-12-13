@@ -113,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(deliveryDirLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1677, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1134, Short.MAX_VALUE)
                 .addComponent(donoeBtn)
                 .addGap(18, 18, 18)
                 .addComponent(patientbtn)
@@ -143,6 +143,9 @@ public class MainJFrame extends javax.swing.JFrame {
         bodyPanel.setLayout(new java.awt.CardLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/bg8.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1200, 600));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1200, 500));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1500, 666));
         bodyPanel.add(jLabel1, "card2");
 
         mainSplitPane.setRightComponent(bodyPanel);
@@ -151,7 +154,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainSplitPane)
+            .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1924, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

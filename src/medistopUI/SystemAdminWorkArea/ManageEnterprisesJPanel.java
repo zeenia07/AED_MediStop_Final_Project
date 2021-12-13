@@ -78,6 +78,8 @@ EcoSystem ecosystem;
         lblName = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
+        txtcause = new javax.swing.JTextField();
+        lblName1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Manage Enterprise"));
@@ -119,7 +121,7 @@ EcoSystem ecosystem;
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 376, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +129,11 @@ EcoSystem ecosystem;
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 376, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
+        add(txtcause, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 136, -1));
+
+        lblName1.setText("Cause:");
+        add(lblName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -146,7 +152,7 @@ EcoSystem ecosystem;
         }
         else
         {    
-            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type, txtcause.getText().trim());
             populateEnterpriseTable();
             txtName.setText("");
         }
@@ -170,10 +176,12 @@ EcoSystem ecosystem;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEnterprise;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblNetwork;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JTable tblEnterpriseDetails;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtcause;
     // End of variables declaration//GEN-END:variables
 }
