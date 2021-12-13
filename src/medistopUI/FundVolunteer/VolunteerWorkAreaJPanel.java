@@ -17,6 +17,7 @@ import medistopBackend.UserAccount.UserAccount;
 import medistopBackend.WorkQueue.HospitalFundsRequestWorkQueue;
 import medistopBackend.WorkQueue.WorkRequest;
 import medistopUtil.SendEmailUtility;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -220,12 +221,11 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         
                 
                 //Defining newsletter details
-                String from = "mediStop.newsletter@gmail.com";
-                String password = "mediStop@1";
+
         
                 String message = "Hello Donors," +",\n\nGreetings from MediStop! Your gift, whether big or small, matters!!" + "\nListed below are the details of the patient we sponsored for treatment:\n" +"\n"+"Patient Name: "+request.getPatientName()+ "\nHospital Name: " + request.getHospitalName()+"\nHospital City: " + request.getCity() + "\nDonation Provided: "+request.getAmount()+"\n\nRegards,\nTeam MediStop";
                 String subject ="News @ MediStop";
-                SendEmailUtility.sendEmail(subject, from, password, message, receiver);
+                SendEmailUtility.sendEmail(subject, Utilities.email, Utilities.password, message, receiver);
         
                 JOptionPane.showMessageDialog(null, "Newsletter Successfully Published!!", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
