@@ -8,6 +8,7 @@ package medistopBackend.UserAccount;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 import medistopBackend.Employee.Employee;
 import medistopBackend.Role.Role;
 import medistopBackend.UserData.DonorData;
@@ -90,6 +91,7 @@ public class UserAccountDirectory {
            useraccList1.get(0).setLoginattempt(1);
            if (useraccList1.get(0).getLoginattempt() > 3) {
                userAccountDirectory.remove(useraccList1.get(0));
+               JOptionPane.showMessageDialog(null, "You exceeded maximum number of login attempts. \nYour Account has been removed from DB please create new One!");
            }
            return null;
        }
