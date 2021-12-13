@@ -7,14 +7,12 @@ import java.net.URI;
 import java.math.BigDecimal;
 
 public class WhatsappUtility {
-    public static final String ACCOUNT_SID = "ACbb3061b9361b60c008a2ac3e2bcc2827";
-    public static final String AUTH_TOKEN = "80b12cfc7a38afdf8fd6b518173ed64a";
 
-    public static void sendWhatsappMessage(String fromPhoneNumber, String toPhoneNumber, String messageBody) {
-        Twilio.init("ACCOUNT_SID", "AUTH_TOKEN");
+    public static void sendWhatsappMessage( String toPhoneNumber, String messageBody) {
+        Twilio.init(Utilities.ACCOUNT_SID, Utilities.AUTH_TOKEN);
         Message message = Message.creator(
                         new com.twilio.type.PhoneNumber("whatsapp:" + toPhoneNumber),
-                        new com.twilio.type.PhoneNumber("whatsapp:" + fromPhoneNumber),
+                        new com.twilio.type.PhoneNumber("whatsapp:" + Utilities.mediStopPhoneNumber),
                         messageBody)
                 .create();
 
