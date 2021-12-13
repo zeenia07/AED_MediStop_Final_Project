@@ -12,7 +12,7 @@ public class WhatsappUtility {
         Twilio.init(Utilities.ACCOUNT_SID, Utilities.AUTH_TOKEN);
         Message message = Message.creator(
                         new com.twilio.type.PhoneNumber("whatsapp:" + toPhoneNumber),
-                        new com.twilio.type.PhoneNumber("whatsapp:" + Utilities.mediStopPhoneNumber),
+                        new com.twilio.type.PhoneNumber("whatsapp:" + Utilities.whatsappPhn),
                         messageBody)
                 .create();
 

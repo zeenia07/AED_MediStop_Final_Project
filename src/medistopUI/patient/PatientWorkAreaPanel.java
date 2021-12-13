@@ -367,6 +367,8 @@ public class PatientWorkAreaPanel extends javax.swing.JPanel {
             String message = "Dear "+ patientData.getPatientName() +",\n\nYour appointment has been booked for " + " " + request.getTimings() + " with Doctor: " + request.getDoctor() + " at Hospital " + request.getHospitalName()+"\n\nThanks,\nTeam MediStop";
             SMSUtility.sendSMS(patientData.getContactNo(), message);
             WhatsappUtility.sendWhatsappMessage(patientData.getContactNo(), message);
+            JOptionPane.showMessageDialog(null,"Slot has been booked.");
+
             populateAppointmentHistoryTable();
         }
 
