@@ -12,16 +12,16 @@ public class SMSUtility {
     public static final String mediStopPhoneNumber = "+12184232519";
 
     public static void sendSMS(String receiverPhoneNumber, String messageBody) {
-//        try {
-//            Twilio.init("ACCOUNT_SID", "AUTH_TOKEN");
-//            Message message = Message.creator(new PhoneNumber(receiverPhoneNumber),
-//                    new PhoneNumber(mediStopPhoneNumber),
-//                    messageBody).create();
-//            System.out.println(message.getBody());
-//
-//        } catch (ApiException apiException) {
-//            apiException.printStackTrace();
-//        }
+        try {
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = Message.creator(new PhoneNumber(receiverPhoneNumber),
+                    new PhoneNumber(mediStopPhoneNumber),
+                    messageBody).create();
+            System.out.println(message.getBody());
+
+        } catch (ApiException apiException) {
+            apiException.printStackTrace();
+        }
 
 
     }
