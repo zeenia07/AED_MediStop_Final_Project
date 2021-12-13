@@ -129,7 +129,7 @@ public class CompleteDonationRelatedDetailsJPanel extends javax.swing.JPanel
         lblValue.setFont(new java.awt.Font("Songti TC", 1, 18)); // NOI18N
         lblValue.setForeground(new java.awt.Color(0, 51, 102));
         lblValue.setText("value");
-        add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 30));
+        add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
