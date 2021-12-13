@@ -9,6 +9,8 @@ package medistopUI.donor;
 import java.awt.CardLayout;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -375,7 +377,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_biRBActionPerformed
-
+private boolean femail=true;
     private void uploadPicBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPicBtnActionPerformed
         // TODO add your handling code here:
         String profilePicPath;
@@ -434,25 +436,41 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
             donor.setZipCode(zipCode);
             donor.setEmail(email);
 
-        
-        String[] to = {email};
-        String phoneNumber = donor.getContactNo();
-        String from = "medistop2021vzd@gmail.com";
-        String pwd = "TravelDell@26893";
 
-        String code = OTPUtility.generateOTP(4);
-        
-        String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
-        String subject = "Account Verification Mail";
-        SendEmailUtility.sendEmail(subject,from, pwd, message, to);
-        SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
-        
-        JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
-        
-        ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
-        bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
-        CardLayout layout = (CardLayout) bodyPanel.getLayout();
-        layout.next(bodyPanel);
+             String PATTERN = "^\\S+@\\S+$";
+             Pattern patt = Pattern.compile(PATTERN);
+             Matcher match = patt.matcher(emailTF.getText());
+             if (!match.matches()) {
+                 femail = false;
+//            lblemailformat.setText("Email Format is not correct");
+             } else {
+                 femail = true;
+//            lblemailformat.setText(null);
+             }
+
+        if(femail){
+            String[] to = {email};
+            String phoneNumber = donor.getContactNo();
+            String from = "medistop2021vzd@gmail.com";
+            String pwd = "TravelDell@26893";
+
+            String code = OTPUtility.generateOTP(4);
+
+            String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
+            String subject = "Account Verification Mail";
+            SendEmailUtility.sendEmail(subject,from, pwd, message, to);
+            SMSUtility.sendSMS(donor.getContactNo(), " Account Verification Mail  " + message);
+
+            JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
+
+            ValidateDonorJPanel validateDonorJPanel = new ValidateDonorJPanel(bodyPanel, ecosystem,code, donor );
+            bodyPanel.add("ValidateDonorJPanel", validateDonorJPanel);
+            CardLayout layout = (CardLayout) bodyPanel.getLayout();
+            layout.next(bodyPanel);
+        }else{
+            JOptionPane.showMessageDialog(null, "Email Format is not correct Please Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         }
         catch(Exception e)
         {
