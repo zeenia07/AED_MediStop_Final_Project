@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 
 import medistopBackend.UserData.DonorData;
+import medistopBackend.UserData.DonorDirectory;
 import medistopUtil.OTPUtility;
 import medistopUtil.SMSUtility;
 import medistopUtil.SendEmailUtility;
@@ -29,7 +30,7 @@ import medistopBackend.EcoSystem;
 public class CreateDonorJPanel extends javax.swing.JPanel {
     private JPanel bodyPanel;
     private EcoSystem ecosystem;
-    //private DonorDirectory donorDir;
+    private DonorDirectory donorDir;
     
     /** Creates new form DonorForm */
     public CreateDonorJPanel(JPanel bodyPanel, EcoSystem ecosystem) {
@@ -198,12 +199,12 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         menuItemName9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuItemName9.setForeground(new java.awt.Color(0, 0, 102));
-<<<<<<< HEAD
+
         menuItemName9.setText("Email");
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
-=======
+
         menuItemName9.setText("Email:");
         add(menuItemName9);
 
@@ -211,11 +212,10 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         emailTF.setText(" ");
         emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                emailTFKeyReleased(evt);
+                //emailTFKeyReleased(evt);
             }
         });
         add(emailTF);
->>>>>>> zeenia_ui
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -235,7 +235,6 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -369,10 +368,8 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
                     .addComponent(backBtn)
                     .addContainerGap()))
         );
-=======
         add(backBtn);
-        add(lblemailformat);
->>>>>>> zeenia_ui
+//        add(lblemailformat);
     }// </editor-fold>//GEN-END:initComponents
 
     private void biRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biRBActionPerformed

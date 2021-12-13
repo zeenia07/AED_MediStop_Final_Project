@@ -59,7 +59,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 //    }
     
     public AssistantWorkAreaPanel(JPanel dispJPanel, UserAccount account, HospitalOrganisationAssistant organisation, Enterprise enterprise,Network net,EcoSystem system) {
-        initComponents();
+
         this.displayJPanel = dispJPanel;
         this.ua = account;
         this.hospitalAssistant = organisation;
@@ -67,6 +67,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         this.ecosystem = system;
         this.network = net;
         populateMinuteComboBoxModel();
+        initComponents();
         populateFundingRequestsTable();
         populateComboDoctor();
         populateAppointmentTable();
@@ -209,7 +210,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
         });
 
         comboHour.setForeground(new java.awt.Color(0, 0, 102));
-        comboHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HH", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        comboHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HH", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         comboHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboHourActionPerformed(evt);
@@ -324,11 +325,11 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Prescription", "Funding Required", "Funding Approved"
+                "Patient Name", "Prescription", "Funding Required"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -643,7 +644,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
 
            assistantAddSlot = new AssistantAddingTimingsWorkQueue();
            
-           assistantAddSlot.setTimings(LocalDateTime.of(yearValue, monthValue, hourValue, minuteValue, 0));
+           assistantAddSlot.setTimings(LocalDateTime.of(yearValue, monthValue,date, hourValue, minuteValue, 0));
            for(Network net : ecosystem.getNetworkList())
            {
                for(Enterprise ent : net.getEnterpriseDirectory().getEnterpriseList())
@@ -672,7 +673,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
        int selectedRow = tblAppointment.getSelectedRow();
-            if(selectedRow>0)
+            if(selectedRow>-1)
             {
                 PatientBookingWorkQueue patientBooking = (PatientBookingWorkQueue)tblAppointment.getValueAt(selectedRow, 0);
                 
@@ -711,7 +712,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
          try{
          int selectedRow = tblFundingRequests.getSelectedRow();
          
-         if(selectedRow>0)
+         if(selectedRow>-1)
             {
                 DoctorAssistantAccountingWorkQueue  assistantAccounting = (DoctorAssistantAccountingWorkQueue)tblFundingRequests.getValueAt(selectedRow, 0);
                 HospitalFundsRequestWorkQueue fundsRequest = new HospitalFundsRequestWorkQueue();
@@ -757,7 +758,7 @@ public class AssistantWorkAreaPanel extends javax.swing.JPanel {
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
          int selectedRow = tblAppointment.getSelectedRow();
-         if(selectedRow>0)
+         if(selectedRow>-1)
             {
                 PatientBookingWorkQueue patientBooking = (PatientBookingWorkQueue)tblAppointment.getValueAt(selectedRow, 0);
                 
@@ -898,11 +899,11 @@ public void populateFundingRequestsTable(){
             {
                 DoctorAssistantAccountingWorkQueue accounting = new DoctorAssistantAccountingWorkQueue();
                 accounting = (DoctorAssistantAccountingWorkQueue)request;
-                Object[] row = new Object[4];
+                Object[] row = new Object[3];
                 row[0] = accounting;
                 row[1] = accounting.getPrescribed();
                 row[2] = accounting.isFundingRequired();
-                row[3] = accounting.isFundingApproved();
+                //row[3] = accounting.isFundingApproved();
             
                 model.addRow(row);
             }  
