@@ -67,10 +67,12 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createTitledBorder("Analytics Information"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 153));
         lblTitle.setText("ANALYTICS");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, 170, -1));
 
+        btnOrganisationWithMaximumFunds.setForeground(new java.awt.Color(0, 51, 153));
         btnOrganisationWithMaximumFunds.setText("Organisation With Maximum Funds");
         btnOrganisationWithMaximumFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +81,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         });
         add(btnOrganisationWithMaximumFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 270, -1));
 
+        btnFrequentlyVisitedHospital.setForeground(new java.awt.Color(0, 51, 153));
         btnFrequentlyVisitedHospital.setText("Frequently Visited Hospital");
         btnFrequentlyVisitedHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +90,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         });
         add(btnFrequentlyVisitedHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 255, 200, -1));
 
+        btnPrimeDonor.setForeground(new java.awt.Color(0, 51, 153));
         btnPrimeDonor.setText("Prime Donor");
         btnPrimeDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +99,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         });
         add(btnPrimeDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 270, -1));
 
+        btnFrequentPatient.setForeground(new java.awt.Color(0, 51, 153));
         btnFrequentPatient.setText("Frequent Patient");
         btnFrequentPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +108,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         });
         add(btnFrequentPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, -1));
 
+        btnFrequentlyVistedDoctor.setForeground(new java.awt.Color(0, 51, 153));
         btnFrequentlyVistedDoctor.setText("Frequently visited Doctor");
         btnFrequentlyVistedDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +117,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
         });
         add(btnFrequentlyVistedDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, -1));
 
+        btnOrganisationWithMaximumDonors.setForeground(new java.awt.Color(0, 51, 153));
         btnOrganisationWithMaximumDonors.setText("Organisation With Maximum Donors");
         btnOrganisationWithMaximumDonors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +153,7 @@ public class SystemAdminAnalyticsJPanel extends javax.swing.JPanel
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 86, 649, 107));
 
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -42,11 +42,14 @@ JPanel showPanel;
         btnTitle = new javax.swing.JLabel();
         btnManageEnterAdministrator = new javax.swing.JButton();
         btnApplicationAnalytics = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("System Administrator Work Area"));
+        setForeground(new java.awt.Color(0, 51, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnManageLocation.setForeground(new java.awt.Color(0, 51, 153));
         btnManageLocation.setText("Manage Location");
         btnManageLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +58,7 @@ JPanel showPanel;
         });
         add(btnManageLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 202, -1));
 
+        btnManagePatient.setForeground(new java.awt.Color(0, 51, 153));
         btnManagePatient.setText("Manage Patient");
         btnManagePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +67,7 @@ JPanel showPanel;
         });
         add(btnManagePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 202, -1));
 
+        btnManageDonor.setForeground(new java.awt.Color(0, 51, 153));
         btnManageDonor.setText("Manage Donor");
         btnManageDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,33 +76,40 @@ JPanel showPanel;
         });
         add(btnManageDonor, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 202, -1));
 
+        btnManageEnterprise.setForeground(new java.awt.Color(0, 51, 153));
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterpriseActionPerformed(evt);
             }
         });
-        add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 202, -1));
+        add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 202, -1));
 
-        btnTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        btnTitle.setForeground(new java.awt.Color(0, 51, 153));
         btnTitle.setText("SYSTEM ADMINISTRATOR");
-        add(btnTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 34, 200, -1));
+        add(btnTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 34, 320, -1));
 
+        btnManageEnterAdministrator.setForeground(new java.awt.Color(0, 51, 153));
         btnManageEnterAdministrator.setText("Manage Enterprise admin");
         btnManageEnterAdministrator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterAdministratorActionPerformed(evt);
             }
         });
-        add(btnManageEnterAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
+        add(btnManageEnterAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
+        btnApplicationAnalytics.setForeground(new java.awt.Color(0, 51, 153));
         btnApplicationAnalytics.setText("Application Analysis");
         btnApplicationAnalytics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApplicationAnalyticsActionPerformed(evt);
             }
         });
-        add(btnApplicationAnalytics, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 202, -1));
+        add(btnApplicationAnalytics, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 202, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/login4.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, 150, 170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLocationActionPerformed
@@ -157,5 +169,6 @@ JPanel showPanel;
     private javax.swing.JButton btnManageLocation;
     private javax.swing.JButton btnManagePatient;
     private javax.swing.JLabel btnTitle;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
