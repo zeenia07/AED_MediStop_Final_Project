@@ -19,11 +19,13 @@ import medistopUI.Assistant.AssistantWorkAreaPanel;
  *
  * @author Zeenia
  */
-public class HospitalAssistant extends Role{
+public class HospitalAssistant extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem system) {
         return new AssistantWorkAreaPanel(userProcessContainer,account,(HospitalOrganisationAssistant)organisation,enterprise,network,system); //To change body of generated methods, choose Tools | Templates.
     }
+
+
     
 }

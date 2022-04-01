@@ -48,5 +48,7 @@ public abstract class Role {
             Enterprise enterprise,
             Network network,
             EcoSystem system);
+
+
     
 }

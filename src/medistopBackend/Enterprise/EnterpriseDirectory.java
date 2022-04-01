@@ -49,4 +49,28 @@ public class EnterpriseDirectory {
         
         return enterprise;
     } 
+    
+    
+     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseClassification type, String cause){
+        Enterprise enterprise=null;
+        if(type==Enterprise.EnterpriseClassification.Hospital){
+            enterprise = new HospitalEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseClassification.Bloodbank){
+            enterprise = new BloodbankEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+          else if(type==Enterprise.EnterpriseClassification.Funds){
+            enterprise = new FundingEnterprise(name, cause);
+            enterpriseList.add(enterprise);
+        }
+          else if(type==Enterprise.EnterpriseClassification.User){
+            enterprise = new UserEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        
+        
+        return enterprise;
+    } 
 }

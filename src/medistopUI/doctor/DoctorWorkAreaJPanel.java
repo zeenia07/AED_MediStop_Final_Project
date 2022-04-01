@@ -74,8 +74,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         menuItemName6 = new javax.swing.JLabel();
         RadioBloodYes = new javax.swing.JRadioButton();
         RadioBloodNo = new javax.swing.JRadioButton();
-        RadioFundsYes = new javax.swing.JRadioButton();
-        RadioFundsNo = new javax.swing.JRadioButton();
         lblWelcome = new javax.swing.JLabel();
         valuePatientName = new javax.swing.JLabel();
         btnAddPrescription = new javax.swing.JButton();
@@ -83,6 +81,8 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblPatientName1 = new javax.swing.JLabel();
         lblPatientsWaiting = new javax.swing.JLabel();
+        RadioFundsYes = new javax.swing.JRadioButton();
+        RadioFundsNo = new javax.swing.JRadioButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,20 +155,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        RadioFundsYes.setText("Yes");
-        RadioFundsYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioFundsYesActionPerformed(evt);
-            }
-        });
-
-        RadioFundsNo.setText("No");
-        RadioFundsNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioFundsNoActionPerformed(evt);
-            }
-        });
-
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(0, 0, 102));
         lblWelcome.setText("Welcome ");
@@ -200,6 +186,20 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         lblPatientName1.setForeground(new java.awt.Color(0, 0, 102));
         lblPatientName1.setText("Patients Waiting:");
 
+        RadioFundsYes.setText("Yes");
+        RadioFundsYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioFundsYesActionPerformed(evt);
+            }
+        });
+
+        RadioFundsNo.setText("No");
+        RadioFundsNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioFundsNoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,14 +228,14 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGap(64, 64, 64)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(RadioFundsYes)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(RadioFundsNo))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(RadioBloodYes)
                                         .addGap(43, 43, 43)
                                         .addComponent(RadioBloodNo))
-                                    .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(RadioFundsYes)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(RadioFundsNo))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(64, 64, 64)
@@ -333,17 +333,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         RadioBloodYes.setSelected(false);
     }//GEN-LAST:event_RadioBloodNoActionPerformed
 
-    private void RadioFundsYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsYesActionPerformed
-        // TODO add your handling code here:
-        RadioFundsYes.setSelected(false);
-
-    }//GEN-LAST:event_RadioFundsYesActionPerformed
-
-    private void RadioFundsNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsNoActionPerformed
-        // TODO add your handling code here:
-         RadioFundsNo.setSelected(false);
-    }//GEN-LAST:event_RadioFundsNoActionPerformed
-
     private void btnAddPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPrescriptionActionPerformed
         // TODO add your handling code here:
          appointment.setDiseases(txtDisease.getText());
@@ -402,6 +391,14 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         resetFields();
     }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void RadioFundsYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsYesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadioFundsYesActionPerformed
+
+    private void RadioFundsNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioFundsNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadioFundsNoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -462,40 +459,40 @@ public void populateLabel(){
 public boolean isBloodRequired()
     {
          boolean output=false;
-//        if(RadioBloodYes.isSelected())
-//        {
-//            return true;
-//        }
-//        else if(RadioBloodNo.isSelected())
-//        {
-//            return false;
-//        }
+        if(RadioBloodYes.isSelected())
+        {
+            return true;
+        }
+        else if(RadioBloodNo.isSelected())
+        {
+            return false;
+        }
         
-         output=RadioBloodYes.isSelected()?true:false;
-         output=RadioBloodNo.isSelected()?false:true;
+//         output=RadioBloodYes.isSelected()?true:false;
+//         output=RadioBloodNo.isSelected()?false:true;
          
-        return output;
+        return false;
         
     }
 
 public boolean isDonationRequired()
     {
         boolean output=false;
-//        if(yesDonationRadioButton.isSelected())
-//        {
-//            return true;
-//        }
-//        else if(noDonationRadioButton.isSelected())
-//        {
-//            return false;
-//        }
-//        
-//        return false;
+        if(RadioFundsYes.isSelected())
+        {
+            return true;
+        }
+        else if(RadioFundsNo.isSelected())
+        {
+            return false;
+        }
+        
+        return false;
 
-         output=RadioFundsYes.isSelected()?true:false;
-         output=RadioFundsNo.isSelected()?false:true;
-         
-        return output;
+//         output=RadioFundsYes.isSelected()?true:false;
+//         output=RadioFundsNo.isSelected()?false:true;
+//         
+//        return output;
     }
 
 public void resetFields(){

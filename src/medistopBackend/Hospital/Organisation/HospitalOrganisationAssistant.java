@@ -49,6 +49,10 @@ public class HospitalOrganisationAssistant extends Organisation {
     public WorkQueue getFundApplicationQueue() {
         return fundApplicationQueue;
     }
+    
+     public WorkQueue getFundApplicationQueueWithAccMesg() {
+        return fundApplicationQueue;
+    }
 
     public void setFundApplicationQueue(WorkQueue fundApplicationQueue) {
         this.fundApplicationQueue = fundApplicationQueue;

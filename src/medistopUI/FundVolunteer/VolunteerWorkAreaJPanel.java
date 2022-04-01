@@ -17,6 +17,7 @@ import medistopBackend.UserAccount.UserAccount;
 import medistopBackend.WorkQueue.HospitalFundsRequestWorkQueue;
 import medistopBackend.WorkQueue.WorkRequest;
 import medistopUtil.SendEmailUtility;
+import medistopUtil.Utilities;
 
 /**
  *
@@ -135,26 +136,26 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFundsName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(lblFundsOrgName))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblWelcome)
                                 .addGap(4, 4, 4)
                                 .addComponent(lblVolunteerName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblWelcome1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFundsName1)
-                                .addGap(28, 28, 28)
-                                .addComponent(lblFundsOrgCity))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblFundsName, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFundsName1))
+                                .addGap(87, 87, 87)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblFundsOrgName, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                                    .addComponent(lblFundsOrgCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(238, 238, 238)
-                                .addComponent(btnPublish, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnPublish, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(445, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -186,7 +187,7 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblPatientCharity.getModel();
         int selectedRow = tblPatientCharity.getSelectedRow();
         
-        if (selectedRow > 0)
+        if (selectedRow > -1)
         {
             HospitalFundsRequestWorkQueue request = (HospitalFundsRequestWorkQueue)tblPatientCharity.getValueAt(selectedRow,0);
             
@@ -220,12 +221,11 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         
                 
                 //Defining newsletter details
-                String from = "mediStop.newsletter@gmail.com";
-                String password = "mediStop@1";
+
         
                 String message = "Hello Donors," +",\n\nGreetings from MediStop! Your gift, whether big or small, matters!!" + "\nListed below are the details of the patient we sponsored for treatment:\n" +"\n"+"Patient Name: "+request.getPatientName()+ "\nHospital Name: " + request.getHospitalName()+"\nHospital City: " + request.getCity() + "\nDonation Provided: "+request.getAmount()+"\n\nRegards,\nTeam MediStop";
                 String subject ="News @ MediStop";
-                SendEmailUtility.sendEmail(subject, from, password, message, receiver);
+                SendEmailUtility.sendEmail(subject, Utilities.email, Utilities.password, message, receiver);
         
                 JOptionPane.showMessageDialog(null, "Newsletter Successfully Published!!", "Success", JOptionPane.INFORMATION_MESSAGE);
             }

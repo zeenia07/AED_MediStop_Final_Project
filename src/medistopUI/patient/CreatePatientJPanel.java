@@ -82,7 +82,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         registerBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         menuItemName10 = new javax.swing.JLabel();
-        bloodGroupTF = new javax.swing.JTextField();
+        bloodGroupCB = new javax.swing.JComboBox<>();
 
         setAutoscrolls(true);
 
@@ -183,11 +183,6 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
         emailTF.setForeground(new java.awt.Color(0, 0, 102));
         emailTF.setText(" ");
-        emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                emailTFKeyReleased(evt);
-            }
-        });
 
         registerBtn.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(0, 0, 102));
@@ -211,13 +206,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         menuItemName10.setForeground(new java.awt.Color(0, 0, 102));
         menuItemName10.setText("Blood Group");
 
-        bloodGroupTF.setForeground(new java.awt.Color(0, 0, 102));
-        bloodGroupTF.setText(" ");
-        bloodGroupTF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                bloodGroupTFKeyReleased(evt);
-            }
-        });
+        bloodGroupCB.setForeground(new java.awt.Color(0, 0, 102));
+        bloodGroupCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -291,7 +281,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(bloodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(bloodGroupCB, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(208, 208, 208))))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -348,15 +339,15 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menuItemName9)
                     .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menuItemName10)
-                    .addComponent(bloodGroupTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(bloodGroupCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtn)
                     .addComponent(backBtn))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -403,8 +394,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             int zipCode = Integer.parseInt(Utilities.getTrimmedText(zipCodeTF));
             String email = Utilities.getTrimmedText(emailTF);
             String profilePath = profilePicPathLabel.getText();
-            String blood = Utilities.getTrimmedText(bloodGroupTF);
-                    
+            String blood = (String) bloodGroupCB.getSelectedItem();
+        
 
 
             if (phone.isEmpty()) {
@@ -428,8 +419,11 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             patient.setEmail(email);
             patient.setBloodGroup(blood);
 
+            femail = email.contains("@");
+
+               
             //this is done in order to validate the email bloodGroup:
-                if (fbloodgroup && femail) {
+                if (femail) {
                     String[] to = {email};
                     String phoneNumber = patient.getContactNo();
                     String from = "medistop2021vzd@gmail.com";
@@ -439,7 +433,6 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
                     String message = "Dear "+ name +",\n\nPlease enter the below code to activate your account:" + " " + code +"\n\nThanks,\nTeam MediStop";
                     String subject = "Account Verification Mail";
-                    SendEmailUtility.sendEmail(subject,from, pwd, message, to);
                     SMSUtility.sendSMS(patient.getContactNo(), " Account Verification Mail  " + message);
 
                     JOptionPane.showMessageDialog(null, "Successfully recorded the Donor Details.\n Please proceed to activate your account.","Success",JOptionPane.INFORMATION_MESSAGE);
@@ -494,38 +487,12 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         layout.previous(bodyPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    //this code is to valdate the email format:
-    private void emailTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyReleased
-        // TODO add your handling code here:
-         String PATTERN = "^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{3}$";
-        Pattern patt = Pattern.compile(PATTERN);
-        Matcher match = patt.matcher(emailTF.getText());
-        if (!match.matches()) {
-            femail = false;
-        } else {
-            femail = true;
-        }
-    }//GEN-LAST:event_emailTFKeyReleased
-
-    //this code is to valdate the blood group:
-    private void bloodGroupTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bloodGroupTFKeyReleased
-        // TODO add your handling code here:
-        String PATTERN = "^([AaBbOo]|[Aa][Bb])[\\+-]$";
-        Pattern patt = Pattern.compile(PATTERN);
-        Matcher match = patt.matcher(bloodGroupTF.getText());
-        if (!match.matches()) {
-            fbloodgroup = false;
-        } else {
-            fbloodgroup = true;
-        }
-    }//GEN-LAST:event_bloodGroupTFKeyReleased
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addTF;
     private javax.swing.JButton backBtn;
     private javax.swing.JRadioButton biRB;
-    private javax.swing.JTextField bloodGroupTF;
+    private javax.swing.JComboBox<String> bloodGroupCB;
     private javax.swing.JTextField cityTF;
     private javax.swing.JLabel deliveryDirLabel;
     private javax.swing.JLabel deliveryDirLabel1;

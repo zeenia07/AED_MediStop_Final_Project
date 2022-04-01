@@ -22,7 +22,11 @@ public abstract class Enterprise extends Organisation{
         this.enterpriseClassification=classification;
         organisationList= new OrganisationDirectory();
     }
-    
+     public Enterprise(String enterpriseName,EnterpriseClassification classification, String cause){
+        super(enterpriseName, cause);
+        this.enterpriseClassification=classification;
+        organisationList= new OrganisationDirectory();
+    }
     public enum EnterpriseClassification{
                 User("User"), Hospital("Hospital"), Bloodbank("BloodBank"), Funds("Funds") ;
                 private String val;

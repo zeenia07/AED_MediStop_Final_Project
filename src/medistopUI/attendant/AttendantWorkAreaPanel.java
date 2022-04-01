@@ -63,18 +63,22 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         attendantTabbedPane = new javax.swing.JTabbedPane();
         workArea = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        menuItemName1 = new javax.swing.JLabel();
-        deliveryDirLabel2 = new javax.swing.JLabel();
         deliveryDirLabel3 = new javax.swing.JLabel();
-        txtBloodQuant = new javax.swing.JTextField();
         lblVolunteerName = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        deliveryDirLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAttendant = new javax.swing.JTable();
+        menuItemName1 = new javax.swing.JLabel();
+        txtBloodQuant = new javax.swing.JTextField();
         btnReqBlood = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         checkStatus = new javax.swing.JPanel();
         deliveryDirLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblBloodStatus = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         attendantTabbedPane.setForeground(new java.awt.Color(0, 0, 102));
         attendantTabbedPane.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -83,22 +87,18 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         lblWelcome.setForeground(new java.awt.Color(0, 0, 102));
         lblWelcome.setText("Welcome ");
 
-        menuItemName1.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
-        menuItemName1.setForeground(new java.awt.Color(0, 0, 102));
-        menuItemName1.setText("Total Units of Blood Required: ");
-
-        deliveryDirLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        deliveryDirLabel2.setForeground(new java.awt.Color(0, 0, 102));
-        deliveryDirLabel2.setText("Charity Directory");
-
         deliveryDirLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         deliveryDirLabel3.setForeground(new java.awt.Color(255, 51, 51));
         deliveryDirLabel3.setText("ATTENDANT WORK AREA");
 
-        txtBloodQuant.setText(" ");
-
         lblVolunteerName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblVolunteerName.setText("value");
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+
+        deliveryDirLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        deliveryDirLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        deliveryDirLabel2.setText("PATIENT PRESCRIPTION DETAILS");
 
         tblAttendant.setBackground(new java.awt.Color(153, 204, 255));
         tblAttendant.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -112,6 +112,12 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAttendant);
 
+        menuItemName1.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        menuItemName1.setForeground(new java.awt.Color(0, 0, 102));
+        menuItemName1.setText("Total Units of Blood Required: ");
+
+        txtBloodQuant.setText(" ");
+
         btnReqBlood.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         btnReqBlood.setForeground(new java.awt.Color(0, 0, 102));
         btnReqBlood.setText("Request Blood Bank");
@@ -121,6 +127,49 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1029, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(49, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(deliveryDirLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(372, 372, 372))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(299, 299, 299)
+                .addComponent(menuItemName1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtBloodQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReqBlood)
+                .addGap(432, 432, 432))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deliveryDirLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menuItemName1)
+                    .addComponent(txtBloodQuant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnReqBlood)
+                .addGap(18, 18, 18))
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/assistant.png"))); // NOI18N
+
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
@@ -128,48 +177,37 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(workAreaLayout.createSequentialGroup()
                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(workAreaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(deliveryDirLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(324, 324, 324)
+                        .addComponent(deliveryDirLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(workAreaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblWelcome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblVolunteerName, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(workAreaLayout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(deliveryDirLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(workAreaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(workAreaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menuItemName1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBloodQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReqBlood))))
-                .addContainerGap(768, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(362, 362, 362))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(workAreaLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(deliveryDirLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblVolunteerName))
-                .addGap(18, 18, 18)
-                .addComponent(deliveryDirLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuItemName1)
-                    .addComponent(txtBloodQuant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(btnReqBlood)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(workAreaLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(deliveryDirLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVolunteerName))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(workAreaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addContainerGap(501, Short.MAX_VALUE))
         );
 
         attendantTabbedPane.addTab("Work Area", workArea);
@@ -177,6 +215,9 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         deliveryDirLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         deliveryDirLabel4.setForeground(new java.awt.Color(255, 51, 51));
         deliveryDirLabel4.setText("BLOOD BANK REQUEST STATUS");
+
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
 
         tblBloodStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,6 +229,25 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblBloodStatus);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/medistopUI.images/bloodStatus.jpg")); // NOI18N
+
         javax.swing.GroupLayout checkStatusLayout = new javax.swing.GroupLayout(checkStatus);
         checkStatus.setLayout(checkStatusLayout);
         checkStatusLayout.setHorizontalGroup(
@@ -198,18 +258,25 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
                         .addGap(340, 340, 340)
                         .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(checkStatusLayout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(781, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(80, 80, 80)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(644, Short.MAX_VALUE))
         );
         checkStatusLayout.setVerticalGroup(
             checkStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(checkStatusLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addGroup(checkStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(checkStatusLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(deliveryDirLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(checkStatusLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(549, Short.MAX_VALUE))
         );
 
         attendantTabbedPane.addTab("Check Status", checkStatus);
@@ -222,9 +289,7 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(attendantTabbedPane)
-                .addContainerGap())
+            .addComponent(attendantTabbedPane)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -278,6 +343,10 @@ public class AttendantWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel deliveryDirLabel2;
     private javax.swing.JLabel deliveryDirLabel3;
     private javax.swing.JLabel deliveryDirLabel4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblVolunteerName;

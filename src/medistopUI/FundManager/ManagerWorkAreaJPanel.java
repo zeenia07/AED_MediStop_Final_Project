@@ -109,15 +109,18 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createTitledBorder("Funding Manager"));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 102));
         lblTitle.setText("FUNDING MANAGER:");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 260, -1));
 
         lblName.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 51, 102));
         lblName.setText("Funding Organisation Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 77, -1, -1));
         add(lblValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 72, -1, -1));
 
+        btnViewDonations.setForeground(new java.awt.Color(0, 51, 102));
         btnViewDonations.setText("View Donations");
         btnViewDonations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +129,7 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
         });
         add(btnViewDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 163, 30));
 
+        btnPickUp.setForeground(new java.awt.Color(0, 51, 102));
         btnPickUp.setText("Pick New Case");
         btnPickUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,26 +139,29 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel
         add(btnPickUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 163, 30));
 
         lblFunds.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lblFunds.setForeground(new java.awt.Color(0, 51, 102));
         lblFunds.setText("Funds Received");
         add(lblFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 119, -1, -1));
 
         lblFundsValue.setText("value");
-        add(lblFundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+        add(lblFundsValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 116, 80, 20));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
         jLabel1.setText("Funds Used");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 161, -1, -1));
 
         lblFundsUsed.setText("0");
         add(lblFundsUsed, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 20, -1));
 
+        btnRefresh.setForeground(new java.awt.Color(0, 51, 102));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonationsActionPerformed

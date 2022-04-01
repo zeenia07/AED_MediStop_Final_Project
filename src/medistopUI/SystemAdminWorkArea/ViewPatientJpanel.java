@@ -72,31 +72,40 @@ public class ViewPatientJpanel extends javax.swing.JPanel
         lblUserName = new javax.swing.JLabel();
         txtPatientUserName = new javax.swing.JTextField();
         lblUserPhoto = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Patient Information"));
+        setForeground(new java.awt.Color(0, 51, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblName.setForeground(new java.awt.Color(0, 51, 153));
         lblName.setText("Patient's Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 92, -1, -1));
         add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 378, -1, -1));
 
+        lblPhoneNumber.setForeground(new java.awt.Color(0, 51, 153));
         lblPhoneNumber.setText("Phone Number");
         add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 136, -1, -1));
 
+        lblAddress.setForeground(new java.awt.Color(0, 51, 153));
         lblAddress.setText("Address Line1");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 174, -1, -1));
 
+        lblCity.setForeground(new java.awt.Color(0, 51, 153));
         lblCity.setText("City");
         add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 212, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Songti TC", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 153));
         lblTitle.setText("View PATIENT ACCOUNT");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 213, 35));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, 300, 35));
 
+        lblState.setForeground(new java.awt.Color(0, 51, 153));
         lblState.setText("State");
         add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 250, -1, -1));
 
+        lblZipCode.setForeground(new java.awt.Color(0, 51, 153));
         lblZipCode.setText("ZipCode");
         add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 288, -1, -1));
         add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 87, 181, -1));
@@ -106,6 +115,7 @@ public class ViewPatientJpanel extends javax.swing.JPanel
         add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 283, 181, -1));
         add(txtPatientState, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 245, 181, -1));
 
+        btnBack.setForeground(new java.awt.Color(0, 51, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +124,14 @@ public class ViewPatientJpanel extends javax.swing.JPanel
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 378, -1, -1));
 
+        lblUserName.setForeground(new java.awt.Color(0, 51, 153));
         lblUserName.setText("UserName");
         add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 326, -1, -1));
         add(txtPatientUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 321, 181, -1));
         add(lblUserPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 87, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medistopUI.images/favpng_icon-design-user-icon.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 400, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -128,6 +142,7 @@ public class ViewPatientJpanel extends javax.swing.JPanel
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblGender;

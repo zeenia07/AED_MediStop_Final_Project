@@ -18,6 +18,12 @@ public class FundingEnterprise extends Enterprise{
         super(name,EnterpriseClassification.Funds);
    
     }
+    
+     public FundingEnterprise(String name, String cause)
+    {
+        super(name,EnterpriseClassification.Funds, cause);
+   
+    }
 
 
     
